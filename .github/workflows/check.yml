@@ -1,0 +1,102 @@
+name: check
+
+# Light check on every push to any branch. It never builds an app and never signs anything.
+on:
+  push:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FLUTTER_VERSION: "3.47.9"
+
+jobs:
+  repo-hygiene:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: No push trigger on build or emulator workflows
+        run: |
+          set -eu
+          for f in .github/workflows/build_and_deploy.yml .github/workflows/emulator.yml .github/workflows/bootstrap_platform.yml; do
+            [ -f "$f" ] || continue
+            if python3 - "$f" <<'PY'
+          import re, sys
+          text = open(sys.argv[1], encoding="utf-8").read()
+          on_block = re.search(r"^on:\s*\n((?:[ \t]+.*\n|\n)*)", text, re.M)
+          body = on_block.group(1) if on_block else ""
+          sys.exit(0 if re.search(r"^\s+push\s*:", body, re.M) else 1)
+          PY
+            then
+              echo "::error file=$f::push trigger is forbidden on $f"
+              exit 1
+            fi
+          done
+          echo "No forbidden push triggers."
+
+      - name: No secrets or keystores committed
+        run: |
+          set -eu
+          if git ls-files | grep -E '\.(jks|keystore|p12|p8|pem|mobileprovision)$|key\.properties$|-keystore-base64\.txt$'; then
+            echo "::error::A signing or secret file is tracked by git."
+            exit 1
+          fi
+          echo "No tracked secret files."
+
+      - name: No unfinished-work markers in code
+        run: |
+          set -eu
+          if [ -d app/lib ] && grep -RIn -E 'TODO|FIXME|UnimplementedError' app/lib; then
+            echo "::error::Unfinished-work marker found in app/lib."
+            exit 1
+          fi
+          echo "No markers."
+
+  flutter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Detect Flutter app
+        id: detect
+        run: |
+          if [ -f app/pubspec.yaml ]; then echo "present=true" >> "$GITHUB_OUTPUT"; else echo "present=false" >> "$GITHUB_OUTPUT"; echo "No app/pubspec.yaml yet; Flutter steps skipped."; fi
+
+      - uses: actions/setup-java@v4
+        if: steps.detect.outputs.present == 'true'
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: subosito/flutter-action@v2
+        if: steps.detect.outputs.present == 'true'
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Flutter version
+        if: steps.detect.outputs.present == 'true'
+        run: flutter --version
+
+      - name: Pub get
+        if: steps.detect.outputs.present == 'true'
+        working-directory: app
+        run: flutter pub get
+
+      - name: Analyze
+        if: steps.detect.outputs.present == 'true'
+        working-directory: app
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+
+      - name: Tests with coverage
+        if: steps.detect.outputs.present == 'true' && hashFiles('app/test/**') != ''
+        working-directory: app
+        run: flutter test --coverage
