@@ -83,12 +83,17 @@ Two open-license (SIL OFL) Latin faces are bundled: Inter and Source Sans 3. Wor
 - Android release signing reads `android/key.properties`, written by the release workflow from secrets and never committed. Without it the build falls back to the debug key; the release workflow (batch p7b) fails if the file is missing so an unsigned-by-intent release can never ship.
 - The iOS project could not be compiled on the Linux runner; it is first built by Codemagic.
 
+## ADR-024: Orientation and device range (Accepted, 2026-11-18)
+Portrait and landscape are both supported on every screen and in the match. The Redmi A5 is the cheapest test target, not the only supported device, so layouts must also work on larger phones, tablets and foldables. The emulator runs in batch p6c cover both orientations. The generated Android and iOS projects already allow both and stay that way.
+
+## ADR-025: Website (Accepted, 2026-11-18)
+A hand-written static site in `website/` with no build step and no shared code with the app. It loads no third-party scripts, fonts or cookies: Inter is self-hosted (SIL OFL, license text included). Colors follow the app's light and dark tokens. `_headers` sets security headers, a content-security policy for pages, long immutable caching for fonts and versioned Bible files, and short caching for the manifest and flags file. The privacy policy names no publisher or legal entity because none was supplied; it gives the support email as the contact. `tools/check_website.py` runs in the light check and fails on broken local links, missing assets or missing page basics.
+
 ## Open items
 
 | Item | Status |
 | --- | --- |
 | Font role split (Inter for chrome, Source Sans 3 for verse and reader text) | Confirm before p1d |
-| Screen orientation (portrait only, or portrait and landscape) | Owner to decide; the generated project currently allows both |
 | iOS permission and app-name strings in the 11 languages (InfoPlist.strings) | Added in batch p6b |
 | Cloudflare Pages URL | Pending, owner supplies after batch p1c |
 | Launcher icon | Several concepts will be submitted for the owner to choose from before batch p7a |

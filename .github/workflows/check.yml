@@ -49,6 +49,9 @@ jobs:
           fi
           echo "No tracked secret files."
 
+      - name: Website links and basics
+        run: python3 tools/check_website.py
+
       - name: No unfinished-work markers in code
         run: |
           set -eu
