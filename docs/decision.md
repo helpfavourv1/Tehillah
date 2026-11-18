@@ -59,7 +59,7 @@ Games, Sports. The store listing leads with the game; the Bible reader is a seco
 The light check (`check.yml`) runs on every push to any branch and never builds an app or signs anything. Builds and emulator runs are `workflow_dispatch` only, with no push trigger ever. Each batch goes to `ci-analyser` first; only a green commit goes to `main`.
 
 ## ADR-018: Toolchain pin (Accepted, 2026-11-17)
-Flutter 3.47.9 stable is pinned exactly in CI (the newer 3.50.0 was released days earlier and is not used for a pin). The Dart SDK constraint is set from the version the runner reports and is recorded in batch p1d. The pin is never floating `stable`.
+Flutter 3.47.9 stable (Dart 3.13.7) is pinned exactly in CI and was confirmed to install on the runner by the bootstrap workflow on 2026-11-17 (the newer 3.50.0 was released days earlier and is not used for a pin). The pubspec Dart constraint is recorded in batch p1d. The pin is never floating `stable`.
 
 ## ADR-019: Repository visibility and license (Accepted, 2026-11-17)
 The repository is public during the build so CI minutes are unmetered, and is changed to private after the build. No license file is added, so the code is all rights reserved. The in-app licenses screen is separate and lists every third-party and scripture notice. Note: GitHub's free plan meters private-repository Actions minutes, so manual builds after the switch use that quota.
@@ -70,11 +70,26 @@ en, es, fr, de, pt_BR, ar, hi, ja, ko, zh_Hans, he. Arabic and Hebrew are right-
 ## ADR-021: Content rules (Accepted, 2026-11-15)
 No depiction of God, Jesus, angels or saints in art or animation. Misses are met with encouragement. No luck mechanics and no claim that prayer or Selah gives a spiritual or competitive advantage. Opponents are fictional. Audience 13 and over.
 
+## ADR-022: Fonts (Accepted, 2026-11-18)
+Two open-license (SIL OFL) Latin faces are bundled: Inter and Source Sans 3. Working assignment, to be confirmed before batch p1d: Inter for the brand, buttons and menus; Source Sans 3 for verse and reader text. Arabic, Hindi, Japanese, Korean, Chinese and Hebrew use the platform's system fonts. Measured Latin web-format sizes for four weights: Inter 97 KB, Source Sans 3 63 KB; the in-app TrueType files will be larger and are measured in p1d.
+
+## ADR-023: Platform manifests (Accepted, 2026-11-18)
+- Android permissions, each tied to a capability in the blueprint: INTERNET and ACCESS_NETWORK_STATE (ads, pack download, connectivity check), com.google.android.gms.permission.AD_ID (ads), POST_NOTIFICATIONS (opt-in Daily Bread reminder, requested at the time of use), VIBRATE (haptics). RECEIVE_BOOT_COMPLETED and the notification receivers are added in the batch that pins the notification plugin, after its documentation is read.
+- Android `queries` allow https links and mailto (license links, support email). iOS `LSApplicationQueriesSchemes` mirrors this.
+- Android `allowBackup` is off so local progress is not restored into an inconsistent state on another device.
+- AdMob app IDs are Google's documented sample IDs, taken from Google's official `google_mobile_ads` example project (Android `ca-app-pub-3940256099942544~3347511713`, iOS `ca-app-pub-3940256099942544~1458002511`). They are replaced by production IDs only when the owner supplies them.
+- iOS: `NSUserTrackingUsageDescription` and 50 `SKAdNetworkItems` taken from Google's AdMob iOS privacy-strategies page on 2026-11-18. The list is re-checked against Google's page and the SDK version when the iOS build is first run.
+- iOS `PrivacyInfo.xcprivacy` is registered in the Xcode project resources. It declares tracking (the app asks for tracking permission), no tracking domains and no collected data types of its own (the ad SDK ships its own privacy manifest), and the UserDefaults required-reason API (CA92.1) for settings. The App Store Connect privacy answers are written separately in `store_submission/DATA_BACKING.md` (batch p7c).
+- Android release signing reads `android/key.properties`, written by the release workflow from secrets and never committed. Without it the build falls back to the debug key; the release workflow (batch p7b) fails if the file is missing so an unsigned-by-intent release can never ship.
+- The iOS project could not be compiled on the Linux runner; it is first built by Codemagic.
+
 ## Open items
 
 | Item | Status |
 | --- | --- |
-| Bundled Latin face: Inter recommended; the owner answered "all the 3 options" and the meaning is being confirmed (Inter plus the three alternatives as a user choice, or a pick among them) | Open |
+| Font role split (Inter for chrome, Source Sans 3 for verse and reader text) | Confirm before p1d |
+| Screen orientation (portrait only, or portrait and landscape) | Owner to decide; the generated project currently allows both |
+| iOS permission and app-name strings in the 11 languages (InfoPlist.strings) | Added in batch p6b |
 | Cloudflare Pages URL | Pending, owner supplies after batch p1c |
 | Launcher icon | Several concepts will be submitted for the owner to choose from before batch p7a |
 | Apple team ID and App Store Connect key | Pending, needed only for the iOS release build |
