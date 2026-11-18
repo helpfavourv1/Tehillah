@@ -60,7 +60,7 @@ for page in PAGES:
             continue
         path = ref.split("#")[0].split("?")[0]
         target = ROOT / path.lstrip("/") if path != "/" else ROOT / "index.html"
-        if not target.exists():
+        if not target.exists() and not target.with_name(target.name + ".html").exists():
             errors.append(f"{page.name}: broken reference {ref}")
 
 for required in ("index.html", "privacy.html", "support.html", "404.html", "style.css", "_headers"):

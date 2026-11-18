@@ -71,3 +71,6 @@ footer{max-width:760px;margin:0 auto;padding:var(--sp-24) var(--sp-16) var(--sp-
 footer nav{display:flex;flex-wrap:wrap;gap:var(--sp-8) var(--sp-24);margin-bottom:var(--sp-8)}
 footer a{color:var(--text-secondary)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.badges{display:flex;flex-wrap:wrap;gap:var(--sp-8) var(--sp-16);margin:var(--sp-16) 0 0}
+.badges img{display:block;height:54px;width:auto}

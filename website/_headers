@@ -3,20 +3,16 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: DENY
-
-/*.html
   Content-Security-Policy: default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
-  Cache-Control: public, max-age=300
-
-/
-  Content-Security-Policy: default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
-  Cache-Control: public, max-age=300
 
 /style.css
   Cache-Control: public, max-age=3600
 
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=86400
 
 /scripture/manifest.json
   Content-Type: application/json; charset=utf-8

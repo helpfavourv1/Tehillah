@@ -14,10 +14,10 @@ Checked before every external dashboard action and updated whenever an item is c
 | Support email | stmakarios@gmail.com | Locked |
 | Signing key alias | Tehillah (certificate owner zdmgold) | Key created in batch p7b |
 | GitHub secrets | ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_PASSWORD, ANDROID_KEY_ALIAS | Set in batch p7b |
-| Static hosting | Cloudflare Pages, connected by the owner after batch p1c | Pending |
-| Website and pack base URL | Supplied by the owner after Cloudflare builds | Pending |
-| Privacy policy URL | website/privacy.html on the Cloudflare domain | Created in p1c |
-| Support URL | website/support.html on the Cloudflare domain | Created in p1c |
+| Static hosting | Cloudflare, connected by the owner | Live |
+| Website and pack base URL | https://tehillah.helpfavourv1.workers.dev | Live |
+| Privacy policy URL | https://tehillah.helpfavourv1.workers.dev/privacy | Live |
+| Support URL | https://tehillah.helpfavourv1.workers.dev/support | Live |
 | AdMob app and unit IDs | Google test IDs during the build; production IDs from the owner later | Test IDs only |
 | Remove Ads product ID | com.zdmgold.tehillah.removeads | Locked |
 | Apple team ID and App Store Connect key | Needed only for the iOS release build | Pending |
