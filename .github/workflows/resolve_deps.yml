@@ -1,0 +1,102 @@
+name: resolve-deps
+
+# Manual only. Resolves the app's dependencies on a runner (no local SDK exists), then publishes
+# pubspec.yaml, pubspec.lock and the readable parts of each direct dependency to the
+# deps-output branch so exact versions can be pinned and package APIs can be read.
+on:
+  workflow_dispatch:
+    inputs:
+      add:
+        description: "Space-separated packages to add with flutter pub add before resolving (leave empty to only resolve)"
+        required: false
+        default: ""
+      add_dev:
+        description: "Space-separated dev packages to add"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+env:
+  FLUTTER_VERSION: "3.47.9"
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Add packages
+        working-directory: app
+        run: |
+          set -eu
+          if [ -n "${{ inputs.add }}" ]; then flutter pub add ${{ inputs.add }}; fi
+          if [ -n "${{ inputs.add_dev }}" ]; then flutter pub add --dev ${{ inputs.add_dev }}; fi
+
+      - name: Resolve
+        working-directory: app
+        run: |
+          flutter pub get
+          flutter pub deps --style=compact | head -150
+
+      - name: Collect output
+        run: |
+          set -eu
+          OUT="$RUNNER_TEMP/out"
+          mkdir -p "$OUT/packages"
+          cp app/pubspec.yaml app/pubspec.lock "$OUT/"
+          python3 - "$OUT" <<'PY'
+          import os, re, shutil, sys
+          out = sys.argv[1]
+          cache = os.path.expanduser("~/.pub-cache/hosted/pub.dev")
+          lock = open("app/pubspec.lock", encoding="utf-8").read()
+          direct = re.findall(r'\n  (\S+):\n    dependency: "direct (?:main|dev)"\n    description:\n(?:      .*\n)+?    source: hosted\n    version: "([^"]+)"', lock)
+          keep_files = ("README.md", "CHANGELOG.md", "pubspec.yaml", "LICENSE")
+          for name, version in direct:
+              src = os.path.join(cache, f"{name}-{version}")
+              if not os.path.isdir(src):
+                  print("missing in cache:", name, version)
+                  continue
+              dst = os.path.join(out, "packages", f"{name}-{version}")
+              os.makedirs(dst, exist_ok=True)
+              for f in keep_files:
+                  p = os.path.join(src, f)
+                  if os.path.isfile(p):
+                      shutil.copy(p, dst)
+              for sub in ("lib", "example/lib"):
+                  p = os.path.join(src, sub)
+                  if os.path.isdir(p):
+                      shutil.copytree(p, os.path.join(dst, sub), dirs_exist_ok=True)
+              for sub in ("android/src/main/AndroidManifest.xml", "android/build.gradle", "android/build.gradle.kts"):
+                  p = os.path.join(src, sub)
+                  if os.path.isfile(p):
+                      os.makedirs(os.path.join(dst, os.path.dirname(sub)), exist_ok=True)
+                      shutil.copy(p, os.path.join(dst, sub))
+              for f in os.listdir(os.path.join(src, "ios")) if os.path.isdir(os.path.join(src, "ios")) else []:
+                  if f.endswith(".podspec"):
+                      os.makedirs(os.path.join(dst, "ios"), exist_ok=True)
+                      shutil.copy(os.path.join(src, "ios", f), os.path.join(dst, "ios"))
+              print("collected", name, version)
+          PY
+          flutter --version > "$OUT/toolchain.txt" 2>&1 || true
+          du -sh "$OUT"
+
+      - name: Publish to deps-output branch
+        run: |
+          set -eu
+          cd "$RUNNER_TEMP/out"
+          git init -q -b deps-output
+          git config user.name "github-actions"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "deps-output: resolved dependencies and package sources"
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git push -f origin deps-output
