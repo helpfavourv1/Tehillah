@@ -1,0 +1,57 @@
+name: tehillah
+description: "Tehillah Soccer: a 2D penalty shootout game with a scripture theme."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  audioplayers: 6.8.1
+  connectivity_plus: 7.3.2
+  crypto: 3.0.8
+  flame: 1.38.2
+  flutter_local_notifications: 23.0.2
+  flutter_timezone: 5.1.1
+  google_mobile_ads: 9.2.0
+  in_app_purchase: 3.3.1
+  intl: 0.20.3
+  path_provider: 2.1.6
+  share_plus: 13.3.1
+  shared_preferences: 2.5.6
+  timezone: 0.11.2
+  url_launcher: 6.3.3
+
+dev_dependencies:
+  flutter_lints: 6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: false
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
+    - family: PhosphorBold
+      fonts:
+        - asset: assets/icons/PhosphorBold.ttf
+    - family: TehillahReadingSans
+      fonts:
+        - asset: assets/fonts/ReadingSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/ReadingSans-SemiBold.ttf
+          weight: 600
