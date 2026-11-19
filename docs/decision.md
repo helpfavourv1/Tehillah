@@ -111,6 +111,14 @@ Changes from the blueprint tables for batch p1e, each made so the later logic is
 - The stage catalog builds 48 fictional opponents (four per stage) from fixed tables, with no randomness, so the catalog is identical on every device. Boss stages are 6 and 12. All numbers are tuning starting points for the balance simulation in p2b.
 - `core` models have no `package:meta`/`equatable` dependency; equality, hashing and copyWith are written by hand, and every `fromJson` throws `FormatException` on bad data so the storage layer can recover.
 
+## ADR-031: Progress, settings and scripture models (Accepted, 2026-11-19)
+Batch p1f decisions, adjusting the blueprint tables:
+- `Progress` holds everything the blueprint puts in the one JSON file (stars per opponent id, lamps per stage, announced unlocks, achievements, Daily Bread history, bookmarks, highlights) plus the last loadout, running statistics (`ProgressStats`, which the fruit achievements read), a session count (so interstitials never show in the first session), a rating-prompt-shown flag and the current Seven Days run. `schemaVersion` is 1. Missing fields in an older file read as defaults; wrong types or out-of-range values throw `FormatException` so the codec can fall back to the backup. A file with a newer `schemaVersion` is parsed but the codec (p2c) treats it as read-only. Equality compares the canonical saved form (sorted).
+- `SettingsModel` reads forgivingly: a bad field falls back to its default and the other settings are kept. Defaults: theme follows the system, reader light, flick input, sound, music and haptics on, reminders off with the time at 18:00, reader text scale 1.0 (range 0.8 to 2.0), packs on Wi-Fi only. Language codes are the ARB codes (`pt_BR`, `zh_Hans`).
+- `BiblePack` and `PackManifest` fix the file shapes the p2a tools must write: pack `{schemaVersion, language, translationId, source, license, books{OSIS id: [[verse text]]}}` and manifest `{schemaVersion, packs[{language, translationId, version, url, bytes, sha256, noticePath}]}` with sha256 as 64 lowercase hex digits. Pack verse numbers are the language's own; `VerseRef` (`Book.chapter.verse`, OSIS ids for the 66 books) is the canonical key and the verse-number map (p2c) converts between them.
+- Achievements are data: nine fruit entries, each a rule (`AchievementRule`) and a threshold: love 10 wins, joy 50 goals, peace 3 clean sheets, patience 3 sudden-death wins, kindness 10 keeper saves, goodness 6 lamps, faithfulness 7-day Daily Bread streak, gentleness 10 three-star matches, self-control 9 goals in a row. Thresholds are starting values.
+- A `LicenseNotice` covers scripture sources, fonts and icons alike, so the licenses screen has one list.
+
 ## Open items
 
 | Item | Status |
