@@ -92,11 +92,19 @@ A hand-written static site in `website/` with no build step and no shared code w
 ## ADR-026: Legal pages (Accepted, 2026-11-18)
 Only a short privacy policy and a support page exist. There is no terms page, because the owner states the free game carries no obligations to anyone. The policy is kept short and states only what the app does (ads and consent, local data, store payments, downloads, notifications, age 13+). The support email address appears only on the support page; every other page links to the support page instead. The policy names no publisher or legal entity because none was supplied. The store privacy forms still need the privacy policy URL, which is the `/privacy` page.
 
+## ADR-027: Dependencies and icon set (Accepted, 2026-11-18)
+Exact-pinned dependencies resolved on a runner (see `docs/dependencies.md`). Icons come from `phosphor_flutter` in its bold weight, whose stroke is 24/256 of the icon size (2.25 px at 24 px, about 2.06 px at the 22 px interface size), inside the 2.0 to 2.25 stroke rule. One `AppIcon` widget and one alias file (`icon_aliases.dart`) are the only places the icon set is named. Icons that imply direction mirror in right-to-left layouts; every other icon keeps its orientation. The reminder is scheduled inexactly, so no exact-alarm permission is needed.
+
+## ADR-028: Batch p1d scope change (Accepted, 2026-11-18)
+`core/errors/app_error.dart` moves from p1f to p1d because the global error handler needs it. The demo `main.dart` and counter test from the generated project are removed; the real `main.dart` arrives in p6a, so the app cannot be built before then. `GlobalErrorHandler` is instance based and takes a log sink, so it is testable and needs no singleton.
+
+## ADR-029: Fonts bundled (Accepted, 2026-11-18)
+Four Inter weights (400, 500, 600, 700) and two reading weights (400, 600) as Latin TrueType subsets. The reading face is Source Sans 3 renamed to "Tehillah Reading Sans" because its license reserves the original name for unmodified copies. No italics are bundled. Other scripts use system fonts.
+
 ## Open items
 
 | Item | Status |
 | --- | --- |
-| Font role split (Inter for chrome, Source Sans 3 for verse and reader text) | Confirm before p1d |
 | iOS permission and app-name strings in the 11 languages (InfoPlist.strings) | Added in batch p6b |
 | Cloudflare Pages URL | Pending, owner supplies after batch p1c |
 | Launcher icon | Several concepts will be submitted for the owner to choose from before batch p7a |
