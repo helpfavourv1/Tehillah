@@ -102,7 +102,7 @@ abstract final class StageCatalog {
   static OpponentDef _buildOpponent(int stageIndex, int round) {
     final int n = stageIndex * roundsPerStage + (round - 1);
     final double strength =
-        (_difficulty[stageIndex] + 0.03 * (round - 1)).clamp(0.0, 1.0);
+        (_difficulty[stageIndex] + 0.01 * (round - 1)).clamp(0.0, 1.0);
     final List<double> pattern = <double>[
       for (int k = 0; k < KeeperDive.values.length; k++)
         _tendencyPattern[(k + n) % KeeperDive.values.length],

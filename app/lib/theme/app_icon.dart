@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:tehillah/theme/app_theme.dart';
-import 'package:tehillah/theme/icon_aliases.dart';
 import 'package:tehillah/theme/tokens.dart';
 
 /// The one icon widget. The icon font is a bold weight whose stroke is
