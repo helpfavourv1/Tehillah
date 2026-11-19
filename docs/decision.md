@@ -101,6 +101,16 @@ Exact-pinned dependencies resolved on a runner (see `docs/dependencies.md`). Ico
 ## ADR-029: Fonts bundled (Accepted, 2026-11-18)
 Four Inter weights (400, 500, 600, 700) and two reading weights (400, 600) as Latin TrueType subsets. The reading face is Source Sans 3 renamed to "Tehillah Reading Sans" because its license reserves the original name for unmodified copies. No italics are bundled. Other scripts use system fonts.
 
+## ADR-030: Match domain models (Accepted, 2026-11-19)
+Changes from the blueprint tables for batch p1e, each made so the later logic is simpler and cannot disagree with itself:
+- `ShotParams` has four values, not three: `direction` and a new `elevation` (0 ground, 1 crossbar) plus `power` and `curve`, because wide and high misses and the low-shot and high-shot gear effects need a vertical aim.
+- The keeper has six places to go (`KeeperDive`: left, centre or right, low or high).
+- An opponent carries its `KeeperProfile` directly instead of a profile id, so a `MatchConfig` is fully self-contained for replay. A new `MatchSide` enum (player, opponent) covers Watchman, where the opponent kicks.
+- `MatchState` stores counts and scores; whose turn it is and the sudden-death flag are derived from the counts, never stored. A saved state whose counts do not alternate is rejected as corrupt.
+- Ball and gear effects are data: one `StatMods` value of additive fractions per item, plus a `GearSpecial` rule for the three effects that are rules (reveal tendency, post to goal once per match, Selah never empties). Unlock thresholds are in lamps (`unlockLamps`) so `progression_rules` reads them from the catalog.
+- The stage catalog builds 48 fictional opponents (four per stage) from fixed tables, with no randomness, so the catalog is identical on every device. Boss stages are 6 and 12. All numbers are tuning starting points for the balance simulation in p2b.
+- `core` models have no `package:meta`/`equatable` dependency; equality, hashing and copyWith are written by hand, and every `fromJson` throws `FormatException` on bad data so the storage layer can recover.
+
 ## Open items
 
 | Item | Status |
