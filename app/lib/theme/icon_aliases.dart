@@ -5,123 +5,302 @@ abstract final class AppIconFont {
   static const String family = 'PhosphorBold';
 }
 
-/// An icon by meaning. [mirrorsInRtl] is true only for icons that imply
-/// direction (back, forward); every other icon keeps its orientation in
-/// right-to-left layouts.
-@immutable
-class AppSymbol {
-  const AppSymbol.glyph(int codePoint, {this.mirrorsInRtl = false})
-      : data = IconData(
-          codePoint,
-          fontFamily: AppIconFont.family,
-          matchTextDirection: mirrorsInRtl,
-        );
-
-  /// A constant, so the build can strip unused glyphs from the icon font.
-  final IconData data;
-  final bool mirrorsInRtl;
-}
-
 /// The only file that names icon glyphs. Screens use these aliases. The font
 /// is Phosphor Icons in its bold weight (MIT license), reduced to the icons
 /// listed in tools/icons/icon_set.json, whose codepoints these values match.
 abstract final class AppIcons {
   /// caretLeft
-  static const AppSymbol back = AppSymbol.glyph(0xe138, mirrorsInRtl: true);
+  static const IconData back = IconData(
+    0xe138,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: true,
+  );
   /// caretRight
-  static const AppSymbol forward = AppSymbol.glyph(0xe13a, mirrorsInRtl: true);
+  static const IconData forward = IconData(
+    0xe13a,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: true,
+  );
   /// caretDown
-  static const AppSymbol chevronDown = AppSymbol.glyph(0xe136);
+  static const IconData chevronDown = IconData(
+    0xe136,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// x
-  static const AppSymbol close = AppSymbol.glyph(0xe4f6);
+  static const IconData close = IconData(
+    0xe4f6,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// check
-  static const AppSymbol check = AppSymbol.glyph(0xe182);
+  static const IconData check = IconData(
+    0xe182,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// house
-  static const AppSymbol home = AppSymbol.glyph(0xe2c2);
+  static const IconData home = IconData(
+    0xe2c2,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// path
-  static const AppSymbol journey = AppSymbol.glyph(0xe39c);
+  static const IconData journey = IconData(
+    0xe39c,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// soccerBall
-  static const AppSymbol ball = AppSymbol.glyph(0xe716);
+  static const IconData ball = IconData(
+    0xe716,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// target
-  static const AppSymbol target = AppSymbol.glyph(0xe47c);
+  static const IconData target = IconData(
+    0xe47c,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// calendarCheck
-  static const AppSymbol daily = AppSymbol.glyph(0xe712);
+  static const IconData daily = IconData(
+    0xe712,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// flame
-  static const AppSymbol streak = AppSymbol.glyph(0xe624);
+  static const IconData streak = IconData(
+    0xe624,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// trophy
-  static const AppSymbol achievements = AppSymbol.glyph(0xe67e);
+  static const IconData achievements = IconData(
+    0xe67e,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// medal
-  static const AppSymbol medal = AppSymbol.glyph(0xe320);
+  static const IconData medal = IconData(
+    0xe320,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// star
-  static const AppSymbol star = AppSymbol.glyph(0xe46a);
+  static const IconData star = IconData(
+    0xe46a,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// lamp
-  static const AppSymbol lamp = AppSymbol.glyph(0xe638);
+  static const IconData lamp = IconData(
+    0xe638,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// leaf
-  static const AppSymbol fruit = AppSymbol.glyph(0xe2da);
+  static const IconData fruit = IconData(
+    0xe2da,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// shieldStar
-  static const AppSymbol armor = AppSymbol.glyph(0xec34);
+  static const IconData armor = IconData(
+    0xec34,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// heartStraight
-  static const AppSymbol nerve = AppSymbol.glyph(0xe2aa);
+  static const IconData nerve = IconData(
+    0xe2aa,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// pause
-  static const AppSymbol pause = AppSymbol.glyph(0xe39e);
+  static const IconData pause = IconData(
+    0xe39e,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// play
-  static const AppSymbol play = AppSymbol.glyph(0xe3d0);
+  static const IconData play = IconData(
+    0xe3d0,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// hourglass
-  static const AppSymbol timer = AppSymbol.glyph(0xe2b2);
+  static const IconData timer = IconData(
+    0xe2b2,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// flag
-  static const AppSymbol flag = AppSymbol.glyph(0xe244);
+  static const IconData flag = IconData(
+    0xe244,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// bookOpenText
-  static const AppSymbol reader = AppSymbol.glyph(0xe8f2);
+  static const IconData reader = IconData(
+    0xe8f2,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// bookOpen
-  static const AppSymbol verse = AppSymbol.glyph(0xe0e6);
+  static const IconData verse = IconData(
+    0xe0e6,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// magnifyingGlass
-  static const AppSymbol search = AppSymbol.glyph(0xe30c);
+  static const IconData search = IconData(
+    0xe30c,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// bookmarkSimple
-  static const AppSymbol bookmark = AppSymbol.glyph(0xe0ea);
+  static const IconData bookmark = IconData(
+    0xe0ea,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// textAa
-  static const AppSymbol textSize = AppSymbol.glyph(0xe6ee);
+  static const IconData textSize = IconData(
+    0xe6ee,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// palette
-  static const AppSymbol theme = AppSymbol.glyph(0xe6c8);
+  static const IconData theme = IconData(
+    0xe6c8,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// translate
-  static const AppSymbol language = AppSymbol.glyph(0xe4a2);
+  static const IconData language = IconData(
+    0xe4a2,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// shareNetwork
-  static const AppSymbol share = AppSymbol.glyph(0xe408);
+  static const IconData share = IconData(
+    0xe408,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// listBullets
-  static const AppSymbol list = AppSymbol.glyph(0xe2f2);
+  static const IconData list = IconData(
+    0xe2f2,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// gear
-  static const AppSymbol settings = AppSymbol.glyph(0xe270);
+  static const IconData settings = IconData(
+    0xe270,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// bell
-  static const AppSymbol reminder = AppSymbol.glyph(0xe0ce);
+  static const IconData reminder = IconData(
+    0xe0ce,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// speakerHigh
-  static const AppSymbol sound = AppSymbol.glyph(0xe44a);
+  static const IconData sound = IconData(
+    0xe44a,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// speakerSlash
-  static const AppSymbol soundOff = AppSymbol.glyph(0xe45a);
+  static const IconData soundOff = IconData(
+    0xe45a,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// vibrate
-  static const AppSymbol haptics = AppSymbol.glyph(0xe4d8);
+  static const IconData haptics = IconData(
+    0xe4d8,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// shieldCheck
-  static const AppSymbol privacy = AppSymbol.glyph(0xe40c);
+  static const IconData privacy = IconData(
+    0xe40c,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// scroll
-  static const AppSymbol license = AppSymbol.glyph(0xeb7a);
+  static const IconData license = IconData(
+    0xeb7a,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// envelope
-  static const AppSymbol email = AppSymbol.glyph(0xe214);
+  static const IconData email = IconData(
+    0xe214,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// prohibit
-  static const AppSymbol removeAds = AppSymbol.glyph(0xe3de);
+  static const IconData removeAds = IconData(
+    0xe3de,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// arrowsClockwise
-  static const AppSymbol restore = AppSymbol.glyph(0xe094);
+  static const IconData restore = IconData(
+    0xe094,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// lockKey
-  static const AppSymbol locked = AppSymbol.glyph(0xe2fe);
+  static const IconData locked = IconData(
+    0xe2fe,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// downloadSimple
-  static const AppSymbol download = AppSymbol.glyph(0xe20c);
+  static const IconData download = IconData(
+    0xe20c,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// trash
-  static const AppSymbol delete = AppSymbol.glyph(0xe4a6);
+  static const IconData delete = IconData(
+    0xe4a6,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// arrowCounterClockwise
-  static const AppSymbol retry = AppSymbol.glyph(0xe038);
+  static const IconData retry = IconData(
+    0xe038,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// warning
-  static const AppSymbol warning = AppSymbol.glyph(0xe4e0);
+  static const IconData warning = IconData(
+    0xe4e0,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// info
-  static const AppSymbol info = AppSymbol.glyph(0xe2ce);
+  static const IconData info = IconData(
+    0xe2ce,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// wifiSlash
-  static const AppSymbol offline = AppSymbol.glyph(0xe4f2);
+  static const IconData offline = IconData(
+    0xe4f2,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
   /// wifiHigh
-  static const AppSymbol wifi = AppSymbol.glyph(0xe4ea);
+  static const IconData wifi = IconData(
+    0xe4ea,
+    fontFamily: AppIconFont.family,
+    matchTextDirection: false,
+  );
 }

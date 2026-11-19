@@ -17,7 +17,7 @@ class AppIcon extends StatelessWidget {
     this.semanticLabel,
   });
 
-  final AppSymbol symbol;
+  final IconData symbol;
   final double size;
 
   /// Defaults to the primary text color of the current theme.
@@ -29,7 +29,7 @@ class AppIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Icon(
-      symbol.data,
+      symbol,
       size: size,
       color: color ?? AppTheme.of(context).palette.textPrimary,
       semanticLabel: semanticLabel,

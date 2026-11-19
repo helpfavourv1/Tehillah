@@ -54,11 +54,11 @@ void main() {
   });
 
   test('only direction-implying aliases mirror', () {
-    expect(AppIcons.back.mirrorsInRtl, isTrue);
-    expect(AppIcons.forward.mirrorsInRtl, isTrue);
-    expect(AppIcons.settings.mirrorsInRtl, isFalse);
-    expect(AppIcons.ball.mirrorsInRtl, isFalse);
-    expect(AppIcons.search.mirrorsInRtl, isFalse);
+    expect(AppIcons.back.matchTextDirection, isTrue);
+    expect(AppIcons.forward.matchTextDirection, isTrue);
+    expect(AppIcons.settings.matchTextDirection, isFalse);
+    expect(AppIcons.ball.matchTextDirection, isFalse);
+    expect(AppIcons.search.matchTextDirection, isFalse);
   });
 
   test('every alias codepoint is in the bundled icon set and vice versa', () {
@@ -69,7 +69,7 @@ void main() {
         .map((dynamic v) => int.parse((v as String).substring(2), radix: 16))
         .toSet();
     final String source = File('lib/theme/icon_aliases.dart').readAsStringSync();
-    final Set<int> used = RegExp(r'AppSymbol\.glyph\(0x([0-9a-f]+)')
+    final Set<int> used = RegExp(r'IconData\(\s*0x([0-9a-f]+)')
         .allMatches(source)
         .map((RegExpMatch m) => int.parse(m.group(1)!, radix: 16))
         .toSet();
