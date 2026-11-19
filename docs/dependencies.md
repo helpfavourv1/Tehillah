@@ -18,7 +18,6 @@ Every dependency is pinned to an exact version in `app/pubspec.yaml` and recorde
 | intl | 0.20.3 | Locale-aware numbers, dates and plurals |
 | crypto | 3.0.8 | SHA-256 checks of downloaded Bibles and the progress file |
 | audioplayers | 6.8.1 | Sound effects and the menu music loop |
-| phosphor_flutter | 2.1.0 | The icon set (bold weight); its font is a direct dependency so it bundles |
 | flutter_localizations (SDK) | Flutter 3.47.9 | Localization delegates for the 11 languages |
 | flutter_lints (dev) | 6.0.0 | Static analysis rules |
 
@@ -33,6 +32,10 @@ Every dependency is pinned to an exact version in `app/pubspec.yaml` and recorde
 - Lock file committed. The light check runs `flutter pub get` against it.
 - Before each release: check every direct dependency for a published security advisory, and re-read the licenses of all packages. The in-app licenses screen lists the Flutter and package licenses through Flutter's license registry, plus the font and scripture notices.
 - No dependency is added unless a capability in the blueprint needs it.
+
+## Bundled icon font
+
+The Phosphor Icons bold font (MIT license) is bundled as `app/assets/icons/PhosphorBold.ttf`, reduced to the 49 icons listed in `tools/icons/icon_set.json` (14 KB). The `phosphor_flutter` package was tried first and dropped: version 2.1.0 does not compile on Flutter 3.47.9 because it extends `IconData`, which is now a final class. A test checks that the codepoints in `icon_aliases.dart` match the icon set exactly. `tools/icons/subset_icons.py` rebuilds the font.
 
 ## Bundled fonts
 

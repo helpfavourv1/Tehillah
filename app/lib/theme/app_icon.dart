@@ -4,9 +4,10 @@ import 'package:tehillah/theme/app_theme.dart';
 import 'package:tehillah/theme/icon_aliases.dart';
 import 'package:tehillah/theme/tokens.dart';
 
-/// The one icon widget. The icon set is a bold weight whose stroke is
+/// The one icon widget. The icon font is a bold weight whose stroke is
 /// 24/256 of the icon size (2.25 px at 24 px, about 2.06 px at 22 px), so
-/// icons carry the same visual mass as 16 to 17 pt text.
+/// icons carry the same visual mass as 16 to 17 pt text. Direction-implying
+/// icons mirror in right-to-left layouts; all others keep their orientation.
 class AppIcon extends StatelessWidget {
   const AppIcon(
     this.symbol, {
@@ -32,7 +33,6 @@ class AppIcon extends StatelessWidget {
       size: size,
       color: color ?? AppTheme.of(context).palette.textPrimary,
       semanticLabel: semanticLabel,
-      textDirection: symbol.mirrorsInRtl ? null : TextDirection.ltr,
     );
   }
 }

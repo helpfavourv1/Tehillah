@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -17,19 +20,21 @@ Widget host(Widget child, {TextDirection direction = TextDirection.rtl}) {
 }
 
 void main() {
-  testWidgets('a non-directional icon never mirrors', (WidgetTester tester) async {
+  testWidgets('a non-directional icon does not match the text direction',
+      (WidgetTester tester) async {
     await tester.pumpWidget(host(const AppIcon(AppIcons.settings)));
     final Icon icon = tester.widget<Icon>(find.byType(Icon));
-    expect(icon.textDirection, TextDirection.ltr);
+    expect(icon.icon!.matchTextDirection, isFalse);
+    expect(icon.icon!.fontFamily, AppIconFont.family);
     expect(icon.size, IconSizes.rowLeading);
     expect(icon.color, AppPalette.light.textPrimary);
   });
 
-  testWidgets('a directional icon follows the ambient direction',
+  testWidgets('a directional icon matches the text direction',
       (WidgetTester tester) async {
     await tester.pumpWidget(host(const AppIcon(AppIcons.back)));
     final Icon icon = tester.widget<Icon>(find.byType(Icon));
-    expect(icon.textDirection, isNull);
+    expect(icon.icon!.matchTextDirection, isTrue);
   });
 
   testWidgets('size, color and semantic label are passed through',
@@ -54,5 +59,20 @@ void main() {
     expect(AppIcons.settings.mirrorsInRtl, isFalse);
     expect(AppIcons.ball.mirrorsInRtl, isFalse);
     expect(AppIcons.search.mirrorsInRtl, isFalse);
+  });
+
+  test('every alias codepoint is in the bundled icon set and vice versa', () {
+    final Map<String, dynamic> set = jsonDecode(
+      File('../tools/icons/icon_set.json').readAsStringSync(),
+    ) as Map<String, dynamic>;
+    final Set<int> inSet = set.values
+        .map((dynamic v) => int.parse((v as String).substring(2), radix: 16))
+        .toSet();
+    final String source = File('lib/theme/icon_aliases.dart').readAsStringSync();
+    final Set<int> used = RegExp(r'AppSymbol\.glyph\(0x([0-9a-f]+)')
+        .allMatches(source)
+        .map((RegExpMatch m) => int.parse(m.group(1)!, radix: 16))
+        .toSet();
+    expect(used, inSet);
   });
 }

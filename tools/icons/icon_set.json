@@ -1,0 +1,13 @@
+{
+  "caretLeft": "0xe138", "caretRight": "0xe13a", "caretDown": "0xe136", "x": "0xe4f6", "check": "0xe182",
+  "house": "0xe2c2", "path": "0xe39c", "soccerBall": "0xe716", "target": "0xe47c", "calendarCheck": "0xe712",
+  "flame": "0xe624", "trophy": "0xe67e", "medal": "0xe320", "star": "0xe46a", "lamp": "0xe638", "leaf": "0xe2da",
+  "shieldStar": "0xec34", "heartStraight": "0xe2aa", "pause": "0xe39e", "play": "0xe3d0", "hourglass": "0xe2b2",
+  "flag": "0xe244", "bookOpenText": "0xe8f2", "bookOpen": "0xe0e6", "magnifyingGlass": "0xe30c",
+  "bookmarkSimple": "0xe0ea", "textAa": "0xe6ee", "palette": "0xe6c8", "translate": "0xe4a2",
+  "shareNetwork": "0xe408", "listBullets": "0xe2f2", "gear": "0xe270", "bell": "0xe0ce", "speakerHigh": "0xe44a",
+  "speakerSlash": "0xe45a", "vibrate": "0xe4d8", "shieldCheck": "0xe40c", "scroll": "0xeb7a", "envelope": "0xe214",
+  "prohibit": "0xe3de", "arrowsClockwise": "0xe094", "lockKey": "0xe2fe", "downloadSimple": "0xe20c",
+  "trash": "0xe4a6", "arrowCounterClockwise": "0xe038", "warning": "0xe4e0", "info": "0xe2ce",
+  "wifiSlash": "0xe4f2", "wifiHigh": "0xe4ea"
+}
