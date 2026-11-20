@@ -1,0 +1,1214 @@
+{
+ "schemaVersion": 1,
+ "verses": [
+  {
+   "id": "prov_24_16",
+   "ref": "Prov.24.16",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "isa_41_10",
+   "ref": "Isa.41.10",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_37_24",
+   "ref": "Ps.37.24",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "mic_7_8",
+   "ref": "Mic.7.8",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "lam_3_22",
+   "ref": "Lam.3.22",
+   "moments": [
+    "miss",
+    "daily"
+   ]
+  },
+  {
+   "id": "lam_3_23",
+   "ref": "Lam.3.23",
+   "moments": [
+    "miss",
+    "daily"
+   ]
+  },
+  {
+   "id": "rom_8_28",
+   "ref": "Rom.8.28",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "2cor_4_8",
+   "ref": "2Cor.4.8",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "1pet_5_7",
+   "ref": "1Pet.5.7",
+   "moments": [
+    "miss",
+    "daily"
+   ]
+  },
+  {
+   "id": "ps_73_26",
+   "ref": "Ps.73.26",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "isa_40_31",
+   "ref": "Isa.40.31",
+   "moments": [
+    "miss",
+    "daily"
+   ]
+  },
+  {
+   "id": "ps_94_18",
+   "ref": "Ps.94.18",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_145_14",
+   "ref": "Ps.145.14",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "jer_29_11",
+   "ref": "Jer.29.11",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "2cor_12_9",
+   "ref": "2Cor.12.9",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "heb_12_1",
+   "ref": "Heb.12.1",
+   "moments": [
+    "miss",
+    "win"
+   ]
+  },
+  {
+   "id": "gal_6_9",
+   "ref": "Gal.6.9",
+   "moments": [
+    "miss",
+    "win"
+   ]
+  },
+  {
+   "id": "jas_1_2",
+   "ref": "Jas.1.2",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "rom_5_3",
+   "ref": "Rom.5.3",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "rom_8_31",
+   "ref": "Rom.8.31",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_27_14",
+   "ref": "Ps.27.14",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_147_3",
+   "ref": "Ps.147.3",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "isa_40_29",
+   "ref": "Isa.40.29",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_118_6",
+   "ref": "Ps.118.6",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "rom_8_37",
+   "ref": "Rom.8.37",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_138_8",
+   "ref": "Ps.138.8",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_121_2",
+   "ref": "Ps.121.2",
+   "moments": [
+    "miss",
+    "selah"
+   ]
+  },
+  {
+   "id": "prov_3_5",
+   "ref": "Prov.3.5",
+   "moments": [
+    "miss",
+    "selah",
+    "daily"
+   ]
+  },
+  {
+   "id": "isa_30_15",
+   "ref": "Isa.30.15",
+   "moments": [
+    "miss",
+    "selah"
+   ]
+  },
+  {
+   "id": "hab_3_19",
+   "ref": "Hab.3.19",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_28_7",
+   "ref": "Ps.28.7",
+   "moments": [
+    "miss",
+    "goal"
+   ]
+  },
+  {
+   "id": "rom_15_13",
+   "ref": "Rom.15.13",
+   "moments": [
+    "miss",
+    "goal"
+   ]
+  },
+  {
+   "id": "heb_10_35",
+   "ref": "Heb.10.35",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "heb_10_36",
+   "ref": "Heb.10.36",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "heb_4_16",
+   "ref": "Heb.4.16",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "1john_1_9",
+   "ref": "1John.1.9",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_103_12",
+   "ref": "Ps.103.12",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_103_8",
+   "ref": "Ps.103.8",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_86_5",
+   "ref": "Ps.86.5",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "mic_7_7",
+   "ref": "Mic.7.7",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "prov_28_13",
+   "ref": "Prov.28.13",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_119_71",
+   "ref": "Ps.119.71",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "rom_12_12",
+   "ref": "Rom.12.12",
+   "moments": [
+    "miss",
+    "daily"
+   ]
+  },
+  {
+   "id": "col_3_13",
+   "ref": "Col.3.13",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "eph_4_32",
+   "ref": "Eph.4.32",
+   "moments": [
+    "miss",
+    "daily"
+   ]
+  },
+  {
+   "id": "josh_1_5",
+   "ref": "Josh.1.5",
+   "moments": [
+    "miss"
+   ]
+  },
+  {
+   "id": "ps_118_24",
+   "ref": "Ps.118.24",
+   "moments": [
+    "goal",
+    "daily"
+   ]
+  },
+  {
+   "id": "ps_126_3",
+   "ref": "Ps.126.3",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "phil_4_4",
+   "ref": "Phil.4.4",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "1thess_5_16",
+   "ref": "1Thess.5.16",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "1thess_5_17",
+   "ref": "1Thess.5.17",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "1thess_5_18",
+   "ref": "1Thess.5.18",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_150_6",
+   "ref": "Ps.150.6",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_118_1",
+   "ref": "Ps.118.1",
+   "moments": [
+    "goal",
+    "win"
+   ]
+  },
+  {
+   "id": "ps_136_1",
+   "ref": "Ps.136.1",
+   "moments": [
+    "goal",
+    "win"
+   ]
+  },
+  {
+   "id": "prov_17_22",
+   "ref": "Prov.17.22",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_16_11",
+   "ref": "Ps.16.11",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "col_3_17",
+   "ref": "Col.3.17",
+   "moments": [
+    "goal",
+    "win"
+   ]
+  },
+  {
+   "id": "1cor_10_31",
+   "ref": "1Cor.10.31",
+   "moments": [
+    "goal",
+    "win"
+   ]
+  },
+  {
+   "id": "ps_107_1",
+   "ref": "Ps.107.1",
+   "moments": [
+    "goal",
+    "win"
+   ]
+  },
+  {
+   "id": "ps_100_4",
+   "ref": "Ps.100.4",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_100_5",
+   "ref": "Ps.100.5",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_98_4",
+   "ref": "Ps.98.4",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_95_1",
+   "ref": "Ps.95.1",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_105_1",
+   "ref": "Ps.105.1",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_126_2",
+   "ref": "Ps.126.2",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "rom_12_15",
+   "ref": "Rom.12.15",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_33_3",
+   "ref": "Ps.33.3",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_145_1",
+   "ref": "Ps.145.1",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_145_2",
+   "ref": "Ps.145.2",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_71_23",
+   "ref": "Ps.71.23",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_35_27",
+   "ref": "Ps.35.27",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "prov_15_13",
+   "ref": "Prov.15.13",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_136_26",
+   "ref": "Ps.136.26",
+   "moments": [
+    "goal"
+   ]
+  },
+  {
+   "id": "ps_115_1",
+   "ref": "Ps.115.1",
+   "moments": [
+    "goal",
+    "win"
+   ]
+  },
+  {
+   "id": "ps_23_2",
+   "ref": "Ps.23.2",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_23_3",
+   "ref": "Ps.23.3",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "isa_26_3",
+   "ref": "Isa.26.3",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_37_7",
+   "ref": "Ps.37.7",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_131_2",
+   "ref": "Ps.131.2",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "phil_4_6",
+   "ref": "Phil.4.6",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "phil_4_7",
+   "ref": "Phil.4.7",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_29_11",
+   "ref": "Ps.29.11",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_119_105",
+   "ref": "Ps.119.105",
+   "moments": [
+    "selah",
+    "daily"
+   ]
+  },
+  {
+   "id": "ps_127_2",
+   "ref": "Ps.127.2",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "matt_11_29",
+   "ref": "Matt.11.29",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_121_1",
+   "ref": "Ps.121.1",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_16_8",
+   "ref": "Ps.16.8",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_37_5",
+   "ref": "Ps.37.5",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_139_23",
+   "ref": "Ps.139.23",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_139_24",
+   "ref": "Ps.139.24",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_90_17",
+   "ref": "Ps.90.17",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_1_1",
+   "ref": "Ps.1.1",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_1_2",
+   "ref": "Ps.1.2",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_1_3",
+   "ref": "Ps.1.3",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_119_114",
+   "ref": "Ps.119.114",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "ps_119_130",
+   "ref": "Ps.119.130",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "col_3_15",
+   "ref": "Col.3.15",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "lam_3_25",
+   "ref": "Lam.3.25",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "mark_6_31",
+   "ref": "Mark.6.31",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "mark_4_39",
+   "ref": "Mark.4.39",
+   "moments": [
+    "selah"
+   ]
+  },
+  {
+   "id": "1cor_15_57",
+   "ref": "1Cor.15.57",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "1cor_15_58",
+   "ref": "1Cor.15.58",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "prov_22_4",
+   "ref": "Prov.22.4",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "phil_2_3",
+   "ref": "Phil.2.3",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "1pet_5_6",
+   "ref": "1Pet.5.6",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "jas_4_10",
+   "ref": "Jas.4.10",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "col_3_23",
+   "ref": "Col.3.23",
+   "moments": [
+    "win",
+    "daily"
+   ]
+  },
+  {
+   "id": "2tim_4_7",
+   "ref": "2Tim.4.7",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "rom_12_10",
+   "ref": "Rom.12.10",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "heb_12_2",
+   "ref": "Heb.12.2",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "prov_27_2",
+   "ref": "Prov.27.2",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "prov_16_18",
+   "ref": "Prov.16.18",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "prov_11_2",
+   "ref": "Prov.11.2",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "mic_6_8",
+   "ref": "Mic.6.8",
+   "moments": [
+    "win",
+    "daily"
+   ]
+  },
+  {
+   "id": "1cor_9_24",
+   "ref": "1Cor.9.24",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "1cor_9_25",
+   "ref": "1Cor.9.25",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "phil_3_14",
+   "ref": "Phil.3.14",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "prov_16_3",
+   "ref": "Prov.16.3",
+   "moments": [
+    "win",
+    "daily"
+   ]
+  },
+  {
+   "id": "phil_2_4",
+   "ref": "Phil.2.4",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "prov_15_33",
+   "ref": "Prov.15.33",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "prov_18_12",
+   "ref": "Prov.18.12",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "matt_23_12",
+   "ref": "Matt.23.12",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "rom_12_16",
+   "ref": "Rom.12.16",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "2cor_4_7",
+   "ref": "2Cor.4.7",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "1cor_4_7",
+   "ref": "1Cor.4.7",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "jas_1_17",
+   "ref": "Jas.1.17",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "prov_27_17",
+   "ref": "Prov.27.17",
+   "moments": [
+    "win",
+    "daily"
+   ]
+  },
+  {
+   "id": "prov_12_1",
+   "ref": "Prov.12.1",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "rom_12_18",
+   "ref": "Rom.12.18",
+   "moments": [
+    "win"
+   ]
+  },
+  {
+   "id": "prov_4_23",
+   "ref": "Prov.4.23",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "1cor_16_14",
+   "ref": "1Cor.16.14",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "matt_6_33",
+   "ref": "Matt.6.33",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "prov_11_25",
+   "ref": "Prov.11.25",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "heb_13_5",
+   "ref": "Heb.13.5",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "prov_18_10",
+   "ref": "Prov.18.10",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "prov_15_1",
+   "ref": "Prov.15.1",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "prov_17_17",
+   "ref": "Prov.17.17",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "prov_19_20",
+   "ref": "Prov.19.20",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "prov_22_6",
+   "ref": "Prov.22.6",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "matt_22_39",
+   "ref": "Matt.22.39",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "john_13_34",
+   "ref": "John.13.34",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "john_8_12",
+   "ref": "John.8.12",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "john_10_10",
+   "ref": "John.10.10",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "rom_12_2",
+   "ref": "Rom.12.2",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "rom_12_9",
+   "ref": "Rom.12.9",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "rom_12_21",
+   "ref": "Rom.12.21",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "eph_2_8",
+   "ref": "Eph.2.8",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "eph_6_10",
+   "ref": "Eph.6.10",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "col_3_12",
+   "ref": "Col.3.12",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "col_3_14",
+   "ref": "Col.3.14",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "1thess_5_11",
+   "ref": "1Thess.5.11",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "2tim_1_7",
+   "ref": "2Tim.1.7",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "heb_11_1",
+   "ref": "Heb.11.1",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "heb_12_14",
+   "ref": "Heb.12.14",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "jas_1_5",
+   "ref": "Jas.1.5",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "jas_1_19",
+   "ref": "Jas.1.19",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "jas_1_22",
+   "ref": "Jas.1.22",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "1john_4_8",
+   "ref": "1John.4.8",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "1john_4_19",
+   "ref": "1John.4.19",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "ps_27_1",
+   "ref": "Ps.27.1",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "ps_119_11",
+   "ref": "Ps.119.11",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "ps_119_9",
+   "ref": "Ps.119.9",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "ps_139_14",
+   "ref": "Ps.139.14",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "jer_33_3",
+   "ref": "Jer.33.3",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "deut_6_5",
+   "ref": "Deut.6.5",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "deut_6_6",
+   "ref": "Deut.6.6",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "1sam_16_7",
+   "ref": "1Sam.16.7",
+   "moments": [
+    "daily"
+   ]
+  },
+  {
+   "id": "job_19_25",
+   "ref": "Job.19.25",
+   "moments": [
+    "daily"
+   ]
+  }
+ ]
+}

@@ -140,3 +140,12 @@ Status: accepted.
 - Some sources place a psalm's superscription inside verse 1 (Spanish, French, Portuguese). Curated verses avoid affected verses.
 - Hebrew spacing before the sof pasuq is normalised; cantillation marks are not present in the supplied text.
 - CI runs `verify_packs.py` on every push (hash, size, book order, verse count range, spot checks).
+
+## ADR-033: Curated verses
+
+Status: accepted.
+
+- 169 verses are bundled for play moments: miss 46, goal 31, selah 29, win 37, daily 52 (a verse may suit several moments). Chosen for accuracy and fit: comfort after a miss, thanks after a goal, calm at the pause, humility and perseverance at a win, steady daily encouragement.
+- Candidates are listed in `tools/scripture/curated_refs.json`; `build_curated.py` keeps one only if its chapter has the same verse count in all 11 languages, no language has a blank, quotation marks balance, it starts a sentence in English and it fits a card (English 200 characters, any language 260). 66 of 235 candidates were dropped by those checks. Four more were excluded by hand with the reason recorded in the file: Gal 5:22–23 and 1 Pet 4:8 (languages split the verses differently), Ps 37:4 (could be read as a promise of winning).
+- No verse is chosen as a promise of winning matches.
+- Bundled as `app/assets/verses/curated.json` (id, ref, moments) plus `{lang}.json` (id to text). Text is copied from the packs unchanged.
