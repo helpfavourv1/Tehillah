@@ -1,0 +1,7 @@
+Berean Standard Bible (BSB)
+
+Berean Standard Bible. The text is dedicated to the public domain.
+
+Source: eBible.org, through the open-bibles collection (github.com/seven1m/open-bibles), file eng-bsb.usfx.xml.
+
+Changes made by this app: spacing before punctuation removed. No wording changed.

@@ -1,0 +1,7 @@
+Kougo-yaku (Japanese Colloquial Bible)
+
+Japanese Kougo (Colloquial) Bible, 1954/55. Listed as public domain by the open-bibles collection.
+
+Source: github.com/seven1m/open-bibles, file jpn-kougo.osis.xml.
+
+Changes made by this app: one stray brace character removed in 2 Samuel 19:32.

@@ -1,0 +1,9 @@
+Indian Revised Version, Hindi (IRV)
+
+Indian Revised Version Hindi, © 2017–2019 Bridge Connectivity Solutions (BCS). Licensed under Creative Commons Attribution-ShareAlike 4.0 International (http://creativecommons.org/licenses/by-sa/4.0/).
+
+Original work available at http://www.freebiblesindia.in
+
+Source: github.com/FreeBiblesIndia/Hindi_Bible. This notice does not suggest that FreeBibles India endorses this app.
+
+Changes made by this app: footnotes, headings and cross-reference notes removed; verses reformatted into this app's pack format. This adapted pack is shared under the same licence, CC BY-SA 4.0.

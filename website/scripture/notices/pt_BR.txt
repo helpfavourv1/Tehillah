@@ -1,0 +1,7 @@
+Bíblia Livre (BLIVRE)
+
+Bíblia Livre (BLIVRE), Copyright © 2018 Diego Santos, Mario Sérgio e Marco Teles, http://sites.google.com/site/biblialivre/. Licença Creative Commons Atribuição 4.0 Brasil (http://creativecommons.org/licenses/by/4.0/br/).
+
+Source: eBible.org (porbr2018), through github.com/midvash/bible-data.
+
+Changes made by this app: spacing before punctuation removed. No wording changed.

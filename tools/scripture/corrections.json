@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "note": "Every change made to source text is listed here and logged by build_packs.py. Nothing is edited by hand in the packs.",
+  "rules": [
+    {
+      "id": "space-before-punctuation",
+      "languages": ["en", "de", "pt_BR"],
+      "type": "regex",
+      "pattern": "\\s+([,.;:?!])",
+      "replace": "\\1",
+      "why": "The source files put a space before punctuation that follows a tagged word or name."
+    },
+    {
+      "id": "hi-cross-references",
+      "languages": ["hi"],
+      "type": "regex",
+      "pattern": "\\s*\\((?=[^()]*\\d+:\\d+)[\\u0900-\\u097F0-9:.,;\\-\\u2013\\s]+\\)",
+      "replace": "",
+      "why": "The Hindi source appends cross-reference notes such as (2 Cor. 4:6) to verses. They are not scripture text."
+    },
+    {
+      "id": "ja-stray-brace",
+      "languages": ["ja"],
+      "type": "replace",
+      "ref": "2Sam.19.32",
+      "find": "\u516b\u5341{\u6b73",
+      "replace": "\u516b\u5341\u6b73",
+      "why": "A stray brace inside a word in the source."
+    },
+    {
+      "id": "he-merged-verse-marker",
+      "languages": ["he"],
+      "type": "regex",
+      "pattern": "\\s*\\]\\d+-\\d+\\[\\s*",
+      "replace": "",
+      "why": "The Hebrew New Testament marks verses it prints together with a reversed range marker such as ]73-63[. The marker is not text."
+    },
+    {
+      "id": "he-sof-pasuq-spacing",
+      "languages": ["he"],
+      "type": "regex",
+      "pattern": "\\s+\u05c3",
+      "replace": "\u05c3",
+      "why": "The sof pasuq (verse end mark) is attached to the last word in Hebrew; the source separates it with a space."
+    },
+    {
+      "id": "he-merged-verse-blank",
+      "languages": ["he"],
+      "type": "blank_if_matches",
+      "pattern": "^\u05c3$",
+      "why": "After the marker is removed, the second verse of a printed pair holds only the end mark. It is left empty because its text is in the first verse of the pair."
+    }
+  ]
+}

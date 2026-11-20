@@ -1,0 +1,7 @@
+Lutherbibel 1912
+
+Lutherbibel 1912. The source file states: We believe that this Bible is found in the Public Domain.
+
+Source: eBible.org, through the open-bibles collection (github.com/seven1m/open-bibles), file deu-luther1912.osis.xml.
+
+Changes made by this app: spacing before punctuation removed. No wording changed.

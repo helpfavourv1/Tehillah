@@ -1,0 +1,7 @@
+Chinese Union Version, Simplified (CUV)
+
+Chinese Union Version, Simplified. Public domain.
+
+Source: eBible.org, through the open-bibles collection (github.com/seven1m/open-bibles), file chi-cuv-simp.usfx.xml.
+
+Changes made by this app: none to the wording.

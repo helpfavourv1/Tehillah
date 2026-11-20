@@ -1,0 +1,7 @@
+Reina-Valera 1909 (RV1909)
+
+Reina-Valera 1909. Public domain.
+
+Source: eBible.org, through the open-bibles collection (github.com/seven1m/open-bibles), file spa-rv1909.usfx.xml.
+
+Changes made by this app: none to the wording.

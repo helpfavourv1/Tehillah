@@ -1,0 +1,7 @@
+Korean Revised Version (KRV 1961)
+
+Korean Revised Version © Korean Bible Society 1961. Public Domain: the Korean Bible Society records that economic copyright expired on December 31, 2011.
+
+Source: github.com/seven1m/open-bibles, file kor-korean.osis.xml.
+
+Changes made by this app: none to the wording.

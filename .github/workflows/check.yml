@@ -103,3 +103,11 @@ jobs:
         if: steps.detect.outputs.present == 'true' && hashFiles('app/test/**') != ''
         working-directory: app
         run: flutter test --coverage
+
+  scripture-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bible packs match their manifest and pass spot checks
+        run: python3 -I tools/scripture/verify_packs.py

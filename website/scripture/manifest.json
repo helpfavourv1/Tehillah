@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "packs": [
+    {
+      "language": "en",
+      "translationId": "BSB",
+      "version": 1,
+      "url": "/scripture/en-1.json.gz",
+      "bytes": 1218315,
+      "sha256": "eb9885b1970b2bf100b4b937410861c6363b751311bc2f10c9f7e5bafbb64b1b",
+      "noticePath": "/scripture/notices/en.txt"
+    },
+    {
+      "language": "es",
+      "translationId": "RV1909",
+      "version": 1,
+      "url": "/scripture/es-1.json.gz",
+      "bytes": 1242721,
+      "sha256": "5bc5b885375c1c6427d48051a261da005e814ebb17ebb759bf5cc78bebfb23db",
+      "noticePath": "/scripture/notices/es.txt"
+    },
+    {
+      "language": "fr",
+      "translationId": "LSG1910",
+      "version": 1,
+      "url": "/scripture/fr-1.json.gz",
+      "bytes": 1307042,
+      "sha256": "f9de75a0a43c607f0261d989bbd48ed1d08cc1670f341884681cb4b1291a0200",
+      "noticePath": "/scripture/notices/fr.txt"
+    },
+    {
+      "language": "de",
+      "translationId": "LUTH1912",
+      "version": 1,
+      "url": "/scripture/de-1.json.gz",
+      "bytes": 1286792,
+      "sha256": "d12832d7ad1d3aee75dd7c72a60970f141d4f6f54336d83a3de52a192acb3f15",
+      "noticePath": "/scripture/notices/de.txt"
+    },
+    {
+      "language": "pt_BR",
+      "translationId": "BLIVRE",
+      "version": 1,
+      "url": "/scripture/pt_BR-1.json.gz",
+      "bytes": 1248198,
+      "sha256": "6bf060eb8df0a1b131ece0de86848ae9e67f65b307bcdc4bb9ec2d8b8ea0270e",
+      "noticePath": "/scripture/notices/pt_BR.txt"
+    },
+    {
+      "language": "ar",
+      "translationId": "SVD",
+      "version": 1,
+      "url": "/scripture/ar-1.json.gz",
+      "bytes": 1476662,
+      "sha256": "1bc3ed1d4ccf18695d366f1cc4c6b470e7d84b34e4ac3f6ec44b6c193fe16527",
+      "noticePath": "/scripture/notices/ar.txt"
+    },
+    {
+      "language": "hi",
+      "translationId": "IRVHIN",
+      "version": 1,
+      "url": "/scripture/hi-1.json.gz",
+      "bytes": 1596129,
+      "sha256": "88c9e9fb41e4ef8dfb1364e88ab17d37729437f9fd5f401c917181d2c8c5dbd6",
+      "noticePath": "/scripture/notices/hi.txt"
+    },
+    {
+      "language": "ja",
+      "translationId": "KOUGO",
+      "version": 1,
+      "url": "/scripture/ja-1.json.gz",
+      "bytes": 1328141,
+      "sha256": "01534e01888d474ee4f89fdff7c342b78cd54707b898fd59de22ab0f48a0a5e6",
+      "noticePath": "/scripture/notices/ja.txt"
+    },
+    {
+      "language": "ko",
+      "translationId": "KRV1961",
+      "version": 1,
+      "url": "/scripture/ko-1.json.gz",
+      "bytes": 1236677,
+      "sha256": "0ef086b44a38f2995058dba706a0fa3d4a63a14a66d7df7853c57fad5075288f",
+      "noticePath": "/scripture/notices/ko.txt"
+    },
+    {
+      "language": "zh_Hans",
+      "translationId": "CUVS",
+      "version": 1,
+      "url": "/scripture/zh_Hans-1.json.gz",
+      "bytes": 1143749,
+      "sha256": "2f1223d3cd8b00f1ec9270b6b2ea51ccb9fae9cccdc6636a357da50875696dae",
+      "noticePath": "/scripture/notices/zh_Hans.txt"
+    },
+    {
+      "language": "he",
+      "translationId": "WLC-MHB",
+      "version": 1,
+      "url": "/scripture/he-1.json.gz",
+      "bytes": 1219359,
+      "sha256": "52a8cfada880b82f01cb04d7aa02b78b50999870637e3deff84f9bfa5e15e81b",
+      "noticePath": "/scripture/notices/he.txt"
+    }
+  ]
+}

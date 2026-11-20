@@ -128,3 +128,15 @@ Batch p1f decisions, adjusting the blueprint tables:
 | Launcher icon | Several concepts will be submitted for the owner to choose from before batch p7a |
 | Apple team ID and App Store Connect key | Pending, needed only for the iOS release build |
 | AdMob production IDs | Pending |
+
+## ADR-032: Scripture sources and packs
+
+Status: accepted.
+
+- Eleven Bibles, one per app language, all from sources whose licence permits redistribution: BSB, RV1909, LSG1910, Lutherbibel 1912, Bíblia Livre (CC BY 4.0), Smith and Van Dyck, Hindi IRV (CC BY-SA 4.0, FreeBiblesIndia), Kougo-yaku, KRV 1961, CUV Simplified, WLC plus Modern Hebrew Bible. Exact files, commits and SHA-256 hashes are pinned in `tools/scripture/sources.json`.
+- Every text change is a named rule in `corrections.json`; the builder logs how many verses each rule touched and fails if a rule touches nothing. Nothing is edited by hand in a pack.
+- Packs keep each language's own chapter and verse numbering. The reader navigates by the pack's own structure. Chapters whose numbering differs between languages (about 15 to 160 per language, mostly textual-variant differences in the New Testament and Hebrew/German/French Old Testament) are not mapped; the curated verses used in play are limited to chapters with the same verse count in all 11 languages.
+- Gaps in a source (about 17 verses in Japanese and Korean, 16 in English, 10 merged verses in Hebrew) stay as empty verses; the reader hides them.
+- Some sources place a psalm's superscription inside verse 1 (Spanish, French, Portuguese). Curated verses avoid affected verses.
+- Hebrew spacing before the sof pasuq is normalised; cantillation marks are not present in the supplied text.
+- CI runs `verify_packs.py` on every push (hash, size, book order, verse count range, spot checks).

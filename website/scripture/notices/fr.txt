@@ -1,0 +1,7 @@
+Louis Segond 1910 (LSG)
+
+Louis Segond. Public Domain. 1910. Updated 2011 by Moon Sun Kim, 2012 by E. Canales. Updated 2024 to p.sfm.
+
+Source: github.com/BibleCorps/FRA-B-LSG1910-PD-UBS.
+
+Changes made by this app: one verse number corrected in Psalm 119 where the source tagged it as verse 11 followed by the text of verse 115.

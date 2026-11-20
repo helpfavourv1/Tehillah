@@ -1,0 +1,7 @@
+Smith and Van Dyck (SVD)
+
+Arabic Smith and Van Dyck Bible. Public domain.
+
+Source: eBible.org (arb-vd), through github.com/midvash/bible-data.
+
+Changes made by this app: none to the wording.

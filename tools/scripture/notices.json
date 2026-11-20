@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "note": "Text shown on the licence screen and written beside each pack. Every statement here comes from the source file, its header, or the source repository's own listing.",
+  "notices": {
+    "en": {
+      "title": "Berean Standard Bible (BSB)",
+      "lines": [
+        "Berean Standard Bible. The text is dedicated to the public domain.",
+        "Source: eBible.org, through the open-bibles collection (github.com/seven1m/open-bibles), file eng-bsb.usfx.xml.",
+        "Changes made by this app: spacing before punctuation removed. No wording changed."
+      ]
+    },
+    "es": {
+      "title": "Reina-Valera 1909 (RV1909)",
+      "lines": [
+        "Reina-Valera 1909. Public domain.",
+        "Source: eBible.org, through the open-bibles collection (github.com/seven1m/open-bibles), file spa-rv1909.usfx.xml.",
+        "Changes made by this app: none to the wording."
+      ]
+    },
+    "fr": {
+      "title": "Louis Segond 1910 (LSG)",
+      "lines": [
+        "Louis Segond. Public Domain. 1910. Updated 2011 by Moon Sun Kim, 2012 by E. Canales. Updated 2024 to p.sfm.",
+        "Source: github.com/BibleCorps/FRA-B-LSG1910-PD-UBS.",
+        "Changes made by this app: one verse number corrected in Psalm 119 where the source tagged it as verse 11 followed by the text of verse 115."
+      ]
+    },
+    "de": {
+      "title": "Lutherbibel 1912",
+      "lines": [
+        "Lutherbibel 1912. The source file states: We believe that this Bible is found in the Public Domain.",
+        "Source: eBible.org, through the open-bibles collection (github.com/seven1m/open-bibles), file deu-luther1912.osis.xml.",
+        "Changes made by this app: spacing before punctuation removed. No wording changed."
+      ]
+    },
+    "pt_BR": {
+      "title": "Bíblia Livre (BLIVRE)",
+      "lines": [
+        "Bíblia Livre (BLIVRE), Copyright © 2018 Diego Santos, Mario Sérgio e Marco Teles, http://sites.google.com/site/biblialivre/. Licença Creative Commons Atribuição 4.0 Brasil (http://creativecommons.org/licenses/by/4.0/br/).",
+        "Source: eBible.org (porbr2018), through github.com/midvash/bible-data.",
+        "Changes made by this app: spacing before punctuation removed. No wording changed."
+      ]
+    },
+    "ar": {
+      "title": "Smith and Van Dyck (SVD)",
+      "lines": [
+        "Arabic Smith and Van Dyck Bible. Public domain.",
+        "Source: eBible.org (arb-vd), through github.com/midvash/bible-data.",
+        "Changes made by this app: none to the wording."
+      ]
+    },
+    "hi": {
+      "title": "Indian Revised Version, Hindi (IRV)",
+      "lines": [
+        "Indian Revised Version Hindi, © 2017–2019 Bridge Connectivity Solutions (BCS). Licensed under Creative Commons Attribution-ShareAlike 4.0 International (http://creativecommons.org/licenses/by-sa/4.0/).",
+        "Original work available at http://www.freebiblesindia.in",
+        "Source: github.com/FreeBiblesIndia/Hindi_Bible. This notice does not suggest that FreeBibles India endorses this app.",
+        "Changes made by this app: footnotes, headings and cross-reference notes removed; verses reformatted into this app's pack format. This adapted pack is shared under the same licence, CC BY-SA 4.0."
+      ]
+    },
+    "ja": {
+      "title": "Kougo-yaku (Japanese Colloquial Bible)",
+      "lines": [
+        "Japanese Kougo (Colloquial) Bible, 1954/55. Listed as public domain by the open-bibles collection.",
+        "Source: github.com/seven1m/open-bibles, file jpn-kougo.osis.xml.",
+        "Changes made by this app: one stray brace character removed in 2 Samuel 19:32."
+      ]
+    },
+    "ko": {
+      "title": "Korean Revised Version (KRV 1961)",
+      "lines": [
+        "Korean Revised Version © Korean Bible Society 1961. Public Domain: the Korean Bible Society records that economic copyright expired on December 31, 2011.",
+        "Source: github.com/seven1m/open-bibles, file kor-korean.osis.xml.",
+        "Changes made by this app: none to the wording."
+      ]
+    },
+    "zh_Hans": {
+      "title": "Chinese Union Version, Simplified (CUV)",
+      "lines": [
+        "Chinese Union Version, Simplified. Public domain.",
+        "Source: eBible.org, through the open-bibles collection (github.com/seven1m/open-bibles), file chi-cuv-simp.usfx.xml.",
+        "Changes made by this app: none to the wording."
+      ]
+    },
+    "he": {
+      "title": "Westminster Leningrad Codex and Modern Hebrew Bible",
+      "lines": [
+        "Old Testament: Westminster Leningrad Codex (WLC), through github.com/midvash/bible-data, with vowel points and without cantillation marks as supplied by that source.",
+        "New Testament: Modern Hebrew Bible (Delitzsch), public domain, from eBible.org through github.com/scrollmapper/bible_databases (HebModern.json).",
+        "Changes made by this app: spacing before the sof pasuq removed; merged-verse markers removed and the blank second verse of a merged pair left empty."
+      ]
+    }
+  }
+}

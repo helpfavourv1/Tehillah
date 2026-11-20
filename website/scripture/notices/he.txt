@@ -1,0 +1,7 @@
+Westminster Leningrad Codex and Modern Hebrew Bible
+
+Old Testament: Westminster Leningrad Codex (WLC), through github.com/midvash/bible-data, with vowel points and without cantillation marks as supplied by that source.
+
+New Testament: Modern Hebrew Bible (Delitzsch), public domain, from eBible.org through github.com/scrollmapper/bible_databases (HebModern.json).
+
+Changes made by this app: spacing before the sof pasuq removed; merged-verse markers removed and the blank second verse of a merged pair left empty.

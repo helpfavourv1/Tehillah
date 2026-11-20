@@ -1,0 +1,1049 @@
+{
+  "schemaVersion": 1,
+  "languages": {
+    "en": {
+      "translationId": "BSB",
+      "name": "Berean Standard Bible",
+      "parts": [
+        {
+          "parser": "usfx",
+          "books": "all",
+          "files": [
+            {
+              "repo": "seven1m/open-bibles",
+              "commit": "8b330654ade69f7c96268c761da18dc83a1f49b7",
+              "path": "eng-bsb.usfx.xml",
+              "sha256": "7bf75004ecbc8901f179bd36078cf48fa4eb34cb2894791342ac840bcbf586fb"
+            }
+          ]
+        }
+      ]
+    },
+    "es": {
+      "translationId": "RV1909",
+      "name": "Reina-Valera 1909",
+      "parts": [
+        {
+          "parser": "usfx",
+          "books": "all",
+          "files": [
+            {
+              "repo": "seven1m/open-bibles",
+              "commit": "8b330654ade69f7c96268c761da18dc83a1f49b7",
+              "path": "spa-rv1909.usfx.xml",
+              "sha256": "b59592def67de45f223da447ea376627e586c6568531171019084117df503151"
+            }
+          ]
+        }
+      ]
+    },
+    "fr": {
+      "translationId": "LSG1910",
+      "name": "Louis Segond 1910",
+      "parts": [
+        {
+          "parser": "usfm_dir",
+          "books": "all",
+          "files": [
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-00-FRT.p.sfm",
+              "sha256": "469b2d501f36f5d11fa664711801a1d0a458858fb76291445a9ff66923cb864f"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-01-GEN.p.sfm",
+              "sha256": "b154cfbbdc0eb4f1475d1cc5ff77964fb5f89bfa8f2b8387dd437b8843bb0f53"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-02-EXO.p.sfm",
+              "sha256": "c91a93d4a4f01d6b1560cc43ffbb741c0eed5afb962dee355c13c366727c23d9"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-03-LEV.p.sfm",
+              "sha256": "becc173095dc8433780bc4266bec32b3a67aaa31440318ee565ae71afd5d531c"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-04-NUM.p.sfm",
+              "sha256": "84ffe28275fe52673892e91220520df2bd5558a41f0564487f2aae2c6ffa00a9"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-05-DEU.p.sfm",
+              "sha256": "2263d966c4822761607f3e5dae77bc3d6413dc49e0bc9f61e0b91ed55e6311e7"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-06-JOS.p.sfm",
+              "sha256": "8da75c90341f87dd866edbf24c2a67ca7729b05e4c8bffb9048d3c800c4a8992"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-07-JDG.p.sfm",
+              "sha256": "8ec92bbe938ecac6b4a4d24d316a47543cd87890e1db25ef5bfc33990754d474"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-08-RUT.p.sfm",
+              "sha256": "14110abcd665cef64dc3516972cb12cdc0a255c975af3592fdfa8d70b9e90636"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-09-1SA.p.sfm",
+              "sha256": "72ebe388329227d0aea75447d348a622a3014b01a75aaaa59915ee191de636f0"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-10-2SA.p.sfm",
+              "sha256": "a50da40b11924d563961b65cc8b1e4c159beecda6d2abae0090e6dc5fa0bdb62"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-11-1KI.p.sfm",
+              "sha256": "f059a14100201e4a1854e9a22656f1093d27a56109ba1cf8ea2b931bbcb79134"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-12-2KI.p.sfm",
+              "sha256": "a7ca29d40b775c3e6becf14630cc1672de80e87ca7f72b916d9082f02e66c99d"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-13-1CH.p.sfm",
+              "sha256": "a9c7c1e73f206bec358672da812fa4b08eb375f57a1b575d79984b5a6e5b071c"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-14-2CH.p.sfm",
+              "sha256": "161a6f7d80cf13a5c519524ad229b49dc65c5f8bbfb0e4069c8fefa8280a0ad0"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-15-EZR.p.sfm",
+              "sha256": "e69aabe2bbe026c955c8fd74caadd118c249bdd3c925d148794738118ee00eba"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-16-NEH.p.sfm",
+              "sha256": "27addac23e8d18db35b485fb28b6e09daee7393503460eb898a2870a0afeca9b"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-17-EST.p.sfm",
+              "sha256": "df678103b84c8fba51c33a8831ea05f672e915b4187281eb2b844b59e2444227"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-18-JOB.p.sfm",
+              "sha256": "4d8838ba74fc510cd71e98e71bb6a1cdaa7eb98c91f95ab249b0805e1535fc9e"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-19-PSA.p.sfm",
+              "sha256": "2a137415584065fddd255b4ca3458b3c62e712eddaa34036403525e55f8effec"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-20-PRO.p.sfm",
+              "sha256": "7fcd9f2b76b13d352c17a8921687f00a8b3d76e2503d1578226c878e5b975e6e"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-21-ECC.p.sfm",
+              "sha256": "ac936ed642c0f59684eec899c4a6a258e8e7934061f89260f32a538ef7a093af"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-22-SNG.p.sfm",
+              "sha256": "d986911cbd4c46201c579d073cf4bd1bf26720182c0ef484aee1044a0eaeeeba"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-23-ISA.p.sfm",
+              "sha256": "9ab2f29bd57bc00bd31cba2f34d81d51ed2359bdaaeb0fed1735f6b3848e97e2"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-24-JER.p.sfm",
+              "sha256": "2175ee85a56bfde8931e97589feff5c440c83601fe05fc54411485a9ec99a2e1"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-25-LAM.p.sfm",
+              "sha256": "0e035de0cb5c5a084e0b4e012cae03ea5a160d95ea1a7cea69f5bdf635f5edc7"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-26-EZK.p.sfm",
+              "sha256": "e8cc1d658a84d4273ccae0cea21e1077bdd1064184062d07ee3e749573b9837e"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-27-DAN.p.sfm",
+              "sha256": "817a1745db529431adf11a35d3e09a6a1de8dfde5d90fc74b67dbcce5891563b"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-28-HOS.p.sfm",
+              "sha256": "a78943aa6ca4bba85356c2eea4c02b031887e861c9f14ff8acf07402265c0bb1"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-29-JOL.p.sfm",
+              "sha256": "8b5fce781d50ad2ae8e59190280f6ed198435f98f4433b9d5f1473cac8376b78"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-30-AMO.p.sfm",
+              "sha256": "96cbaee0b59cb56224e9f82cdd7143e697a8109c509a248824de858bc064faa5"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-31-OBA.p.sfm",
+              "sha256": "f1c21ed3d11b02aa8f14e652981849e33e484cb237a3c6958d73d9174faeca82"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-32-JON.p.sfm",
+              "sha256": "e56c531c5c58b4bc0d085eb4b0b9ddcb24f4b7ea35fd7b298eede7743df2d5d1"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-33-MIC.p.sfm",
+              "sha256": "c9f5daf513200a57f420be496523d3c6cb3e352eb0a87db54389d6a984392b15"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-34-NAM.p.sfm",
+              "sha256": "5291fb0699cc775eea90c15346693a1802dca3dcdb0e6dc77209a3c977448008"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-35-HAB.p.sfm",
+              "sha256": "1c570debbfdaa13b2422a5803d29ed7e1a40fbc076a299b7bd74e3258572717c"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-36-ZEP.p.sfm",
+              "sha256": "3c49a6fba6fa991efff545ee5ef1092ebcb071223d6cd5f6727aedaae1b6aa10"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-37-HAG.p.sfm",
+              "sha256": "883f4f9de5699410e514d2384dd392416c31ba140ce9dcc8fd2c9939a4164a85"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-38-ZEC.p.sfm",
+              "sha256": "d3976087b20f8e0364ca0fbbefd74aaf01c0bccf56857da1535124bd6e108a5b"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-39-MAL.p.sfm",
+              "sha256": "1b9e5ecb54ff699274d00fe09f5b69cb2ede66664a33096bedc21149241e5429"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-40-INT.p.sfm",
+              "sha256": "48b46a202fd9e70d1b8a4296e8e3849d20daef25d832687b9d3ee381a129ffac"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-41-MAT.p.sfm",
+              "sha256": "a6012ce685c86b76e10a0d7917ce31ce824b39fcc9bcc7c4820e905789f1fd0f"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-42-MRK.p.sfm",
+              "sha256": "b70601cc0d1ba89a42b8396cb557f345e15fd7c5b5db7524f86c07da55fa8309"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-43-LUK.p.sfm",
+              "sha256": "afadd6f7332e6c385bf576ae33d2c730a393043565a4723b96897c96b28d987c"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-44-JHN.p.sfm",
+              "sha256": "f0ac32a3919f7fa70cdfa1411c37911fc7ec684d3e88fddf550d2257acc5b162"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-45-ACT.p.sfm",
+              "sha256": "d8989fdff12044c7558c2f1262d570802bd364ec7e6896b3086ed5fb00768386"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-46-ROM.p.sfm",
+              "sha256": "b724ff93a68f1f814b0ef63c7df36a4a10c057d5c4af3abfb0420491e6380019"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-47-1CO.p.sfm",
+              "sha256": "b09f5e37b4dbe3c95eb4a1eb3f301def15885b06bcbc08bd9f12fdc24426cca1"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-48-2CO.p.sfm",
+              "sha256": "08689e4239646016a05f8264a6e13aab73ebc37965dae94d03945ebb446393b1"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-49-GAL.p.sfm",
+              "sha256": "2f47247728c7b53bce9765331feeeac205cdac0ac326dd4d91a549f3def7d745"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-50-EPH.p.sfm",
+              "sha256": "64dc6ed1db3e7ae27f5ff8e8c91684533ea46cdc6a8a9daa7ac16e95acdf3a04"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-51-PHP.p.sfm",
+              "sha256": "aea00c2c8414e164a9952673832daf1cbdb42ed6e9210468714f14d34398a519"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-52-COL.p.sfm",
+              "sha256": "cfb6023e713589933816663c22f73c7e62dcb10982a08e7b15454d4c3192374f"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-53-1TH.p.sfm",
+              "sha256": "25e22b0b3dd83700efed661073fd7775cef6e10e58c964dc5430b9b25ea86d89"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-54-2TH.p.sfm",
+              "sha256": "58444f87bf96241ae17bb2795e785499da7a87ae555e38e1269b413383eecb03"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-55-1TI.p.sfm",
+              "sha256": "c2cc4889a0317bcb539229e1d977ff8aaf502533149fa0d8d17e94f75706644b"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-56-2TI.p.sfm",
+              "sha256": "a0c25892635cb60881a2287ba6c849c7582fdaf997f5e0f719ebd31a984f2df0"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-57-TIT.p.sfm",
+              "sha256": "987256dfe4b2ccda41b217bbce9bc273afae3a16e0421c5abf4aba739821759f"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-58-PHM.p.sfm",
+              "sha256": "bbb663f8cf15b33487b1a4bbb30eb91905b3b641f9a77f15d97be91dbb0cb290"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-59-HEB.p.sfm",
+              "sha256": "37223768084153d86bf94bf7ee5cfe73428b38409ae1caa065ec8899d586ba8d"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-60-JAS.p.sfm",
+              "sha256": "6378d58b8263165c8953caa805f41aebdef207a89d7730c7e0a90fc8c8e475af"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-61-1PE.p.sfm",
+              "sha256": "08310845e4a1577ad6b0fbc9fc7477728c54b7cad5a5bbb38fdc2f5e60a1b9a3"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-62-2PE.p.sfm",
+              "sha256": "86415a306d0e85eac0e48c10d3d51e0a82612e985d080a933b8443c9edd02675"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-63-1JN.p.sfm",
+              "sha256": "46e03f45b2339aa9556aa13da7b0071933cfb15d47b747c7c01527f308e7641d"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-64-2JN.p.sfm",
+              "sha256": "a846b1902ac4bfeca97a426b61dfda4f206fa82e4e5d2a1e7d96bbb387d51577"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-65-3JN.p.sfm",
+              "sha256": "a5ed939e5475cf329da9b1e3650e00ea258bf7ef46d408576e791bab34818d6c"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-66-JUD.p.sfm",
+              "sha256": "7c5b7f2328baf78429cd8670e782930e34eac0d2f6a4ccb38837af6c409e1c76"
+            },
+            {
+              "repo": "BibleCorps/FRA-B-LSG1910-PD-UBS",
+              "commit": "0a17bedd1c7ce26745bd6ca99c56224b5f9d647b",
+              "path": "p.sfm/FRA[B]LSG1910[PD]UBS-67-REV.p.sfm",
+              "sha256": "16d972f19d0c0340c7c1fc0fb1f0590cab594802c250f8fdeebee3a4ef05cd5e"
+            }
+          ],
+          "sourceFixes": [
+            [
+              "-19-PSA",
+              "\\v 11 5Éloignez",
+              "\\v 115 Éloignez"
+            ]
+          ]
+        }
+      ]
+    },
+    "de": {
+      "translationId": "LUTH1912",
+      "name": "Lutherbibel 1912",
+      "parts": [
+        {
+          "parser": "osis",
+          "books": "all",
+          "files": [
+            {
+              "repo": "seven1m/open-bibles",
+              "commit": "8b330654ade69f7c96268c761da18dc83a1f49b7",
+              "path": "deu-luther1912.osis.xml",
+              "sha256": "5df33f4bf3e086b6490b467cf8ddbf4cf95126b2826efaddf17b223ddd07f92b"
+            }
+          ]
+        }
+      ]
+    },
+    "pt_BR": {
+      "translationId": "BLIVRE",
+      "name": "Bíblia Livre",
+      "parts": [
+        {
+          "parser": "midvash",
+          "books": "all",
+          "files": [
+            {
+              "repo": "midvash/bible-data",
+              "commit": "9586bd8228a747962df1ee8692730422fb7eb2ec",
+              "path": "versions/pt/almeida-livre/almeida-livre.json",
+              "sha256": "d4851ec9b2563b3f0f4126b91d4772e8cf300ae6974d55cbc484dbb6b427588b"
+            }
+          ]
+        }
+      ]
+    },
+    "ar": {
+      "translationId": "SVD",
+      "name": "Smith and Van Dyck",
+      "parts": [
+        {
+          "parser": "midvash",
+          "books": "all",
+          "files": [
+            {
+              "repo": "midvash/bible-data",
+              "commit": "9586bd8228a747962df1ee8692730422fb7eb2ec",
+              "path": "versions/ar/svd/svd.json",
+              "sha256": "cf3eba11d6e57feb0a6f4fc9d4ed41505e9f74067beac96f64b25b3b1e2171f7"
+            }
+          ]
+        }
+      ]
+    },
+    "hi": {
+      "translationId": "IRVHIN",
+      "name": "Indian Revised Version Hindi",
+      "parts": [
+        {
+          "parser": "usfm_dir",
+          "books": "all",
+          "files": [
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/01_GENHIN.usfm",
+              "sha256": "d61908f9edb627fad6848482695dd49c6999a6788af6a0ab0166fdc345c7aa20"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/02_EXOHIN.usfm",
+              "sha256": "201bd39aeffbc533733d228e99c14fbcf25690bfba95a3fd840c9acaa1db31a8"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/03_LEVHIN.usfm",
+              "sha256": "69f00755bac7974717b7323af39c2c15f1c17fc14850349b6d8ae00ff75d4d8a"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/04_NUMHIN.usfm",
+              "sha256": "2aac4e0f3c810d21ffaa86027e107aca747131700a5f32249b1a906f62154682"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/05_DEUHIN.usfm",
+              "sha256": "b220dbd0febc4a4480d460b834128bb00d0bb7a4a9d1173688850073af4ef872"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/06_JOSHIN.usfm",
+              "sha256": "2e0447638f08bd5813c3e57f233ac25732aae1c1221c72e90052c6beab121544"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/07_JDGHIN.usfm",
+              "sha256": "d33fd29a71cc74963f97d0c1f2bec757295c5c4c3f391221ba740d3584cace05"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/08_RUTHIN.usfm",
+              "sha256": "a60a8d2006267e943c72d3c77a28ede761a902c20da2c0962dd7a4b2f9a02f64"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/09_1SAHIN.usfm",
+              "sha256": "93c1547787dc741a20172388d48dd85a727a02515efda18a122ae790229225d1"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/10_2SAHIN.usfm",
+              "sha256": "557574020d22460256d2048bedd4c8934d5aeed591f7ce28c8de3886f6dbc974"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/11_1KIHIN.usfm",
+              "sha256": "7f0c3ea23f8e342f687fc83ebceb512c0da67b8329e5d621e5349fbd55fccd08"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/12_2KIHIN.usfm",
+              "sha256": "001c3077d4e930a85cd3aafb72dabcd13396923ff4d7ce07fdac35ae7e20a5fe"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/13_1CHHIN.usfm",
+              "sha256": "2d2b0884b381c6842ea5b775a600136d253ea79dd36bf339449eb24b201b8776"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/14_2CHHIN.usfm",
+              "sha256": "de08379fd681ec86873f5e7c570f33697c1f5d040e0abab0be80e0828cb34c31"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/15_EZRHIN.usfm",
+              "sha256": "fa01eafa95f73b38e6f73ec6dd19e8f342c74af597191737c12da4b9254e8d21"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/16_NEHHIN.usfm",
+              "sha256": "e0752e3d1fa13acffc709f62d4085a89d7a198dd9edca9685675935997f4213d"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/17_ESTHIN.usfm",
+              "sha256": "344f2dd9b861a95cebff048171d1fa9b9e4930fead020eb93368154902948865"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/18_JOBHIN.usfm",
+              "sha256": "4043a69cef5284b348ef4ab517693be194b984f7f133d1a5743bf749a885e9f4"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/19_PSAHIN.usfm",
+              "sha256": "1efbd138582b0bd8ebc3159caa8ee676b770848fb21ab2b45915571e931aa63e"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/20_PROHIN.usfm",
+              "sha256": "e1d46246055458e137fa02b050be67c859f9212295cde2859dfc5631bf1de677"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/21_ECCHIN.usfm",
+              "sha256": "0b9eb3c64cf14d3dc799a467a1410d29efdb8a4e03ca93d335a4f2841c7fee74"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/22_SNGHIN.usfm",
+              "sha256": "a0a8ddc636c3c3f109aa0323704ed02002bcf74cbc6d333d7b1f8297a8f79b2d"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/23_ISAHIN.usfm",
+              "sha256": "7b02c9e34ac9bea1222fcaa96912352c8e9feda2fd8c6f715ee090e411fe6adc"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/24_JERHIN.usfm",
+              "sha256": "be590beb7f71a66b0b875c2b19bb4f7dc1b7d24f3be9ed1b25541148ffb20dfd"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/25_LAMHIN.usfm",
+              "sha256": "308d9ebf4adbfb63e417e1d0f98c61d28475c9f371b471ed09d67852b640c8cb"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/26_EZKHIN.usfm",
+              "sha256": "e6408b769ab92ff93bc2e3607c449ecf4378551a6ea9a5adfa297cc0b94cda2f"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/27_DANHIN.usfm",
+              "sha256": "a9e1f29ccf3f7f044cfe558afa2b69f9aa7d8d19500649ed6af647e6bcb6f5dc"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/28_HOSHIN.usfm",
+              "sha256": "ab5989ab18b204bf6a94662835697ec034b1d31fe971c1ea53ab6d6af2e69d8b"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/29_JOLHIN.usfm",
+              "sha256": "81fcd25eaee8287705427ac9344e081b83cd11e7222554ceb999d494bee71aa0"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/30_AMOHIN.usfm",
+              "sha256": "bcc0943f2100db1d9b2d15e67d777f106c237a200d8149aef96205ae06ce118e"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/31_OBAHIN.usfm",
+              "sha256": "45d298d282983f450b4d2f49051b239f49e833f1d530a49450500164f84b9151"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/32_JONHIN.usfm",
+              "sha256": "204711e8d6a4b09d66591bf07b8dd50fba918993a236cabd5fb786afd843ddae"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/33_MICHIN.usfm",
+              "sha256": "12bbc9dd4bb984455faef3b0345dd0390fa92605bcd94f938c6b56aead6bedd9"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/34_NAMHIN.usfm",
+              "sha256": "b18836a0320ea8f7d3c46ab70040cd96f8d8b48ee7a4e398e8cd6fd6e57ea2b9"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/35_HABHIN.usfm",
+              "sha256": "f32d108d677210e674ece781e48f8ad62b9e9ae9e8121fe200fe277c4198990a"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/36_ZEPHIN.usfm",
+              "sha256": "201e6ea1b20cbfff6316f4a2201e35f7177218c85532a66893ea57cb79e67bb4"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/37_HAGHIN.usfm",
+              "sha256": "712d468bc8fb99384cd7e80f5d5ef317e64413a17d5641ce51a3909d6f5689e5"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/38_ZECHIN.usfm",
+              "sha256": "fc9271165b05949846694d6cb2810ace60a147505e4e70a5dfb6cd89698036c9"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/39_MALHIN.usfm",
+              "sha256": "46978631f0113718916156d64ff56e50bcf1d06c260714b638cbfc07efcb3388"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/41_MATHIN.usfm",
+              "sha256": "7fe7457fa8356e6acd760b92896079ae120f0e05be674b78f1a479853f1cb235"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/42_MRKHIN.usfm",
+              "sha256": "197b02bdf70e276953fdb618e129ccfa89c6759c7e4c91af562a650d672f1428"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/43_LUKHIN.usfm",
+              "sha256": "ff690f261cb62d2210373c8ffb57875e08860f8a275bdab369481ed74331ada5"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/44_JHNHIN.usfm",
+              "sha256": "fd6fee1837fb3c8be30f0ce01e7236238fa0558dc3926234281f42d37aa98f12"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/45_ACTHIN.usfm",
+              "sha256": "b89f54d3da5d549e2073d167a3f62afbd91a4ffedf8526f9270fe0133228306c"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/46_ROMHIN.usfm",
+              "sha256": "0c45a4bcf215d02e67c97848ca362fc93ea5e26a7994d9a535fa0083e88ab545"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/47_1COHIN.usfm",
+              "sha256": "2c738357429ad58517d7adec871edfcdaedb85af8d18c79d4f4d3ea06d37d48b"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/48_2COHIN.usfm",
+              "sha256": "45fe85deb61b8ce4c1fdf676fa70ef804bb99cd1e8547e863c51a14ddbd5d7e2"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/49_GALHIN.usfm",
+              "sha256": "405ecb844573c45449ddd55c75503ad2a169bc38bc3faf77d4e433a3c1795af7"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/50_EPHHIN.usfm",
+              "sha256": "9b860a00e061bd86310435240faee008f75741f7b172cb64da47a6951f4175b6"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/51_PHPHIN.usfm",
+              "sha256": "c89872b5bffb70bec82b5209585fac1df02d6efbced1df2aa90d4cf837c48d62"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/52_COLHIN.usfm",
+              "sha256": "e19ec351d74210a340476c9392de7ef1dae8ecce6a6aa82ca9121713c8d53614"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/53_1THHIN.usfm",
+              "sha256": "22455eaeaec8e00f298f22b49626e3ed28e7d1430649c0cc954fca3957e83ced"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/54_2THHIN.usfm",
+              "sha256": "fa9f78b61306265b215e4dfca0ee8b48953f7124e819e478ce157201ebbe36e8"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/55_1TIHIN.usfm",
+              "sha256": "84343f1d21ac90f94d9ee69a912615fab8484019eb0c295eb178eb9aaecc36ec"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/56_2TIHIN.usfm",
+              "sha256": "65001e664418d2ff787fa3037f31db96660c48ec48d30707a8d4830d58c56108"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/57_TITHIN.usfm",
+              "sha256": "ab4bc83342dc5fc86f7c4c3712b6585f2b955c3d3dafc84fa933699dd75b89c0"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/58_PHMHIN.usfm",
+              "sha256": "e1b90e086a39577b23a3b4e23af8e1993bf89c03e90e937c76f2c6058e39993a"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/59_HEBHIN.usfm",
+              "sha256": "8b0300d38f3c0fc73f4f6000b9952e3e0d374bcf5f437fd82dcc9568f6032348"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/60_JASHIN.usfm",
+              "sha256": "1a3485bf07768287fea9a112b4f7278dff435735f4584e5d88028d4167065a27"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/61_1PEHIN.usfm",
+              "sha256": "ae3f53c63d48fc0dcc9df94ef09748de1c4aa5a5bdd6fb34f658906a1e56be0b"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/62_2PEHIN.usfm",
+              "sha256": "d6c44f98ab114cc4f4fe3977b7abe0af54f8ab9b57363552caf495c87a4f21d6"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/63_1JNHIN.usfm",
+              "sha256": "e14607f33ff4d3dfdb6152b9625cd31ac4206fb2b766f7b605b4c8048310177b"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/64_2JNHIN.usfm",
+              "sha256": "97a2309eae48b6e71253b4c67cb3a0ddf7b6138c8c24f3c31452f6070693ef3d"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/65_3JNHIN.usfm",
+              "sha256": "7f30a32d1f0bea5221d38ec2275ca052fffffce53d0b0a2c1b9e0c2263e52190"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/66_JUDHIN.usfm",
+              "sha256": "430994c7cdc8101159ebf07777acfe344f59524c2af9651eef04d1f7c3d89849"
+            },
+            {
+              "repo": "FreeBiblesIndia/Hindi_Bible",
+              "commit": "0bc468f34cbfb77fefeb2685616e91fbd7d55101",
+              "path": "usfm/67_REVHIN.usfm",
+              "sha256": "3c17f56146f885b84e90efe4ac8d46c118a4853786170f8780bb292ae505529c"
+            }
+          ]
+        }
+      ]
+    },
+    "ja": {
+      "translationId": "KOUGO",
+      "name": "Kougo-yaku 1954/55",
+      "parts": [
+        {
+          "parser": "osis",
+          "books": "all",
+          "files": [
+            {
+              "repo": "seven1m/open-bibles",
+              "commit": "8b330654ade69f7c96268c761da18dc83a1f49b7",
+              "path": "jpn-kougo.osis.xml",
+              "sha256": "6930015f5d0faf49f3038a7e2f482aeb45939510b6acb8a8fb1945640c1d91b6"
+            }
+          ]
+        }
+      ]
+    },
+    "ko": {
+      "translationId": "KRV1961",
+      "name": "Korean Revised Version 1961",
+      "parts": [
+        {
+          "parser": "osis",
+          "books": "all",
+          "files": [
+            {
+              "repo": "seven1m/open-bibles",
+              "commit": "8b330654ade69f7c96268c761da18dc83a1f49b7",
+              "path": "kor-korean.osis.xml",
+              "sha256": "fa55e0dcd7ee1dd3cced563b1e3108c01c6bd774f095a3e773996c4b0a2e7f24"
+            }
+          ]
+        }
+      ]
+    },
+    "zh_Hans": {
+      "translationId": "CUVS",
+      "name": "Chinese Union Version Simplified",
+      "parts": [
+        {
+          "parser": "usfx",
+          "books": "all",
+          "files": [
+            {
+              "repo": "seven1m/open-bibles",
+              "commit": "8b330654ade69f7c96268c761da18dc83a1f49b7",
+              "path": "chi-cuv-simp.usfx.xml",
+              "sha256": "bea9f6e4fd35b70a67e3978ce8b9dc0ad853078e67472653cf1b34f357ae3abf"
+            }
+          ]
+        }
+      ]
+    },
+    "he": {
+      "translationId": "WLC-MHB",
+      "name": "Westminster Leningrad Codex and Modern Hebrew Bible",
+      "parts": [
+        {
+          "parser": "midvash",
+          "books": "ot",
+          "files": [
+            {
+              "repo": "midvash/bible-data",
+              "commit": "9586bd8228a747962df1ee8692730422fb7eb2ec",
+              "path": "versions/he/wlc/wlc.json",
+              "sha256": "2250427af897c5bed2d148c8191a4e6da6396c4cb03f982c929f3be022982679"
+            }
+          ]
+        },
+        {
+          "parser": "scrollmapper",
+          "books": "nt",
+          "files": [
+            {
+              "repo": "scrollmapper/bible_databases",
+              "commit": "59b18c5af5845728c275d5b7178ad0d024172b1f",
+              "path": "formats/json/HebModern.json",
+              "sha256": "26e9d2fec738239d7beac5ad68c941e592c166f44b5b439e3edef6064948ece8"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "crossChecks": {
+    "pt_BR": {
+      "parser": "scrollmapper",
+      "files": [
+        {
+          "repo": "scrollmapper/bible_databases",
+          "commit": "59b18c5af5845728c275d5b7178ad0d024172b1f",
+          "path": "formats/json/PorBLivre.json",
+          "sha256": "21b726be1a30abf1bb41dbf06c4bfceda258d5d5f667778713c1803d2dd16f7a"
+        }
+      ]
+    },
+    "ko": {
+      "parser": "scrollmapper",
+      "files": [
+        {
+          "repo": "scrollmapper/bible_databases",
+          "commit": "59b18c5af5845728c275d5b7178ad0d024172b1f",
+          "path": "formats/json/KorRV.json",
+          "sha256": "ffdafc000a0555f87c889c03638b631ff27d033fe9aed0ef89b38d04b576c4bf"
+        }
+      ]
+    },
+    "fr": {
+      "parser": "midvash",
+      "files": [
+        {
+          "repo": "midvash/bible-data",
+          "commit": "9586bd8228a747962df1ee8692730422fb7eb2ec",
+          "path": "versions/fr/lsg/lsg.json",
+          "sha256": "29c54c00d251a3429586fe70c6924a690ab495d5a93f2e31b1c5ac090bc6754a"
+        }
+      ]
+    }
+  }
+}
