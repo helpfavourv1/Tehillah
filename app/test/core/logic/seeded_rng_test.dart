@@ -57,6 +57,10 @@ void main() {
     expect(a.fork('keeper').seed, isNot(a.fork('shooter').seed));
   });
 
+  test('fork works for seeds whose bytes are above 127', () {
+    expect(SeededRng(0xFFFFFFFF).fork('shot').seed, isNot(SeededRng(0xFFFFFFFE).fork('shot').seed));
+  });
+
   test('fork rejects a non-ASCII label', () {
     expect(() => SeededRng(1).fork('é'), throwsArgumentError);
   });

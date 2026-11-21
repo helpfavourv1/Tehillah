@@ -40,8 +40,12 @@ abstract final class KeeperAi {
     KeeperProfile profile,
     List<ShotParams> playerShots,
   ) {
-    final List<double> weights = <double>[
+    final List<double> raw = <double>[
       for (final KeeperDive d in KeeperDive.values) profile.tendency[d] ?? 0,
+    ];
+    final double sum = raw.fold(0.0, (double a, double b) => a + b);
+    final List<double> weights = <double>[
+      for (final double w in raw) sum > 0 ? w / sum : 1 / raw.length,
     ];
     final double reading = profile.habitReading;
     if (reading <= 0 || playerShots.length < minimumKicksToRead) {

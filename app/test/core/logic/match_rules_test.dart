@@ -65,7 +65,7 @@ void main() {
   });
 
   test('the opponent can win early too', () {
-    final MatchState s = _play(_fresh(), <bool>[false, true, false, true, false, true, false]);
+    final MatchState s = _play(_fresh(), <bool>[false, true, false, true, false, true]);
     expect(MatchRules.winner(s), MatchSide.opponent);
   });
 
@@ -106,10 +106,15 @@ void main() {
 
   test('a short shootout of three kicks ends on its own count', () {
     MatchState s = MatchRules.start(configFor(kicksPerSide: 3), Modifiers.none);
-    s = _play(s, <bool>[true, false, true, false, true]);
+    s = _play(s, <bool>[true, false, false, false, false]);
     expect(MatchRules.isFinished(s), isFalse);
     s = _play(s, <bool>[false]);
     expect(MatchRules.winner(s), MatchSide.player);
+    final MatchState early = _play(
+      MatchRules.start(configFor(kicksPerSide: 3), Modifiers.none),
+      <bool>[true, false, true, false, true],
+    );
+    expect(MatchRules.winner(early), MatchSide.player);
   });
 
   test('kicking out of turn or after the end throws', () {

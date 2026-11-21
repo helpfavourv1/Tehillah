@@ -56,6 +56,11 @@ final class SeededRng {
   /// one part of the game cannot shift the sequence in another. Labels must be
   /// ASCII.
   SeededRng fork(String label) {
+    for (final int unit in label.codeUnits) {
+      if (unit > 0x7F) {
+        throw ArgumentError.value(label, 'label', 'must be ASCII');
+      }
+    }
     int h = 0x811C9DC5;
     final List<int> bytes = <int>[
       seed & 0xFF,
@@ -65,9 +70,6 @@ final class SeededRng {
       ...label.codeUnits,
     ];
     for (final int b in bytes) {
-      if (b > 0x7F) {
-        throw ArgumentError.value(label, 'label', 'must be ASCII');
-      }
       h ^= b;
       h = _imul(h, 0x01000193);
     }

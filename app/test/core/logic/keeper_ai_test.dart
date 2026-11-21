@@ -56,7 +56,8 @@ void main() {
   test('it does not read habits from fewer than two kicks', () {
     final KeeperProfile p = _profile(habit: 1);
     final List<double> one = KeeperAi.diveWeights(p, <ShotParams>[_leftLow]);
-    expect(one, everyElement(1.0));
+    expect(one.fold(0.0, (double a, double b) => a + b), closeTo(1, 1e-9));
+    expect(one.every((double w) => (w - 1 / 6).abs() < 1e-9), isTrue);
     final List<double> two = KeeperAi.diveWeights(p, <ShotParams>[_leftLow, _leftLow]);
     expect(two[KeeperDive.leftLow.index], greaterThan(two[KeeperDive.rightHigh.index]));
   });
