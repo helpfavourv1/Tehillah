@@ -1,0 +1,32 @@
+name: probe
+on:
+  push:
+    branches: [api-probe]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.9'
+          channel: stable
+      - run: flutter pub get
+        working-directory: app
+      - name: show
+        working-directory: app
+        run: |
+          set +e
+          P=$HOME/.pub-cache/hosted/pub.dev
+          G=$P/google_mobile_ads-9.2.0/lib
+          echo "@@@ ump"; ls $G $G/src; grep -rhv "^ *///" $G/src/ump/*.dart | grep -n "class \|static \|Future<\|void \|bool \|typedef \|enum \|  [A-Za-z]*,$\|  this\.\|factory" | head -120
+          echo "@@@ ads"; grep -rhv "^ *///" $G/src/ad_containers.dart | grep -n "^class \|static Future<void> load\|^  }) \|required \|factory\|BannerAd(\|AdSize\b" | head -80
+          grep -rhv "^ *///" $G/src/mobile_ads.dart | grep -n "Future<InitializationStatus> initialize\|updateRequestConfiguration\|class MobileAds\|setAppMuted\|Future<void> " | head -12
+          grep -rn "getCurrentOrientationAnchoredAdaptiveBannerAdSize\|getAnchoredAdaptiveBannerAdSize\|static const AdSize\|class AdWidget\|class FullScreenContentCallback\|class AdListener\|class BannerAdListener" -A3 $G/src/*.dart | grep -v "///" | head -40
+          grep -rhv "^ *///" $G/src/ad_listeners.dart | grep -n "class \|final \|this\." | head -60
+          echo "@@@ iap"; I=$P/in_app_purchase-3.3.1/lib; ls $I $I/src/*; grep -rhv "^ *///" $I/src/in_app_purchase/in_app_purchase.dart | grep -n "Future<\|Stream<\|static\|instance" | head -30
+          IP=$(ls -d $P/in_app_purchase_platform_interface-*|head -1); grep -rhv "^ *///" $IP/lib/src/types/purchase_status.dart $IP/lib/src/types/purchase_param.dart $IP/lib/src/types/product_details_response.dart | head -60; grep -rhv "^ *///" $IP/lib/src/types/purchase_details.dart | grep -n "final \|class \|this\." | head -30
+          grep -rhv "^ *///" $IP/lib/src/types/product_details.dart | grep -n "final \|class \|this\." | head -20
+          grep -rhv "^ *///" $IP/lib/src/types/in_app_purchase_error.dart | grep -n "final \|class \|this\." | head
+          ls $P | grep -i "in_app_purchase_android\|in_app_purchase_storekit"
+          grep -rn "class GooglePlayPurchaseDetails" -A25 $P/in_app_purchase_android-*/lib/src/types/google_play_purchase_details.dart | grep -v "///" | head -30
