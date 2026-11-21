@@ -119,6 +119,28 @@ Batch p1f decisions, adjusting the blueprint tables:
 - Achievements are data: nine fruit entries, each a rule (`AchievementRule`) and a threshold: love 10 wins, joy 50 goals, peace 3 clean sheets, patience 3 sudden-death wins, kindness 10 keeper saves, goodness 6 lamps, faithfulness 7-day Daily Bread streak, gentleness 10 three-star matches, self-control 9 goals in a row. Thresholds are starting values.
 - A `LicenseNotice` covers scripture sources, fonts and icons alike, so the licenses screen has one list.
 
+## ADR-034: Pure game logic (Accepted, 2026-11-21)
+
+Batch p2b. Everything below is pure Dart in `core/logic` and `core/input` and is tested on a plain VM.
+- Randomness is `SeededRng` (mulberry32). A match forks three streams from its seed (`shot`, `keeper`, `shooter`), and `ShotResolver` always reads the same 14 numbers per kick, so adding a rule never shifts later kicks and a match replays exactly.
+- A shot resolves to goal, saved, post, wide or high from aim error (grows with nerve and with power above the ideal 0.78), curve, wind, the six-cell goal grid and the keeper's dive coverage. Save chance is the keeper's skill (60% reaction, 40% reach). Constants were tuned against a Python twin and are held by `balance_simulation_test` (reference player wins about 91% of stage 1 and about 30% of stage 12; no ball above 62% at stage 12).
+- The keeper picks a dive from its tendency table; on later stages it blends in the player's own aimed-cell history. The shooter AI (Watchman) and the defender in Sling and Stone scale with difficulty.
+- Nerve rises with pressure (sudden death, trailing, boss) and falls with a goal or Selah; Selah charges, Shield, Belt and Helmet are rules in `MatchRules`/`MatchEngine`.
+- Daily Bread uses the starter loadout so every player faces the identical challenge. Sling and Stone gives 7 stones for 5 targets; 3, 4 and 5 hits earn 1, 2 and 3 stars.
+- Input strategies only emit `ShotParams`; flick and timing bar share one interface.
+
+## ADR-035: Ports, saving and the reader index (Accepted, 2026-11-21)
+
+Batch p2c, adjusting the blueprint.
+- **Ports.** `core/ports` declares one small interface per adapter: storage, log, ads, consent, billing, notifications, audio, haptics, share, connectivity, url, pack download and flags. Two ports not in the blueprint table were added (`UrlPort`, `FlagsPort`) because p2d and p2e already list adapters for them. Every port is plain Dart (`Future`/`Stream`) and has an in-memory fake in `test/fakes`.
+- **The banner widget.** `AdsPort` exposes only the banner's state and height. The SDK's banner widget cannot be named in `core`; the platform layer will hand the slot a builder through `AppScope` in p2e/p3b.
+- **Progress file.** Envelope `{format, sha256, payload}` where the payload is the progress JSON kept as a string, so the checksum is over exact bytes. `Migrator` runs numbered steps from the stored version to the current one, refuses gaps when it is built, and flags a newer version as read-only. `ProgressStore` is the single load/save path: a damaged main file uses the backup, two damaged files start clean with a one-time notice, a newer file is read but never replaced, and a read that throws blocks writes until a load succeeds, so good data is never overwritten by an empty save. A failed write returns a `StorageDegradedError` (warning banner); the app keeps working from memory.
+- **Consent.** `ConsentTracker` implements the blueprint rule: a completed refresh is honored, including a decline or withdrawal; a failed refresh never replaces the last saved state, so saved permission survives an offline launch, and with nothing saved ads stay off.
+- **Flags.** Every remote flag defaults to on; a missing or mistyped value falls back to on.
+- **No verse-number map.** ADR-032 keeps each pack in its own numbering and limits curated verses to chapters whose verse counts agree in all 11 languages, so a canonical reference opens the same verse in every pack. `verse_number_map.dart` and `verse_maps.py` are therefore not built. Bookmarks and highlights carry the language they were saved in and are shown in that language's reader.
+- **Verse repository.** Parses `curated.json` and the eleven text files and fails if any language lacks any verse, has an unknown id, or names another language. `forMoment` is deterministic in its seed and skips recently shown ids unless nothing else fits.
+- **Reader index.** One inverted index per installed pack. Text is folded (case, Latin accents, Hebrew and Arabic vowel marks); Chinese, Japanese and Korean runs are indexed as overlapping character pairs and verified for adjacency; other words match from three letters as word starts. A synthetic 31,000-verse pack is searched under 250 ms in CI (the target on device is under 50 ms; checked on the emulator in p6c).
+
 ## Open items
 
 | Item | Status |
