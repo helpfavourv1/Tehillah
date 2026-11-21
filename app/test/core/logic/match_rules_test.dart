@@ -112,7 +112,7 @@ void main() {
     expect(MatchRules.winner(s), MatchSide.player);
     final MatchState early = _play(
       MatchRules.start(configFor(kicksPerSide: 3), Modifiers.none),
-      <bool>[true, false, true, false, true],
+      <bool>[true, false, true, false],
     );
     expect(MatchRules.winner(early), MatchSide.player);
   });
