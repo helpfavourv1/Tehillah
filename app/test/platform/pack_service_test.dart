@@ -168,14 +168,31 @@ void main() {
     expect(await service.load('en'), isNull);
   });
 
-  test('an interrupted transfer resumes with a Range request and installs', () async {
+  test('an interrupted transfer is retried once and installs', () async {
     server.cutFirstAfter = 200;
     final List<PackProgress> progress = await service.download(entry).toList();
     expect(progress.last.received, packBytes.length);
-    expect(server.ranges.first, isNull);
-    expect(server.ranges.last, startsWith('bytes='));
+    expect(server.requests, 2);
     expect(await service.installedLanguages(), <String>{'en'});
     expect((await service.load('en'))!.chapter('Gen', 1)!.length, 300);
+  });
+
+  test('a partial file left by an earlier run is resumed with a Range request', () async {
+    Directory('${dir.path}/packs').createSync(recursive: true);
+    File('${dir.path}/packs/en.part').writeAsBytesSync(packBytes.sublist(0, 300));
+    final List<PackProgress> progress = await service.download(entry).toList();
+    expect(server.ranges, <String?>['bytes=300-']);
+    expect(progress.first.received, greaterThanOrEqualTo(300));
+    expect(progress.last.received, packBytes.length);
+    expect((await service.load('en'))!.chapter('Gen', 1)!.length, 300);
+  });
+
+  test('a partial file larger than the pack is thrown away and the download starts over', () async {
+    Directory('${dir.path}/packs').createSync(recursive: true);
+    File('${dir.path}/packs/en.part').writeAsBytesSync(List<int>.filled(packBytes.length + 50, 7));
+    await service.download(entry).toList();
+    expect(server.ranges, <String?>[null]);
+    expect(await service.installedLanguages(), <String>{'en'});
   });
 
   test('a file that is in the wrong shape is refused even when its hash matches', () async {
