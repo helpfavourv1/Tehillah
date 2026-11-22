@@ -253,6 +253,10 @@ class FakeFlags implements FlagsPort {
 
 final class FakePacks implements PackPort {
   PackManifest? manifest;
+
+  /// Installed when a download finishes, so the next load finds it.
+  BiblePack? installOnDownload;
+  int downloads = 0;
   final Map<String, BiblePack> installed = <String, BiblePack>{};
   final Map<String, String> notices = <String, String>{};
   Object? downloadError;
@@ -277,6 +281,11 @@ final class FakePacks implements PackPort {
       throw error;
     }
     yield const PackProgress(100, 100);
+    final BiblePack? pack = installOnDownload;
+    if (pack != null) {
+      installed[entry.language] = pack;
+    }
+    downloads++;
   }
 
   @override
