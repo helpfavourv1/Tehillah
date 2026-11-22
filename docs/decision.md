@@ -141,6 +141,17 @@ Batch p2c, adjusting the blueprint.
 - **Verse repository.** Parses `curated.json` and the eleven text files and fails if any language lacks any verse, has an unknown id, or names another language. `forMoment` is deterministic in its seed and skips recently shown ids unless nothing else fits.
 - **Reader index.** One inverted index per installed pack. Text is folded (case, Latin accents, Hebrew and Arabic vowel marks); Chinese, Japanese and Korean runs are indexed as overlapping character pairs and verified for adjacency; other words match from three letters as word starts. A synthetic 31,000-verse pack is searched under 250 ms in CI (the target on device is under 50 ms; checked on the emulator in p6c).
 
+## ADR-036: Consent, ads, billing, packs and flags adapters (Accepted, 2026-11-22)
+
+Batch p2e. Platform adapters behind the p2c ports.
+- **Consent** (`ConsentService`): Google's User Messaging Platform. `refresh()` updates consent information, shows the form only when the platform says one is required, then reads status, `canRequestAds` and privacy-options requirement. It throws when the update fails so `ConsentTracker` keeps the saved state. A debug geography and test device IDs can be passed for the region tests before release.
+- **Ads** (`AdService`): every method first asks a `mayRequest` callback (consent allows, ads not removed, flag on), so the SDK is not even initialized before consent. SDK failures become "no ad" plus a log line. The banner is anchored-adaptive, is exactly its ad's height, and `buildBanner()` returns null (zero height, nothing drawn) unless an ad is ready. The app content rating is capped at teen. Ad units are Google's sample IDs (`AdUnitIds.production` is false) until real IDs are supplied.
+- **Billing** (`BillingService`): one non-consumable, `com.zdmgold.tehillah.removeads`. On launch it replays the store's purchases; a purchased or restored event means owned, and the last owned answer is remembered so an offline launch still shows the purchase. An empty answer to a restore the app itself started is the signal that the store holds no purchase (refund), and only then is ownership removed. The rules are the pure function `entitlementAfter`, tested without a store.
+- **Packs** (`PackService`): download to `{lang}.part`, one automatic resume with a Range request, SHA-256 check against the manifest, a parse check, then an atomic rename; any failed check discards the file. A language counts as installed only when the pack, notice and meta files are all in place. Requests ask for no content encoding so Cloudflare cannot change the bytes under the hash. Parsing an installed pack runs in a background isolate.
+- **Flags** (`FlagsService`): 6 second timeout; a good answer is cached; text that is not a JSON object is ignored and never overwrites the cache; with no answer and no cache every flag is on. `website/flags.json` ships with everything on.
+- **Config** (`AppConfig`): the website origin, manifest and flags URLs, support email and product ID live in one file.
+- **Network errors**: no connection or a timeout is a user-recoverable error (retry); anything else the server or transfer did is a system-recoverable error.
+
 ## Open items
 
 | Item | Status |
