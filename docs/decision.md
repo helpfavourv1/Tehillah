@@ -202,3 +202,12 @@ Status: accepted.
 - **Bookmarks and highlights** live in the career file and are written through `ProgressProvider`. Choosing a verse's current highlight colour again removes it.
 - **Match** wraps the engine and ignores any call that does not fit the current prompt, so the engine's StateError can never reach the UI. Boss stages (6, 12) are applied in Journey.
 - **`AppScope`** carries one `AppServices` container built in `main`; there are no singletons.
+
+## ADR-039: Component library (p4a)
+
+- **One press behaviour.** `Pressable` gives every control a 48 by 48 hit area, button semantics, a keyboard focus ring and opacity or scale feedback (never a ripple). A null `onTap` disables it. Each component picks its own feedback: card and chip fade to 0.7, row tints, button scales to 0.97 and darkens.
+- **Six components, no copies.** `AppCard`/`CardSurface`, `AppRow`, `AppChip`, `PrimaryButton` (with `SecondaryButton` and `DestructiveButton`, all filled, never outlined), `SectionHeader`, `EmptyState`, plus `IconChip` (40 inside 48) for every toolbar action.
+- **Brand once.** `BrandWordmark` takes its text from the caller; `NavBar.brand` is used on the home screen only, inner screens use `NavBar.back`.
+- **Screen shape.** `ScreenFrame` handles the safe area, caps content at 640 wide, and removes the bottom slot entirely while the keyboard is open; the content makes room for the keyboard once.
+- **Large text.** Rows and cards wrap rather than clip; at 3.1x text they grow and the screen scrolls. Tests render at 3.1x in left-to-right and right-to-left.
+- **Visual gate.** Gate 2 (a screenshot on the cheapest-device profile against a reference app) needs the emulator workflow built in p6c; until then these components are verified by code and widget tests only.
