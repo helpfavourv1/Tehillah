@@ -126,7 +126,7 @@ void main() {
 
   test('the manifest is fetched and parsed', () async {
     final PackManifest manifest = await service.fetchManifest();
-    expect(manifest.packs.single.language, 'en');
+    expect(manifest.entries.single.language, 'en');
   });
 
   test('a missing manifest is a system error after one retry', () async {
