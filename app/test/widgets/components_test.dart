@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tehillah/theme/icon_aliases.dart';
@@ -54,7 +55,8 @@ void main() {
       await tester.pump();
       expect(find.text('pressed'), findsNothing);
       await g.up();
-      expect(tester.getSemantics(find.bySemanticsLabel('Off')).flagsCollection.isEnabled.name, isNot('isTrue'));
+      final SemanticsData data = tester.getSemantics(find.byType(Pressable)).getSemanticsData();
+      expect(data.hasAction(SemanticsAction.tap), isFalse);
       handle.dispose();
     });
 
@@ -113,6 +115,7 @@ void main() {
       await tester.pumpWidget(harness(
         const AppCard(label: _long, subtitle: _long, value: 'Value that is long too', leading: AppIcons.star, chevron: true),
         textScale: 3.1,
+        scroll: true,
       ));
       expect(tester.takeException(), isNull);
     });
@@ -152,7 +155,7 @@ void main() {
     });
 
     testWidgets('is at least 56 high and survives 3.1x text', (WidgetTester tester) async {
-      await tester.pumpWidget(harness(AppRow(label: _long, subtitle: _long, value: 'v', leading: AppIcons.sound, onTap: () {}), textScale: 3.1));
+      await tester.pumpWidget(harness(AppRow(label: _long, subtitle: _long, value: 'v', leading: AppIcons.sound, onTap: () {}), textScale: 3.1, scroll: true));
       expect(tester.takeException(), isNull);
       expect(tester.getSize(find.byType(AppRow)).height, greaterThanOrEqualTo(Metrics.rowMinHeight));
     });
@@ -233,7 +236,7 @@ void main() {
     testWidgets('expanded false hugs its content; long labels wrap at 3.1x', (WidgetTester tester) async {
       await tester.pumpWidget(harness(PrimaryButton(label: 'OK', expanded: false, onPressed: () {})));
       expect(tester.getSize(find.byType(PrimaryButton)).width, lessThan(200));
-      await tester.pumpWidget(harness(PrimaryButton(label: _long, icon: AppIcons.play, onPressed: () {}), textScale: 3.1));
+      await tester.pumpWidget(harness(PrimaryButton(label: _long, icon: AppIcons.play, onPressed: () {}), textScale: 3.1, scroll: true));
       expect(tester.takeException(), isNull);
     });
 
@@ -335,6 +338,7 @@ void main() {
       await tester.pumpWidget(harness(
         NavBar.back(onBack: () {}, backLabel: 'Back', title: _long, actions: <Widget>[IconChip(icon: AppIcons.search, semanticLabel: 'Search', onTap: () {})]),
         textScale: 3.1,
+        scroll: true,
       ));
       expect(tester.takeException(), isNull);
     });

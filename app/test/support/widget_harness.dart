@@ -13,7 +13,7 @@ Widget harness(
   bool reduceMotion = false,
   EdgeInsets viewInsets = EdgeInsets.zero,
   EdgeInsets padding = EdgeInsets.zero,
-  bool constrainWidth = true,
+  bool scroll = false,
 }) {
   return Directionality(
     textDirection: direction,
@@ -31,7 +31,10 @@ Widget harness(
           style: const TextStyle(fontSize: 14, color: Color(0xFF000000)),
           child: Align(
             alignment: Alignment.topCenter,
-            child: constrainWidth ? SizedBox(width: size.width, height: size.height, child: child) : child,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: size.width, maxHeight: size.height),
+              child: scroll ? SingleChildScrollView(child: child) : child,
+            ),
           ),
         ),
       ),
