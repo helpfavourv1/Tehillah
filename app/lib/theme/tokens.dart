@@ -285,6 +285,22 @@ abstract final class Metrics {
 
   /// Opacity of a disabled control.
   static const double disabledOpacity = 0.4;
+
+  /// The widest a screen's content grows, so tablets and landscape phones do
+  /// not stretch lines across the whole display.
+  static const double contentMaxWidth = 640;
+
+  /// The keyboard-focus ring around a control.
+  static const double focusRing = 2;
+
+  /// The minimum height of a card or row: two lines of text plus padding.
+  static const double rowMinHeight = 56;
+
+  /// The height of the navigation bar.
+  static const double navBarHeight = 56;
+
+  /// The height of the small pill chip.
+  static const double chipHeight = 32;
 }
 
 /// Durations and curves of interface motion. No spring or bounce anywhere.
