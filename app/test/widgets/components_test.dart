@@ -250,7 +250,7 @@ void main() {
       final SemanticsHandle handle = tester.ensureSemantics();
       await tester.pumpWidget(harness(const SectionHeader('Appearance')));
       expect(find.text('APPEARANCE'), findsOneWidget);
-      expect(tester.getSemantics(find.text('APPEARANCE')).flagsCollection.isHeader.name, 'isTrue');
+      expect(tester.getSemantics(find.text('APPEARANCE')).flagsCollection.isHeader, isTrue);
       handle.dispose();
     });
 
