@@ -3,7 +3,7 @@ import 'package:tehillah/core/ports/storage_port.dart';
 
 /// In-memory storage that mimics the adapter: a write keeps the previous copy
 /// as the backup. Failures can be switched on per operation.
-final class FakeStorage implements StoragePort {
+class FakeStorage implements StoragePort {
   final Map<String, String> files = <String, String>{};
   final Map<String, String> backups = <String, String>{};
   final Map<String, String> values = <String, String>{};

@@ -89,7 +89,7 @@ final class FakeAds implements AdsPort {
   }
 }
 
-final class FakeBilling implements BillingPort {
+class FakeBilling implements BillingPort {
   EntitlementStatus status = EntitlementStatus.notOwned;
   PurchaseOutcome buyOutcome = PurchaseOutcome.started;
   final StreamController<EntitlementStatus> _changes =
