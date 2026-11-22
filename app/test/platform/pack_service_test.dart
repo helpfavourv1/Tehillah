@@ -13,6 +13,7 @@ import 'package:tehillah/platform/pack_service.dart';
 final class _Server {
   late final HttpServer http;
   final Map<String, List<int>> files = <String, List<int>>{};
+  /// Range headers of requests for the pack file only (notices are not counted).
   final List<String?> ranges = <String?>[];
   int requests = 0;
   int cutFirstAfter = -1;
@@ -25,7 +26,10 @@ final class _Server {
   Uri get base => Uri.parse('http://127.0.0.1:${http.port}');
 
   Future<void> _handle(HttpRequest request) async {
-    requests++;
+    final bool isPack = request.uri.path == '/p/en-1.json.gz';
+    if (isPack) {
+      requests++;
+    }
     final List<int>? body = files[request.uri.path];
     if (body == null) {
       request.response.statusCode = 404;
@@ -33,7 +37,9 @@ final class _Server {
       return;
     }
     final String? range = request.headers.value(HttpHeaders.rangeHeader);
-    ranges.add(range);
+    if (isPack) {
+      ranges.add(range);
+    }
     int start = 0;
     if (range != null && range.startsWith('bytes=')) {
       start = int.parse(range.substring(6).replaceAll('-', ''));
