@@ -191,3 +191,14 @@ Status: accepted.
 - **Achievements and unlocks** are computed inside `applyMatch` / `applyDaily` and returned to the caller (`MatchRecorded`), so the result screen can show them and the file is written once.
 - **Entitlement.** Only `EntitlementStatus.owned` sets `adsRemoved`; `unknown` and `pending` keep ads. A restore shows progress until the store answers or 20 seconds pass.
 - **Language.** Device languages resolve to the eleven shipped codes (`pt` to `pt_BR`, any `zh` to `zh_Hans`, `iw` to `he`); a manual override always wins. The reader language is separate.
+
+## ADR-038: Feature providers (p3b)
+
+- **One ad decision.** The rules live in `core/ads/ad_policy.dart` as pure functions and are tested as a truth table; `AdProvider` only gathers inputs and drives the ad port. Banner and interstitial need consent, the remote switch and a store answer of "not owned" (unknown or pending requests nothing, so a buyer never sees an ad flash up). An interstitial never shows in the first session and at most once per ten minutes. Rewarded stays available after Remove Ads but still needs consent and its switch.
+- **The slot has no height unless an ad is ready.** `bannerHeightDp` is zero whenever the banner is hidden, loading, failed, withdrawn, removed, or the keyboard is open.
+- **Daily Bread** uses the device's own calendar day. Reminder text is passed in by the screen because it is localized. On launch a revoked notification permission switches the reminder off.
+- **Packs** never download until asked. The provider checks the remote switch, then connectivity (Wi-Fi only fails with `pack.needs_wifi` so the prompt can offer mobile data), then fetches the list and streams progress; every failure becomes a state with an error code.
+- **Reader** reads the installed pack for the reader language and remembers the place per language. The search index is built on first search. It follows language, install and text-size changes.
+- **Bookmarks and highlights** live in the career file and are written through `ProgressProvider`. Choosing a verse's current highlight colour again removes it.
+- **Match** wraps the engine and ignores any call that does not fit the current prompt, so the engine's StateError can never reach the UI. Boss stages (6, 12) are applied in Journey.
+- **`AppScope`** carries one `AppServices` container built in `main`; there are no singletons.
