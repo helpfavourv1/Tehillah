@@ -47,7 +47,9 @@ final class _Server {
       final Socket socket = await request.response.detachSocket();
       socket.add(slice.sublist(0, cut));
       await socket.flush();
-      socket.destroy();
+      // A graceful close, not destroy(): a reset could discard the bytes the
+      // client has not read yet, and the test needs a real partial file.
+      await socket.close();
       return;
     }
     request.response.add(slice);
