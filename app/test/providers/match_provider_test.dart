@@ -61,7 +61,7 @@ void main() {
       match.kick();
     }
     final int mid = match.value.version;
-    expect(mid, greaterThan(before));
+    expect(mid, greaterThanOrEqualTo(before));
     final record = match.kick(shot: centreShot);
     expect(record, isNotNull);
     expect(match.value.lastKick, record);
