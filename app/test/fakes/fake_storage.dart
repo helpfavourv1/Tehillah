@@ -49,7 +49,12 @@ class FakeStorage implements StoragePort {
   Future<String?> getString(String key) async => values[key];
 
   @override
-  Future<void> setString(String key, String value) async => values[key] = value;
+  Future<void> setString(String key, String value) async {
+    if (failWrites) {
+      throw StateError('write failed');
+    }
+    values[key] = value;
+  }
 
   @override
   Future<void> removeKey(String key) async => values.remove(key);
