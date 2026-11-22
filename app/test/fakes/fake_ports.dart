@@ -49,6 +49,8 @@ final class FakeAds implements AdsPort {
   final StreamController<BannerState> _banner = StreamController<BannerState>.broadcast();
   final List<String> calls = <String>[];
 
+  void emitBanner(BannerState state) => _banner.add(state);
+
   @override
   Future<bool> initialize() async {
     calls.add('initialize');
@@ -119,7 +121,7 @@ class FakeBilling implements BillingPort {
   Stream<EntitlementStatus> get entitlementChanges => _changes.stream;
 }
 
-final class FakeNotifications implements NotificationPort {
+class FakeNotifications implements NotificationPort {
   NotificationPermission state = NotificationPermission.unknown;
   NotificationPermission onRequest = NotificationPermission.granted;
   int? scheduledMinute;
@@ -242,7 +244,7 @@ final class FakeUrl implements UrlPort {
   }
 }
 
-final class FakeFlags implements FlagsPort {
+class FakeFlags implements FlagsPort {
   RemoteFlags flags = RemoteFlags.defaults;
 
   @override

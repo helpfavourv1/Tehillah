@@ -105,6 +105,16 @@ final class VerseRepository {
     return v == null ? null : _build(v, language);
   }
 
+  /// The curated id of a reference, or null if it is not a curated verse.
+  String? idFor(VerseRef ref) {
+    for (final CuratedVerse v in _verses) {
+      if (v.ref == ref) {
+        return v.id;
+      }
+    }
+    return null;
+  }
+
   Verse? byRef(VerseRef ref, String language) {
     for (final CuratedVerse v in _verses) {
       if (v.ref == ref) {
