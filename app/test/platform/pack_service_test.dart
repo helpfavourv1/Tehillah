@@ -16,6 +16,7 @@ final class _Server {
   /// Range headers of requests for the pack file only (notices are not counted).
   final List<String?> ranges = <String?>[];
   int requests = 0;
+  int packRequests = 0;
   int cutFirstAfter = -1;
 
   Future<void> start() async {
@@ -27,8 +28,9 @@ final class _Server {
 
   Future<void> _handle(HttpRequest request) async {
     final bool isPack = request.uri.path == '/p/en-1.json.gz';
+    requests++;
     if (isPack) {
-      requests++;
+      packRequests++;
     }
     final List<int>? body = files[request.uri.path];
     if (body == null) {
@@ -178,7 +180,7 @@ void main() {
     server.cutFirstAfter = 200;
     final List<PackProgress> progress = await service.download(entry).toList();
     expect(progress.last.received, packBytes.length);
-    expect(server.requests, 2);
+    expect(server.packRequests, 2);
     expect(await service.installedLanguages(), <String>{'en'});
     expect((await service.load('en'))!.chapter('Gen', 1)!.length, 300);
   });
