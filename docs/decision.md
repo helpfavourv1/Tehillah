@@ -182,3 +182,12 @@ Status: accepted.
 - Candidates are listed in `tools/scripture/curated_refs.json`; `build_curated.py` keeps one only if its chapter has the same verse count in all 11 languages, no language has a blank, quotation marks balance, it starts a sentence in English and it fits a card (English 200 characters, any language 260). 66 of 235 candidates were dropped by those checks. Four more were excluded by hand with the reason recorded in the file: Gal 5:22–23 and 1 Pet 4:8 (languages split the verses differently), Ps 37:4 (could be read as a promise of winning).
 - No verse is chosen as a promise of winning matches.
 - Bundled as `app/assets/verses/curated.json` (id, ref, moments) plus `{lang}.json` (id to text). Text is copied from the packs unchanged.
+
+## ADR-037: Providers (p3a)
+
+- **One writer per file.** `SettingsProvider` is the only writer of the settings key; `ThemeProvider` and `LocaleProvider` are thin views that follow it and save through it, so there is one source of truth. `ProgressProvider` is the only writer of the progress file; loadout, bookmarks and achievements save by calling its `update`.
+- **Write queue.** A change is applied in memory first and saved afterwards. Writes never overlap and the newest value always wins. A failed write never loses the change: the provider flags it (banner), keeps working from memory and writes again on the next change or on Retry.
+- **Safe by construction.** Updates before `load` are ignored and logged, so a default can never overwrite a saved file. A read-only or unreadable store switches saving off and shows the same warning.
+- **Achievements and unlocks** are computed inside `applyMatch` / `applyDaily` and returned to the caller (`MatchRecorded`), so the result screen can show them and the file is written once.
+- **Entitlement.** Only `EntitlementStatus.owned` sets `adsRemoved`; `unknown` and `pending` keep ads. A restore shows progress until the store answers or 20 seconds pass.
+- **Language.** Device languages resolve to the eleven shipped codes (`pt` to `pt_BR`, any `zh` to `zh_Hans`, `iw` to `he`); a manual override always wins. The reader language is separate.
