@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
@@ -89,7 +88,11 @@ final class PackService implements PackPort {
       int attempt = 0;
       while (true) {
         try {
-          yield* _fetchInto(url, part, entry.bytes);
+          // An explicit loop, not `yield*`: errors from a delegated stream are
+          // forwarded to the caller and would skip this retry and the mapping below.
+          await for (final PackProgress progress in _fetchInto(url, part, entry.bytes)) {
+            yield progress;
+          }
           break;
         } on Object catch (error) {
           final bool transient = error is SocketException ||

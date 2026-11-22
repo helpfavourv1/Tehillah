@@ -44,9 +44,9 @@ final class _Server {
     if (cutFirstAfter >= 0) {
       final int cut = cutFirstAfter;
       cutFirstAfter = -1;
-      request.response.add(slice.sublist(0, cut));
-      await request.response.flush();
       final Socket socket = await request.response.detachSocket();
+      socket.add(slice.sublist(0, cut));
+      await socket.flush();
       socket.destroy();
       return;
     }
