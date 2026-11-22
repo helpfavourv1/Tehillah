@@ -284,7 +284,9 @@ void main() {
       final SemanticsHandle handle = tester.ensureSemantics();
       await tester.pumpWidget(harness(IconChip(icon: AppIcons.settings, semanticLabel: 'Settings', onTap: () {})));
       expect(tester.getSize(find.byType(Pressable)), const Size.square(Metrics.touchTarget));
-      expect(tester.getSize(find.byType(SizedBox).last), const Size.square(Metrics.iconChip));
+      final Finder chip = find.byWidgetPredicate((Widget w) =>
+          w is SizedBox && w.width == Metrics.iconChip && w.height == Metrics.iconChip);
+      expect(tester.getSize(chip), const Size.square(Metrics.iconChip));
       expect(find.bySemanticsLabel('Settings'), findsOneWidget);
       handle.dispose();
     });
