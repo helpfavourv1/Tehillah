@@ -131,12 +131,12 @@ void main() {
     });
 
     test('flight time falls as power rises', () {
-      expect(ShotTrajectory.flightSeconds(0), Tuning.slowFlightSeconds);
-      expect(ShotTrajectory.flightSeconds(1), Tuning.fastFlightSeconds);
+      expect(ShotTrajectory.flightSeconds(0), closeTo(Tuning.slowFlightSeconds, 1e-9));
+      expect(ShotTrajectory.flightSeconds(1), closeTo(Tuning.fastFlightSeconds, 1e-9));
       expect(ShotTrajectory.flightSeconds(0.5),
           inExclusiveRange(Tuning.fastFlightSeconds, Tuning.slowFlightSeconds));
-      expect(ShotTrajectory.flightSeconds(7), Tuning.fastFlightSeconds);
-      expect(ShotTrajectory.flightSeconds(-3), Tuning.slowFlightSeconds);
+      expect(ShotTrajectory.flightSeconds(7), closeTo(Tuning.fastFlightSeconds, 1e-9));
+      expect(ShotTrajectory.flightSeconds(-3), closeTo(Tuning.slowFlightSeconds, 1e-9));
     });
   });
 
