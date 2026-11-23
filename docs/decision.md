@@ -221,3 +221,22 @@ Status: accepted.
 - **One banner face.** `BannerSurface` backs both `FeedbackBanner` (live region, auto-hides after 3 s, 6 s for failures, dismissible) and `WarningBanner` (persistent, optional Retry). Every action reports through `FeedbackProvider`; a newer message restarts the time and an old timer never clears it.
 - **Sheets and dialogs** are plain modal routes (no Material): sheet 20 top radius, 400 ms ease-out up and 280 ms down; dialog 16 radius, fade; both instant under Reduce Motion, both keep clear of the keyboard and safe area and scroll when tall.
 - **Fatal fallback.** `ErrorStateView` is a full-screen surface with plain words, a filled Retry, a report button and an optional short code.
+
+## ADR-041 — The match world, input layers and controller (p4c)
+
+**Decision.** The pitch is a Flame world that only draws results the rules have already decided.
+`MatchProvider` decides a kick at once; `MatchController` then plays that `KickRecord` through
+`MatchWorld`, closes input while it plays, reopens it when it ends, kicks for the computer after a
+short beat, and reports the match finished once, after the last kick's animation.
+
+**Why.** Rules stay pure and testable without a renderer; the picture can be skipped, paused or
+replayed without changing a result; input can never land mid-kick.
+
+**Consequences.**
+- Perspective comes from one `PitchProjection`; the scene, zone grid and dive layer all ask it, so
+  touch targets sit exactly where the goal is drawn. Zones shorter than 48 grow away from the goal's
+  middle so none overlap.
+- The HUD is held to a 1.6x text ceiling over live play (the same facts are spoken through
+  semantics); every other screen follows the system size in full.
+- Gate 2 (screenshot against a reference app) cannot run until the emulator workflow in p6c;
+  figure scale, shooter placement and camera values are verified by geometry tests until then.
