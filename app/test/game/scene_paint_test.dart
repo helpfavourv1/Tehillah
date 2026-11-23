@@ -168,7 +168,7 @@ void main() {
           textDirection: TextDirection.ltr,
           child: Align(
             alignment: Alignment.topLeft,
-            child: SizedBox(width: 360, height: 800, child: GameWidget<TehillahGame>(game: game)),
+            child: SizedBox(width: 360, height: 600, child: GameWidget<TehillahGame>(game: game)),
           ),
         ),
       );
@@ -176,7 +176,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 50));
       expect(game.hasLayout, isTrue);
       expect(game.projection.width, 360);
-      expect(game.projection.height, 800);
+      expect(game.projection.height, 600);
 
       game.scene.play(kick(ShotResult.goal));
       for (int i = 0; i < 300 && finished == 0; i++) {
@@ -193,7 +193,7 @@ void main() {
           textDirection: TextDirection.ltr,
           child: Align(
             alignment: Alignment.topLeft,
-            child: SizedBox(width: 360, height: 800, child: GameWidget<TehillahGame>(game: game)),
+            child: SizedBox(width: 360, height: 600, child: GameWidget<TehillahGame>(game: game)),
           ),
         ),
       );
@@ -218,13 +218,13 @@ void main() {
               child: SizedBox(width: w, height: h, child: GameWidget<TehillahGame>(game: game)),
             ),
           );
-      await tester.pumpWidget(host(360, 800));
+      await tester.pumpWidget(host(360, 600));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 50));
       final double portraitK = game.projection.k;
-      await tester.pumpWidget(host(800, 360));
+      await tester.pumpWidget(host(600, 360));
       await tester.pump(const Duration(milliseconds: 50));
-      expect(game.projection.width, 800);
+      expect(game.projection.width, 600);
       expect(game.projection.k, isNot(portraitK));
     });
   });
