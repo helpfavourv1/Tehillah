@@ -67,6 +67,13 @@ void main() {
         expect(contrast(p.postWood, p.bgPrimary), greaterThanOrEqualTo(3));
         expect(contrast(p.borderFocus, p.bgPrimary), greaterThanOrEqualTo(3));
       });
+
+      test('pitch lines read on both grass stripes and the ball ink on the ball', () {
+        expect(contrast(p.pitchLine, p.pitchGrass), greaterThanOrEqualTo(3));
+        expect(contrast(p.pitchLine, p.pitchGrassAlt), greaterThanOrEqualTo(3));
+        expect(contrast(p.ballInk, p.pitchLine), greaterThanOrEqualTo(4.5));
+        expect(contrast(p.postWood, p.bgTertiary), greaterThanOrEqualTo(3));
+      });
     });
   }
 

@@ -55,6 +55,9 @@ abstract final class Tuning {
 
   static const double runUpStartZ = 13;
   static const double strikeZ = 11.7;
+
+  /// The shooter stands to the left of the ball so the goal stays in view.
+  static const double shooterX = -0.9;
   static const double shooterHeight = 1.8;
   static const double runUpSeconds = 0.55;
   static const double strikeSeconds = 0.14;
@@ -87,6 +90,9 @@ abstract final class Tuning {
   static const double keeperHighY = 1.75;
   static const double keeperMaxTilt = 1.2;
 
+  /// Where the keeper stands in front of the goal line.
+  static const double keeperZ = 0.4;
+
   // ---- After contact -------------------------------------------------------
 
   static const double reactionSeconds = 1.0;
@@ -98,4 +104,22 @@ abstract final class Tuning {
   static const double burstSeconds = 0.7;
   static const double postFlashSeconds = 0.35;
   static const int burstParticles = 14;
+}
+
+/// The abstract figure the players are drawn with, in metres from the hip.
+abstract final class FigureShape {
+  static const double legLength = 0.95;
+  static const double legSpread = 0.13;
+  static const double legWidth = 0.15;
+  static const double torsoWidth = 0.46;
+  static const double torsoHeight = 0.72;
+  static const double torsoCentreY = 0.38;
+  static const double torsoRadius = 0.14;
+  static const double shoulderX = 0.24;
+  static const double shoulderY = 0.62;
+  static const double armWidth = 0.12;
+  static const double headY = 0.88;
+  static const double headRadius = 0.13;
+  static const double gloveRadius = 0.09;
+  static const double hipHeight = 0.95;
 }

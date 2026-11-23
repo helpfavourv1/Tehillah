@@ -28,6 +28,9 @@ class AppPalette {
     required this.lampFill,
     required this.pitchLine,
     required this.postWood,
+    required this.pitchGrass,
+    required this.pitchGrassAlt,
+    required this.ballInk,
     required this.verseCardSurface,
     required this.scrim,
   });
@@ -75,8 +78,15 @@ class AppPalette {
   /// Pitch markings.
   final Color pitchLine;
 
-  /// Goal posts and crossbar.
+  /// Goal back supports and the net's frame behind the goal line.
   final Color postWood;
+
+  /// The pitch, and the alternate mowing stripe.
+  final Color pitchGrass;
+  final Color pitchGrassAlt;
+
+  /// Ball outline and marks; always near-black so it reads on the white ball.
+  final Color ballInk;
 
   /// Surface of the scripture moment card.
   final Color verseCardSurface;
@@ -104,6 +114,9 @@ class AppPalette {
     lampFill: Color(0xFF9A6700),
     pitchLine: Color(0xFFFFFFFF),
     postWood: Color(0xFF8B5E3C),
+    pitchGrass: Color(0xFF4C9A5F),
+    pitchGrassAlt: Color(0xFF45915A),
+    ballInk: Color(0xFF1A1A1F),
     verseCardSurface: Color(0xFFEAF4EE),
     scrim: Color(0x66000000),
   );
@@ -128,6 +141,9 @@ class AppPalette {
     lampFill: Color(0xFFF0B040),
     pitchLine: Color(0xFFFFFFFF),
     postWood: Color(0xFFC99A6B),
+    pitchGrass: Color(0xFF1E5733),
+    pitchGrassAlt: Color(0xFF1A502E),
+    ballInk: Color(0xFF1A1A1F),
     verseCardSurface: Color(0xFF16251D),
     scrim: Color(0x99000000),
   );
@@ -153,6 +169,9 @@ class AppPalette {
     lampFill: Color(0xFF8A5A00),
     pitchLine: Color(0xFFFFFFFF),
     postWood: Color(0xFF7A4F2A),
+    pitchGrass: Color(0xFF5A8B50),
+    pitchGrassAlt: Color(0xFF528348),
+    ballInk: Color(0xFF1A1A1F),
     verseCardSurface: Color(0xFFEAE0C4),
     scrim: Color(0x66000000),
   );
@@ -192,6 +211,9 @@ class AppPalette {
       lampFill: mix(a.lampFill, b.lampFill),
       pitchLine: mix(a.pitchLine, b.pitchLine),
       postWood: mix(a.postWood, b.postWood),
+      pitchGrass: mix(a.pitchGrass, b.pitchGrass),
+      pitchGrassAlt: mix(a.pitchGrassAlt, b.pitchGrassAlt),
+      ballInk: mix(a.ballInk, b.ballInk),
       verseCardSurface: mix(a.verseCardSurface, b.verseCardSurface),
       scrim: mix(a.scrim, b.scrim),
     );
@@ -217,6 +239,9 @@ class AppPalette {
         lampFill,
         pitchLine,
         postWood,
+        pitchGrass,
+        pitchGrassAlt,
+        ballInk,
         verseCardSurface,
         scrim,
       ];
