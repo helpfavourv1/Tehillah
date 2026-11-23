@@ -16,6 +16,7 @@ import 'package:tehillah/game/components/pitch.dart';
 import 'package:tehillah/game/components/scene_layer.dart';
 import 'package:tehillah/game/components/shooter.dart';
 import 'package:tehillah/game/geometry/pitch_projection.dart';
+import 'package:tehillah/game/geometry/shot_trajectory.dart';
 import 'package:tehillah/game/match_world.dart';
 import 'package:tehillah/game/tehillah_game.dart';
 import 'package:tehillah/game/tuning.dart';

@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:tehillah/game/components/scene_layer.dart';
 import 'package:tehillah/game/geometry/pitch_projection.dart';
+import 'package:tehillah/game/geometry/shot_trajectory.dart';
 import 'package:tehillah/game/match_world.dart';
 import 'package:tehillah/game/tuning.dart';
 import 'package:tehillah/theme/tokens.dart';
