@@ -74,9 +74,10 @@ class _Segment<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppThemeData theme = AppTheme.of(context);
     final AppPalette p = theme.palette;
-    return Semantics(
-      selected: isSelected,
-      child: Pressable(
+    return MergeSemantics(
+      child: Semantics(
+        selected: isSelected,
+        child: Pressable(
         onTap: onTap,
         focusRadius: Radii.chip,
         builder: (BuildContext context, bool pressed) => AnimatedOpacity(
@@ -121,6 +122,7 @@ class _Segment<T> extends StatelessWidget {
             ),
           ),
         ),
+      ),
       ),
     );
   }
