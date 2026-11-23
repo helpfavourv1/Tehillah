@@ -166,7 +166,10 @@ void main() {
       await tester.pumpWidget(
         Directionality(
           textDirection: TextDirection.ltr,
-          child: SizedBox(width: 360, height: 800, child: GameWidget<TehillahGame>(game: game)),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: SizedBox(width: 360, height: 800, child: GameWidget<TehillahGame>(game: game)),
+          ),
         ),
       );
       await tester.pump();
@@ -188,7 +191,10 @@ void main() {
       await tester.pumpWidget(
         Directionality(
           textDirection: TextDirection.ltr,
-          child: SizedBox(width: 360, height: 800, child: GameWidget<TehillahGame>(game: game)),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: SizedBox(width: 360, height: 800, child: GameWidget<TehillahGame>(game: game)),
+          ),
         ),
       );
       await tester.pump();
