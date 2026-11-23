@@ -301,6 +301,13 @@ abstract final class Metrics {
 
   /// The height of the small pill chip.
   static const double chipHeight = 32;
+
+  /// The widest a dialog or full-screen message grows.
+  static const double dialogMaxWidth = 400;
+
+  /// The sheet's grabber bar.
+  static const double grabberWidth = 36;
+  static const double grabberHeight = 5;
 }
 
 /// Durations and curves of interface motion. No spring or bounce anywhere.
