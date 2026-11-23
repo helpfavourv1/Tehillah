@@ -98,6 +98,19 @@ class MatchHud extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // The HUD sits over live play, so it is held to a glanceable ceiling; the
+    // same facts are spoken through semantics, and every other screen follows
+    // the system text size in full.
+    final MediaQueryData mq = MediaQuery.of(context);
+    return MediaQuery(
+      data: mq.copyWith(textScaler: mq.textScaler.clamp(maxScaleFactor: _maxTextScale)),
+      child: Builder(builder: _content),
+    );
+  }
+
+  static const double _maxTextScale = 1.6;
+
+  Widget _content(BuildContext context) {
     final MatchState? state = view.state;
     if (state == null) {
       return const SizedBox.shrink();
@@ -105,7 +118,7 @@ class MatchHud extends StatelessWidget {
     final AppThemeData theme = AppTheme.of(context);
     final EdgeInsets safe = MediaQuery.paddingOf(context);
     final bool canSelah = enabled && view.canUseSelah;
-    final bool stacked = MediaQuery.textScalerOf(context).scale(1) > 1.5;
+    final bool stacked = MediaQuery.textScalerOf(context).scale(1) > 1.3;
     final Widget nerve = NerveMeterView(
       value: state.nerve,
       label: labels.nerve,

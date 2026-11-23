@@ -150,6 +150,7 @@ void main() {
     expect(rig.match.value.history.length, before + 1);
     rig.drainWorld();
     expect(rig.controller.busy.value, isFalse);
+    rig.controller.pause();
   });
 
   testWidgets('the computer kicks after a beat, not at once', (WidgetTester tester) async {
