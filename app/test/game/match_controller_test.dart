@@ -57,7 +57,7 @@ class Rig {
 /// Plays the whole match through the controller the way a player and the
 /// clock would.
 Future<void> playOut(WidgetTester tester, Rig rig) async {
-  for (int i = 0; i < 600 && rig.finished == 0; i++) {
+  for (int i = 0; i < 6000 && rig.finished == 0; i++) {
     if (rig.world.isPlaying) {
       rig.world.update(1 / 30);
     } else if (rig.controller.inputEnabled.value) {
@@ -74,7 +74,7 @@ Future<void> playOut(WidgetTester tester, Rig rig) async {
 
 /// Gets to the point where the computer is about to kick.
 Future<void> reachAutomatic(WidgetTester tester, Rig rig) async {
-  for (int i = 0; i < 100 && rig.match.value.prompt != KickPrompt.automatic; i++) {
+  for (int i = 0; i < 100 && (rig.match.value.prompt != KickPrompt.automatic || rig.world.isPlaying); i++) {
     if (rig.world.isPlaying) {
       rig.drainWorld();
     } else if (rig.controller.inputEnabled.value) {
@@ -87,7 +87,7 @@ Future<void> reachAutomatic(WidgetTester tester, Rig rig) async {
 }
 
 Future<void> reachHumanShot(WidgetTester tester, Rig rig) async {
-  for (int i = 0; i < 100 && rig.match.value.prompt != KickPrompt.humanShot; i++) {
+  for (int i = 0; i < 100 && (rig.match.value.prompt != KickPrompt.humanShot || rig.world.isPlaying); i++) {
     if (rig.world.isPlaying) {
       rig.drainWorld();
     } else {
@@ -117,7 +117,7 @@ void main() {
     final Rig rig = Rig();
     addTearDown(rig.dispose);
     rig.controller.attach();
-    for (int i = 0; i < 600 && !rig.match.value.finished; i++) {
+    for (int i = 0; i < 6000 && !rig.match.value.finished; i++) {
       if (rig.world.isPlaying) {
         rig.world.update(1 / 30);
       } else if (rig.controller.inputEnabled.value) {

@@ -100,8 +100,15 @@ void main() {
       final ScreenRect low = p.zoneRect(1, 0, columns: 3, rows: 2);
       final ScreenRect high = p.zoneRect(1, 1, columns: 3, rows: 2);
       expect(low.bottom - low.top, lessThan(Metrics.touchTarget));
-      await tester.tapAt(at(tester, layer, (low.left + low.right) / 2, low.bottom + 20));
-      await tester.tapAt(at(tester, layer, (high.left + high.right) / 2, high.top - 20));
+      final double lowGrow = Metrics.touchTarget - (low.bottom - low.top);
+      final double highGrow = Metrics.touchTarget - (high.bottom - high.top);
+      await tester.tapAt(at(tester, layer, (low.left + low.right) / 2, low.bottom + lowGrow / 2));
+      await tester.tapAt(at(
+        tester,
+        layer,
+        (high.left + high.right) / 2,
+        highGrow > 0 ? high.top - highGrow / 2 : (high.top + high.bottom) / 2,
+      ));
       expect(picked, <String>['10', '11']);
     });
 

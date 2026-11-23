@@ -105,6 +105,27 @@ class MatchHud extends StatelessWidget {
     final AppThemeData theme = AppTheme.of(context);
     final EdgeInsets safe = MediaQuery.paddingOf(context);
     final bool canSelah = enabled && view.canUseSelah;
+    final bool stacked = MediaQuery.textScalerOf(context).scale(1) > 1.5;
+    final Widget nerve = NerveMeterView(
+      value: state.nerve,
+      label: labels.nerve,
+      stateLabel: _stateLabel(state.nerve),
+    );
+    final Widget selah = Opacity(
+      opacity: canSelah ? 1 : Metrics.disabledOpacity,
+      child: Semantics(
+        label: labels.selahWithCharges(state.selahCharges),
+        excludeSemantics: true,
+        button: true,
+        enabled: canSelah,
+        child: AppChip(
+          label: '${labels.selah} · ${state.selahCharges}',
+          icon: AppIcons.lamp,
+          tone: ChipTone.accent,
+          onTap: canSelah ? onSelah : null,
+        ),
+      ),
+    );
     final String? prompt = _prompt();
     return Padding(
       padding: EdgeInsets.fromLTRB(
@@ -167,33 +188,18 @@ class MatchHud extends StatelessWidget {
                 ),
               ),
             ),
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: NerveMeterView(
-                  value: state.nerve,
-                  label: labels.nerve,
-                  stateLabel: _stateLabel(state.nerve),
-                ),
-              ),
-              const SizedBox(width: Sp.md),
-              Opacity(
-                opacity: canSelah ? 1 : Metrics.disabledOpacity,
-                child: Semantics(
-                  label: labels.selahWithCharges(state.selahCharges),
-                  excludeSemantics: true,
-                  button: true,
-                  enabled: canSelah,
-                  child: AppChip(
-                    label: '${labels.selah} · ${state.selahCharges}',
-                    icon: AppIcons.lamp,
-                    tone: ChipTone.accent,
-                    onTap: canSelah ? onSelah : null,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          if (stacked) ...<Widget>[
+            nerve,
+            const SizedBox(height: Sp.sm),
+            Align(alignment: AlignmentDirectional.centerEnd, child: selah),
+          ] else
+            Row(
+              children: <Widget>[
+                Expanded(child: nerve),
+                const SizedBox(width: Sp.md),
+                selah,
+              ],
+            ),
         ],
       ),
     );

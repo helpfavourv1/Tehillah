@@ -79,7 +79,7 @@ class MatchController {
     }
     _attached = false;
     match.removeListener(_onView);
-    if (identical(world.onKickFinished, _kickFinished)) {
+    if (world.onKickFinished == _kickFinished) {
       world.onKickFinished = null;
     }
     unawaited(_subscription?.cancel());
