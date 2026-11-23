@@ -211,3 +211,13 @@ Status: accepted.
 - **Screen shape.** `ScreenFrame` handles the safe area, caps content at 640 wide, and removes the bottom slot entirely while the keyboard is open; the content makes room for the keyboard once.
 - **Large text.** Rows and cards wrap rather than clip; at 3.1x text they grow and the screen scrolls. Tests render at 3.1x in left-to-right and right-to-left.
 - **Visual gate.** Gate 2 (a screenshot on the cheapest-device profile against a reference app) needs the emulator workflow built in p6c; until then these components are verified by code and widget tests only.
+
+## ADR-040: Feature widgets (p4b)
+
+- **Widgets take state, not services.** `AdSlot` reads a `ValueListenable<AdState>` and reports its width and the keyboard state through one callback; `EntitlementBadge` reads a `ValueListenable<Entitlement>`. Screens wire them to the providers, so the widgets test with a plain `ValueNotifier`.
+- **Ad slot spec.** Banner height plus 8 above, 8 below and a hairline on top while a banner is ready; in every other case (loading, failed, no consent, purchased, keyboard open, zero height) the slot is zero height and draws nothing.
+- **Verse direction.** A verse keeps the direction of its own language (`directionForLanguage`), so Hebrew or Arabic text reads right to left under any interface language.
+- **Meaning never rests on colour.** The nerve meter, stars, banners and switches pair colour with an icon, words, a percent value or thumb position, and expose it to screen readers.
+- **One banner face.** `BannerSurface` backs both `FeedbackBanner` (live region, auto-hides after 3 s, 6 s for failures, dismissible) and `WarningBanner` (persistent, optional Retry). Every action reports through `FeedbackProvider`; a newer message restarts the time and an old timer never clears it.
+- **Sheets and dialogs** are plain modal routes (no Material): sheet 20 top radius, 400 ms ease-out up and 280 ms down; dialog 16 radius, fade; both instant under Reduce Motion, both keep clear of the keyboard and safe area and scroll when tall.
+- **Fatal fallback.** `ErrorStateView` is a full-screen surface with plain words, a filled Retry, a report button and an optional short code.
