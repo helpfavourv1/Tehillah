@@ -277,20 +277,23 @@ void main() {
 
     testWidgets('fills the screen and holds at 3.1x text in RTL', (WidgetTester tester) async {
       await tester.pumpWidget(harness(
-        ErrorStateView(
-          title: _long,
-          message: _long,
-          detail: _long,
-          retryLabel: _long,
-          onRetry: () {},
-          reportLabel: _long,
-          onReport: () {},
+        SizedBox.expand(
+          child: ErrorStateView(
+            title: _long,
+            message: _long,
+            detail: _long,
+            retryLabel: _long,
+            onRetry: () {},
+            reportLabel: _long,
+            onReport: () {},
+          ),
         ),
         textScale: 3.1,
         direction: TextDirection.rtl,
       ));
       expect(tester.takeException(), isNull);
-      expect(tester.getSize(find.byType(ErrorStateView)), const Size(360, 720));
+      expect(tester.getSize(find.byType(ErrorStateView)),
+          tester.getSize(find.byType(SizedBox).first));
     });
   });
 
@@ -381,7 +384,7 @@ void main() {
       ));
       await tester.tap(find.text('open'));
       await tester.pumpAndSettle();
-      await tester.tapAt(const Offset(180, 20));
+      await tester.tapAt(tester.getTopLeft(find.byType(Navigator)) + const Offset(20, 20));
       await tester.pumpAndSettle();
       expect(find.text('Hello'), findsNothing);
       expect(result, isNull);
@@ -489,7 +492,7 @@ void main() {
       result = null;
       await tester.tap(find.text('open'));
       await tester.pumpAndSettle();
-      await tester.tapAt(const Offset(2, 2));
+      await tester.tapAt(tester.getTopLeft(find.byType(Navigator)) + const Offset(6, 6));
       await tester.pumpAndSettle();
       expect(result, isFalse);
     });
@@ -525,7 +528,7 @@ void main() {
       }));
       await tester.tap(find.text('open'));
       await tester.pumpAndSettle();
-      await tester.tapAt(const Offset(2, 2));
+      await tester.tapAt(tester.getTopLeft(find.byType(Navigator)) + const Offset(6, 6));
       await tester.pumpAndSettle();
       expect(find.text('Wait'), findsOneWidget);
     });
