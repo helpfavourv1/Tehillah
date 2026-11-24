@@ -118,6 +118,13 @@ Future<Rig> pumpScreen(
   return rig;
 }
 
+/// Lets a sheet finish sliding. The game loop never goes idle, so settling
+/// is done by hand: one frame to start the transition, one to finish it.
+Future<void> slide(WidgetTester tester) async {
+  await tester.pump();
+  await tester.pump(const Duration(milliseconds: 500));
+}
+
 Future<void> leave(WidgetTester tester) async {
   await tester.pumpWidget(const SizedBox());
   await tester.pump();
@@ -183,14 +190,14 @@ void main() {
   testWidgets('pause opens a sheet and holds the match; Resume carries on', (WidgetTester tester) async {
     final Rig rig = await pumpScreen(tester);
     await tester.tap(find.byType(IconChip));
-    await tester.pump(const Duration(milliseconds: 500));
+    await slide(tester);
     expect(find.text('Paused'), findsOneWidget);
     expect(find.text('Resume'), findsOneWidget);
     expect(find.text('Leave match'), findsOneWidget);
     expect(rig.controller.isPaused, isTrue);
     expect(rig.controller.inputEnabled.value, isFalse);
     await tester.tap(find.text('Resume'));
-    await tester.pump(const Duration(milliseconds: 500));
+    await slide(tester);
     expect(find.text('Paused'), findsNothing);
     expect(rig.controller.isPaused, isFalse);
     expect(rig.controller.inputEnabled.value, isTrue);
@@ -201,9 +208,9 @@ void main() {
   testWidgets('Leave tells the caller and does not resume', (WidgetTester tester) async {
     final Rig rig = await pumpScreen(tester);
     await tester.tap(find.byType(IconChip));
-    await tester.pump(const Duration(milliseconds: 500));
+    await slide(tester);
     await tester.tap(find.text('Leave match'));
-    await tester.pump(const Duration(milliseconds: 500));
+    await slide(tester);
     expect(rig.quit, 1);
     expect(rig.controller.isPaused, isTrue);
     await leave(tester);

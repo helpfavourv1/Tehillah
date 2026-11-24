@@ -112,6 +112,38 @@ class _ResultScreenState extends State<ResultScreen> {
     final AppThemeData theme = AppTheme.of(context);
     final ResultLabels labels = widget.labels;
     final IntroVerse? v = widget.verse;
+    // At very large text the buttons would crowd out the content, so they
+    // scroll with it instead of staying fixed.
+    final bool stacked = MediaQuery.textScalerOf(context).scale(1) > 1.3;
+    final Widget buttonBar = Padding(
+            padding: const EdgeInsets.fromLTRB(Sp.md, Sp.sm, Sp.md, Sp.md),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                if (widget.rewardedRetryLabel != null) ...<Widget>[
+                  SecondaryButton(
+                    label: widget.rewardedRetryLabel!,
+                    icon: AppIcons.retry,
+                    onPressed: widget.onRewardedRetry,
+                  ),
+                  const SizedBox(height: Sp.sm),
+                ],
+                PrimaryButton(
+                  label: widget.primaryLabel,
+                  icon: AppIcons.forward,
+                  onPressed: () => unawaited(_leave(widget.onPrimary)),
+                ),
+                if (widget.secondaryLabel != null) ...<Widget>[
+                  const SizedBox(height: Sp.sm),
+                  SecondaryButton(
+                    label: widget.secondaryLabel!,
+                    onPressed: () => unawaited(_leave(widget.onSecondary!)),
+                  ),
+                ],
+              ],
+            ),
+          );
     return ScreenFrame(
       navBar: NavBar(title: widget.won ? labels.win : labels.loss),
       child: Column(
@@ -123,11 +155,12 @@ class _ResultScreenState extends State<ResultScreen> {
                 Semantics(
                   label: labels.scoreLine(widget.playerScore, widget.opponentScore),
                   excludeSemantics: true,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: Sp.sm,
+                    runSpacing: Sp.xs,
                     children: <Widget>[
                       StatPill(label: labels.you, value: '${widget.playerScore}'),
-                      const SizedBox(width: Sp.sm),
                       StatPill(label: labels.opponent, value: '${widget.opponentScore}'),
                     ],
                   ),
@@ -172,38 +205,11 @@ class _ResultScreenState extends State<ResultScreen> {
                     shareLabel: v.onShare == null ? null : labels.share,
                   ),
                 ],
+                if (stacked) buttonBar,
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(Sp.md, Sp.sm, Sp.md, Sp.md),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                if (widget.rewardedRetryLabel != null) ...<Widget>[
-                  SecondaryButton(
-                    label: widget.rewardedRetryLabel!,
-                    icon: AppIcons.retry,
-                    onPressed: widget.onRewardedRetry,
-                  ),
-                  const SizedBox(height: Sp.sm),
-                ],
-                PrimaryButton(
-                  label: widget.primaryLabel,
-                  icon: AppIcons.forward,
-                  onPressed: () => unawaited(_leave(widget.onPrimary)),
-                ),
-                if (widget.secondaryLabel != null) ...<Widget>[
-                  const SizedBox(height: Sp.sm),
-                  SecondaryButton(
-                    label: widget.secondaryLabel!,
-                    onPressed: () => unawaited(_leave(widget.onSecondary!)),
-                  ),
-                ],
-              ],
-            ),
-          ),
+          if (!stacked) buttonBar,
         ],
       ),
     );
