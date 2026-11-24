@@ -265,3 +265,36 @@ p6a stays trivial because no screen contains text; and navigation lives in one f
 - Open: the Sling and Stone mode has rules (`mode_rules.dart`) but no gameplay screen in the batch
   plan. It needs one, decided with Ak before p5b.
 - Open: the once-only rating prompt after a stage win is wired in the router (p6a), not in a screen.
+
+## ADR-043 — Plan amendments from the p5a gap audit
+
+**Method.** After p5a every row of the blueprint's capability matrix (section 3), monetization
+(section 7) and manifest (section 10) was checked against the code on main, together with every
+decision recorded since. Phases 1 to 4 match the manifest file for file. These gaps were found; none
+is dropped.
+
+| # | Gap | Resolution | Batch |
+|---|---|---|---|
+| 1 | Sling and Stone has rules (`SlingAndStone`) but no round state, no world drawing, no input, no screen, and nothing records its result | Core round state machine, world, controller and screen; result recorded as best stars | p4d, p4e, p5b |
+| 2 | Jericho has round rules but nothing remembers how far the run got | Persist the run (rounds cleared, walls down) | p4d |
+| 3 | Of the four rewarded ads you chose, only "retry a lost Journey match" has a place to live | Extra Selah, streak rescue and extra stones get their rules and hooks | p2f |
+| 4 | Rating prompt: a `ratingPromptShown` flag exists, but no port, adapter, dependency or trigger rule | `RatingPort`, store adapter, once-only rule after a stage win, never after a loss | p2f |
+| 5 | The crash report ("email the local debug lines") and "delete downloaded Bibles" are decisions with no named screen row | Explicit rows in Settings | p5d |
+| 6 | The menu loop is built in `AudioService` but nothing starts or stops it | The router starts it on menu screens and stops it in a match | p6a |
+| 7 | An update prompt (blueprint section 24) was never decided | Not built; listed for you to decide before p7c | p7c |
+
+**Defaults chosen (change any of them by saying so).**
+- Sling and Stone: seven stones, five targets (existing rules); stars 3 / 2 / 1 for 5 / 4 / 3 hits;
+  unlimited replays with a new seed each time; the best stars are kept. It uses the same two input
+  schemes as a kick.
+- Extra stones: one rewarded ad per round adds three stones.
+- Extra Selah: one rewarded ad per match adds one Selah charge before the first kick.
+- Streak rescue: when exactly one day was missed, one rewarded ad restores it; at most once per
+  calendar week.
+- Progress schema moves to the next version with a migration, a codec test and a newer-version
+  read-only test, as every earlier change did.
+
+**Revised order from here.** p2f (rating, reward rules) -> p4d (sling and Jericho core, progress
+migration) -> p4e (sling world and controller) -> p5b (journey map, modes, mode intro, sling screen,
+Daily Bread, achievements) -> p5c -> p5d -> p6a -> p6b -> p6c -> p7a -> p7b -> p7c. The three new
+batches extend phases 2 and 4 and land before any phase 5 screen depends on them.
