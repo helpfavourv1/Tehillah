@@ -240,3 +240,28 @@ replayed without changing a result; input can never land mid-kick.
   semantics); every other screen follows the system size in full.
 - Gate 2 (screenshot against a reference app) cannot run until the emulator workflow in p6c;
   figure scale, shooter placement and camera values are verified by geometry tests until then.
+
+## ADR-042 — Screens take data, labels and callbacks (p5a)
+
+**Decision.** Screens do not read `AppScope` or the localizations class. Each one takes its data
+(plain values or a `ValueListenable`), a labels object holding every string it shows, and callbacks
+for every way out. The router built in p6a is the only place that reads providers, builds the labels
+from `AppLocalizations`, and decides what each callback does.
+
+**Why.** Screens test with plain values instead of a full `AppServices`; the literal-string check in
+p6a stays trivial because no screen contains text; and navigation lives in one file.
+
+**Consequences.**
+- Home, stage intro, loadout, match and result screens exist (p5a). Home also carries an
+  Achievements card so that screen is reachable.
+- The match screen starts nothing: the caller starts the match on `MatchProvider`, owns the
+  `TehillahGame` and `MatchController`, and learns the outcome through `onFinished` / `onQuit`.
+  System back opens the pause sheet; it never leaves the match by accident.
+- The result screen runs `beforeLeave` (the interstitial's natural break) once, before either
+  leaving button, and ignores taps while it runs. The rewarded "retry" offer is opt-in and is not a
+  leave. At text sizes above 1.3x the buttons scroll with the content instead of staying fixed.
+- The match HUD is held to a 1.6x text ceiling over live play (ADR-041); other screens follow the
+  system size in full.
+- Open: the Sling and Stone mode has rules (`mode_rules.dart`) but no gameplay screen in the batch
+  plan. It needs one, decided with Ak before p5b.
+- Open: the once-only rating prompt after a stage win is wired in the router (p6a), not in a screen.
