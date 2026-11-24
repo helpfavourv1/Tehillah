@@ -4,6 +4,7 @@ import 'package:tehillah/screens/home_screen.dart';
 import 'package:tehillah/theme/tokens.dart';
 import 'package:tehillah/widgets/icon_chip.dart';
 
+import '../support/test_surface.dart';
 import '../support/widget_harness.dart';
 import 'screen_labels.dart';
 
@@ -65,6 +66,7 @@ void main() {
   });
 
   testWidgets('every control reaches its callback', (WidgetTester tester) async {
+    useSurface(tester);
     final Map<String, int> taps = <String, int>{};
     await tester.pumpWidget(harness(home(taps: taps)));
     await tester.tap(find.text('Continue: Garden'));

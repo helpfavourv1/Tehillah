@@ -6,6 +6,7 @@ import 'package:tehillah/theme/tokens.dart';
 import 'package:tehillah/widgets/app_chip.dart';
 import 'package:tehillah/widgets/verse_card.dart';
 
+import '../support/test_surface.dart';
 import '../support/widget_harness.dart';
 import 'screen_labels.dart';
 
@@ -69,6 +70,7 @@ void main() {
   });
 
   testWidgets('start, loadout, back, read and share each reach their callback', (WidgetTester tester) async {
+    useSurface(tester);
     final Map<String, int> taps = <String, int>{};
     await tester.pumpWidget(harness(intro(taps: taps)));
     await tester.tap(find.text('Start match'));

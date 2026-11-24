@@ -10,6 +10,7 @@ import 'package:tehillah/theme/app_icon.dart';
 import 'package:tehillah/theme/icon_aliases.dart';
 import 'package:tehillah/theme/tokens.dart';
 
+import '../support/test_surface.dart';
 import '../support/widget_harness.dart';
 import 'screen_labels.dart';
 
@@ -33,11 +34,18 @@ Widget screen(
   );
 }
 
+Future<void> tapAfterScroll(WidgetTester tester, Finder f) async {
+  await tester.ensureVisible(f);
+  await tester.pump();
+  await tester.tap(f);
+  await tester.pump();
+}
+
 void main() {
   testWidgets('lists every ball and every piece of gear with what it gives and costs', (WidgetTester tester) async {
     final ValueNotifier<LoadoutState> s = ValueNotifier<LoadoutState>(stateWith());
     addTearDown(s.dispose);
-    await tester.pumpWidget(harness(screen(s), size: const Size(360, 20000)));
+    await tester.pumpWidget(harness(screen(s)));
     for (final b in BallCatalog.all) {
       expect(find.text('Ball ${b.id}'), findsOneWidget);
       expect(find.textContaining('Benefit: gain ${b.id}'), findsOneWidget);
@@ -52,36 +60,38 @@ void main() {
   testWidgets('the chosen ball says Selected in words and shows a tick', (WidgetTester tester) async {
     final ValueNotifier<LoadoutState> s = ValueNotifier<LoadoutState>(stateWith());
     addTearDown(s.dispose);
-    await tester.pumpWidget(harness(screen(s), size: const Size(360, 20000)));
-    expect(find.text('Selected'), findsNWidgets(1));
-    expect(find.byWidgetPredicate((Widget w) => w is AppIcon && w.symbol == AppIcons.check), findsNWidgets(1));
+    await tester.pumpWidget(harness(screen(s)));
+    expect(find.text('Selected'), findsNWidgets(2));
+    expect(find.byWidgetPredicate((Widget w) => w is AppIcon && w.symbol == AppIcons.check), findsNWidgets(2));
   });
 
   testWidgets('locked items say how many lamps and cannot be chosen', (WidgetTester tester) async {
+    useSurface(tester);
     final ValueNotifier<LoadoutState> s = ValueNotifier<LoadoutState>(stateWith());
     addTearDown(s.dispose);
     final List<String> log = <String>[];
-    await tester.pumpWidget(harness(screen(s, log: log), size: const Size(360, 20000)));
+    await tester.pumpWidget(harness(screen(s, log: log)));
     final int lockedBalls = BallCatalog.all.where((b) => b.unlockLamps > 0).length;
     expect(find.byWidgetPredicate((Widget w) => w is AppIcon && w.symbol == AppIcons.locked),
         findsNWidgets(lockedBalls + GearCatalog.all.length));
     expect(find.textContaining('Earn 1 lamps to unlock'), findsWidgets);
-    await tester.tap(find.text('Ball ${BallCatalog.all[1].id}'));
-    await tester.tap(find.text('Gear ${GearCatalog.all.first.id}'));
+    await tapAfterScroll(tester, find.text('Ball ${BallCatalog.all[1].id}'));
+    await tapAfterScroll(tester, find.text('Gear ${GearCatalog.all.first.id}'));
     expect(log, isEmpty);
   });
 
   testWidgets('unlocked items can be chosen, and No gear clears the gear', (WidgetTester tester) async {
+    useSurface(tester);
     final ValueNotifier<LoadoutState> s = ValueNotifier<LoadoutState>(stateWith(
       balls: <String>{'love', BallCatalog.all[1].id},
       gear: <String>{GearCatalog.all.first.id},
     ));
     addTearDown(s.dispose);
     final List<String> log = <String>[];
-    await tester.pumpWidget(harness(screen(s, log: log), size: const Size(360, 20000)));
-    await tester.tap(find.text('Ball ${BallCatalog.all[1].id}'));
-    await tester.tap(find.text('Gear ${GearCatalog.all.first.id}'));
-    await tester.tap(find.text('No gear'));
+    await tester.pumpWidget(harness(screen(s, log: log)));
+    await tapAfterScroll(tester, find.text('Ball ${BallCatalog.all[1].id}'));
+    await tapAfterScroll(tester, find.text('Gear ${GearCatalog.all.first.id}'));
+    await tapAfterScroll(tester, find.text('No gear'));
     expect(log, <String>['ball:${BallCatalog.all[1].id}', 'gear:${GearCatalog.all.first.id}', 'gear:null']);
   });
 
@@ -90,14 +100,15 @@ void main() {
       balls: <String>{'love', BallCatalog.all[1].id},
     ));
     addTearDown(s.dispose);
-    await tester.pumpWidget(harness(screen(s), size: const Size(360, 20000)));
+    await tester.pumpWidget(harness(screen(s)));
     s.value = stateWith(
       selected: Loadout(ballId: BallCatalog.all[1].id),
       balls: <String>{'love', BallCatalog.all[1].id},
     );
     await tester.pump();
-    expect(find.text('Selected'), findsNWidgets(1));
-    expect(find.byWidgetPredicate((Widget w) => w is AppIcon && w.symbol == AppIcons.check), findsNWidgets(1));
+    expect(find.text('Selected'), findsNWidgets(2));
+    expect(find.byWidgetPredicate((Widget w) => w is AppIcon && w.symbol == AppIcons.check), findsNWidgets(2));
+    expect(find.text('Selected').evaluate().length, 2);
   });
 
   testWidgets('back reaches its callback', (WidgetTester tester) async {
