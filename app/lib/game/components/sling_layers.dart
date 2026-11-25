@@ -53,7 +53,7 @@ class SlingTargets extends SceneLayer {
   }
 
   static Rect _oval(Offset centre, double rx, double ry) =>
-      Rect.fromCenter(centre: centre, width: rx * 2, height: ry * 2);
+      Rect.fromCenter(center: centre, width: rx * 2, height: ry * 2);
 
   void _live(Canvas canvas, Offset centre, double rx, double ry, AppPalette c) {
     canvas.drawOval(_oval(centre, rx, ry), Paint()..color = c.accent);

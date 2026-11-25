@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:tehillah/game/geometry/pitch_projection.dart';
 import 'package:tehillah/game/tuning.dart';
 import 'package:tehillah/theme/app_theme.dart';
-import 'package:tehillah/theme/tokens.dart';
 
 /// Aim and release for Sling and Stone. Press anywhere, drag to move the
 /// crosshair over the goal, lift the finger to throw. The crosshair sits above

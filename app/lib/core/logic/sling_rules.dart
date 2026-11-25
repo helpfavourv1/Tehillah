@@ -1,5 +1,5 @@
-import 'package:tehillah/core/logic/modifiers.dart';
 import 'package:tehillah/core/logic/mode_rules.dart';
+import 'package:tehillah/core/logic/modifiers.dart';
 import 'package:tehillah/core/logic/reward_rules.dart';
 import 'package:tehillah/core/models/shot_params.dart';
 
