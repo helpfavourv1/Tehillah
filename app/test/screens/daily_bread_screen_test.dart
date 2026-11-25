@@ -133,12 +133,15 @@ void main() {
     expect(find.byType(ToggleRow), findsOneWidget);
   });
 
-  testWidgets('Start is fixed under the content', (WidgetTester tester) async {
-    await tester.pumpWidget(harness(screen(onRescue: () {})));
-    expect(
-      tester.getTopLeft(find.text('Play today\'s challenge')).dy,
-      greaterThan(tester.getTopLeft(find.text('Daily reminder')).dy),
-    );
+  testWidgets('Start stays put while the content scrolls', (WidgetTester tester) async {
+    await tester.pumpWidget(harness(
+      screen(result: const DailyResult(won: true, goals: 3), onRescue: () {}),
+      textScale: 2,
+    ));
+    final Offset before = tester.getTopLeft(find.text('Play again'));
+    await tester.drag(find.byType(SingleChildScrollView), const Offset(0, -500));
+    await tester.pump();
+    expect(tester.getTopLeft(find.text('Play again')), before);
   });
 
   for (final PaletteMode mode in PaletteMode.values) {
