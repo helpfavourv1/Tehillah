@@ -376,3 +376,19 @@ to adjust after you try Test APK 1.
   now takes an optional opponent, optional rules lines and a rules header, so one screen serves
   Journey, Friendly, Watchman, Jericho, Seven Days and Sling and Stone (no opponent). A second
   screen would have duplicated it.
+
+## ADR-048 — Daily Bread and Sling and Stone screens (p5b-2)
+
+**Decision.**
+- **Daily Bread screen.** Opponent, facts, today's result (once played), the streak, a seven-day
+  strip (won, played, restored, missed, today; each chip has an icon and a spoken state), the
+  streak-rescue offer (only when a day can be restored), the reminder switch, and a fixed start
+  button. Once today has a result the button reads "Play again" and a note says only the first
+  result counts, which matches `recordDaily`. Ak can change this to block replays.
+- **Sling screen.** Scene full-bleed, aim layer, pills for stones left and targets hit, an end
+  panel with stars and the way on. A round is recorded only when the player moves on from the end
+  panel (`onPlayAgain` or `onLeave`, each with the stars), so extra stones never double-count a
+  play. Leaving from the pause sheet records nothing. The extra-stones button appears only when a
+  rewarded ad is available and the offer is still open.
+- **Shared pause sheet.** `showPauseSheet` replaces the copy inside `MatchScreen`; both play
+  screens use it.
