@@ -10,6 +10,7 @@ import 'package:tehillah/core/models/kick_record.dart';
 import 'package:tehillah/core/models/match_config.dart';
 import 'package:tehillah/core/models/match_side.dart';
 import 'package:tehillah/core/models/match_state.dart';
+import 'package:tehillah/core/models/opponent_def.dart';
 import 'package:tehillah/core/models/progress.dart';
 import 'package:tehillah/core/models/progress_stats.dart';
 import 'package:tehillah/core/models/shot_outcome.dart';
@@ -169,6 +170,56 @@ abstract final class ProgressionRules {
       sevenDaysStart: start,
       sevenDaysDone: won ? <int>{...progress.sevenDaysDone, day} : progress.sevenDaysDone,
     );
+  }
+
+  /// Whether a Journey stage is open: the first always is, each later one
+  /// opens when the stage before it has its lamp.
+  static bool stageUnlocked(Progress progress, int stageId) =>
+      stageId <= 1 || progress.lamps.contains(stageId - 1);
+
+  /// Stars earned across the rounds of [stage] (at most three per round).
+  static int stageStars(Progress progress, StageDef stage) => stage.opponents
+      .fold(0, (int sum, OpponentDef o) => sum + progress.starsFor(o.id));
+
+  /// Rounds of [stage] that have at least one star.
+  static int roundsCleared(Progress progress, StageDef stage) =>
+      stage.opponents.where((OpponentDef o) => progress.starsFor(o.id) >= 1).length;
+
+  /// Whether round [round] (1-based) of [stage] can be played: the stage is
+  /// open and the round before it has a star.
+  static bool roundUnlocked(Progress progress, StageDef stage, int round) {
+    if (round < 1 || round > stage.rounds || !stageUnlocked(progress, stage.id)) {
+      return false;
+    }
+    return round == 1 || progress.starsFor(stage.opponents[round - 2].id) >= 1;
+  }
+
+  /// The round to start when the player taps [stage]: the first round without
+  /// a star; if every round has one, the first with fewer than three stars;
+  /// if all are perfect, round 1.
+  static int suggestedRound(Progress progress, StageDef stage) {
+    for (int r = 1; r <= stage.rounds; r++) {
+      if (progress.starsFor(stage.opponents[r - 1].id) == 0) {
+        return r;
+      }
+    }
+    for (int r = 1; r <= stage.rounds; r++) {
+      if (progress.starsFor(stage.opponents[r - 1].id) < 3) {
+        return r;
+      }
+    }
+    return 1;
+  }
+
+  /// The Journey match to continue with: the first stage without its lamp and
+  /// its first round without a star. Null when every stage is cleared.
+  static ({StageDef stage, int round})? nextJourneyMatch(Progress progress) {
+    for (final StageDef stage in StageCatalog.stages) {
+      if (!progress.lamps.contains(stage.id)) {
+        return (stage: stage, round: suggestedRound(progress, stage));
+      }
+    }
+    return null;
   }
 
   /// The Jericho round the player is on (1 to 7).

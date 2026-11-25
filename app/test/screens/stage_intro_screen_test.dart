@@ -47,6 +47,7 @@ StageIntroScreen intro({
 }
 
 void main() {
+  modeIntroTests();
   testWidgets('shows who you face, the facts, the verse and the loadout', (WidgetTester tester) async {
     await tester.pumpWidget(harness(intro()));
     expect(find.text('Ararat'), findsOneWidget);
@@ -101,4 +102,29 @@ void main() {
       });
     }
   }
+}
+
+void modeIntroTests() {
+  testWidgets('with no opponent the section is absent and the rules show', (WidgetTester tester) async {
+    await tester.pumpWidget(harness(StageIntroScreen(
+      labels: introLabels,
+      title: 'Sling and Stone',
+      rules: const <String>['Seven stones.', 'Hit five targets.'],
+      ballName: 'Love',
+      onStart: () {},
+      onChangeLoadout: () {},
+      onBack: () {},
+    )));
+    expect(find.text('Opponent'), findsNothing);
+    expect(find.text('How it plays'), findsNothing); // upper-cased by the header
+    expect(find.text('HOW IT PLAYS'), findsOneWidget);
+    expect(find.text('Seven stones.'), findsOneWidget);
+    expect(find.text('Hit five targets.'), findsOneWidget);
+  });
+
+  testWidgets('a plain Journey intro shows no rules section', (WidgetTester tester) async {
+    await tester.pumpWidget(harness(intro()));
+    expect(find.text('HOW IT PLAYS'), findsNothing);
+    expect(find.text('OPPONENT'), findsOneWidget);
+  });
 }

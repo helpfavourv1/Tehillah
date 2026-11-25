@@ -1,7 +1,10 @@
 import 'package:tehillah/core/models/ball_def.dart';
 import 'package:tehillah/core/models/gear_def.dart';
+import 'package:tehillah/screens/achievements_screen.dart';
 import 'package:tehillah/screens/home_screen.dart';
+import 'package:tehillah/screens/journey_map_screen.dart';
 import 'package:tehillah/screens/loadout_screen.dart';
+import 'package:tehillah/screens/modes_screen.dart';
 import 'package:tehillah/screens/stage_intro_screen.dart';
 
 String _stage(String n) => 'Continue: $n';
@@ -32,6 +35,7 @@ const StageIntroLabels introLabels = StageIntroLabels(
   back: 'Back',
   start: 'Start match',
   opponent: 'Opponent',
+  rulesHeader: 'How it plays',
   loadout: 'Your loadout',
   changeLoadout: 'Change loadout',
   noGear: 'No gear',
@@ -66,4 +70,32 @@ const LoadoutLabels loadoutLabels = LoadoutLabels(
   benefitLine: _benefit,
   tradeoffLine: _tradeoff,
   lockedHint: _locked,
+);
+
+String _journeySummary(int l, int t, int s) => '$l of $t lamps, $s stars';
+String _roundsProgress(int d, int t) => '$d of $t rounds';
+String _stageStars(int s, int m) => '$s of $m stars';
+
+const JourneyLabels journeyLabels = JourneyLabels(
+  title: 'Journey',
+  back: 'Back',
+  summary: _journeySummary,
+  roundsProgress: _roundsProgress,
+  cleared: 'Cleared',
+  locked: 'Clear the stage before it to open',
+  boss: 'Boss stage',
+  starsValue: _stageStars,
+);
+
+const ModesLabels modesLabels = ModesLabels(title: 'Modes', back: 'Back');
+
+String _achSummary(int u, int t) => '$u of $t unlocked';
+String _achProgress(int v, int t) => '$v of $t';
+
+const AchievementsLabels achievementsLabels = AchievementsLabels(
+  title: 'Achievements',
+  back: 'Back',
+  summary: _achSummary,
+  unlocked: 'Unlocked',
+  progress: _achProgress,
 );

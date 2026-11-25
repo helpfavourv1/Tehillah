@@ -16,6 +16,7 @@ final class StageIntroLabels {
     required this.back,
     required this.start,
     required this.opponent,
+    required this.rulesHeader,
     required this.loadout,
     required this.changeLoadout,
     required this.noGear,
@@ -26,6 +27,9 @@ final class StageIntroLabels {
   final String back;
   final String start;
   final String opponent;
+
+  /// The heading over a mode's rules.
+  final String rulesHeader;
   final String loadout;
 
   /// The accessibility label of the loadout card, which opens the picker.
@@ -65,20 +69,21 @@ final class IntroVerse {
   final VoidCallback? onShare;
 }
 
-/// Before the whistle: who you face, what is special about it, a verse, and
+/// Before the whistle (or the first stone): who you face, what is special about it, a verse, and
 /// the ball and gear you take in. Start is fixed at the bottom; only the
 /// content above it scrolls.
 class StageIntroScreen extends StatelessWidget {
   const StageIntroScreen({
     required this.labels,
     required this.title,
-    required this.opponentName,
-    required this.opponentTeam,
     required this.ballName,
     required this.onStart,
     required this.onChangeLoadout,
     required this.onBack,
     super.key,
+    this.opponentName,
+    this.opponentTeam,
+    this.rules = const <String>[],
     this.roundLabel,
     this.facts = const <IntroFact>[],
     this.verse,
@@ -92,8 +97,13 @@ class StageIntroScreen extends StatelessWidget {
 
   /// "Round 2 of 4", when the mode has rounds.
   final String? roundLabel;
-  final String opponentName;
-  final String opponentTeam;
+
+  /// The opponent, or null for a mode with none (Sling and Stone).
+  final String? opponentName;
+  final String? opponentTeam;
+
+  /// How the mode plays, one line each. Empty for a plain Journey match.
+  final List<String> rules;
   final List<IntroFact> facts;
   final IntroVerse? verse;
   final String ballName;
@@ -118,9 +128,11 @@ class StageIntroScreen extends StatelessWidget {
                   Text(roundLabel!, style: theme.text.callout.copyWith(color: theme.palette.textSecondary)),
                   const SizedBox(height: Sp.sm),
                 ],
-                SectionHeader(labels.opponent, padding: EdgeInsets.zero),
-                const SizedBox(height: Sp.sm),
-                AppCard(label: opponentName, subtitle: opponentTeam, leading: AppIcons.flag),
+                if (opponentName != null) ...<Widget>[
+                  SectionHeader(labels.opponent, padding: EdgeInsets.zero),
+                  const SizedBox(height: Sp.sm),
+                  AppCard(label: opponentName!, subtitle: opponentTeam, leading: AppIcons.flag),
+                ],
                 if (facts.isNotEmpty) ...<Widget>[
                   const SizedBox(height: Sp.sm),
                   Wrap(
@@ -129,6 +141,22 @@ class StageIntroScreen extends StatelessWidget {
                     children: <Widget>[
                       for (final IntroFact f in facts) AppChip(label: f.label, icon: f.icon, tone: f.tone),
                     ],
+                  ),
+                ],
+                if (rules.isNotEmpty) ...<Widget>[
+                  const SizedBox(height: Sp.lg),
+                  SectionHeader(labels.rulesHeader, padding: EdgeInsets.zero),
+                  const SizedBox(height: Sp.sm),
+                  CardSurface(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        for (int i = 0; i < rules.length; i++) ...<Widget>[
+                          if (i > 0) const SizedBox(height: Sp.sm),
+                          Text(rules[i], style: theme.text.body),
+                        ],
+                      ],
+                    ),
                   ),
                 ],
                 if (v != null) ...<Widget>[
