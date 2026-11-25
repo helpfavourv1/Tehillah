@@ -176,12 +176,8 @@ void main() {
     });
 
     test('a newer file is read-only and is never overwritten', () async {
-      final ProgressCodec writer = ProgressCodec(
-        migrator: Migrator(currentVersion: 2, migrations: <Migration>[
-          Migration(from: 1, to: 2, apply: (Map<String, Object?> d) => d),
-        ]),
-      );
-      final String future = writer.encode(_sample().copyWith(schemaVersion: 2));
+      final String future = ProgressCodec()
+          .encode(_sample().copyWith(schemaVersion: Progress.currentSchemaVersion + 1));
       storage.files['progress.json'] = future;
       final ProgressLoad load = await store.load();
       expect(load.status, ProgressLoadStatus.newerVersionReadOnly);

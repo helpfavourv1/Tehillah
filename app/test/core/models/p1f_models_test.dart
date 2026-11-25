@@ -442,7 +442,8 @@ void main() {
 
     test('older files with missing fields still load', () {
       final Progress p = Progress.fromJson(<String, Object?>{'schemaVersion': 1});
-      expect(p, Progress.empty());
+      expect(p.schemaVersion, 1);
+      expect(p.copyWith(schemaVersion: Progress.currentSchemaVersion), Progress.empty());
     });
 
     test('a newer schema number is carried through for the codec to decide', () {
