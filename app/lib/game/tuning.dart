@@ -123,3 +123,21 @@ abstract final class FigureShape {
   static const double gloveRadius = 0.09;
   static const double hipHeight = 0.95;
 }
+
+/// Sling and Stone. Targets live on the goal plane in the rules' units (-1 to
+/// 1 across, 0 to 1 up), so a disc of radius `r` is drawn as an ellipse that is
+/// `r * halfGoal` wide and `r * goalHeight` tall, exactly the region that
+/// counts as a hit.
+abstract final class SlingTuning {
+  /// Time from release to the stone reaching the goal plane.
+  static const double stoneFlightSeconds = 0.3;
+
+  /// Size of the stone, in metres.
+  static const double stoneRadius = 0.14;
+
+  /// Height of the stone's arc above a straight line.
+  static const double stoneArc = 0.5;
+
+  /// Where the stone waits before a throw.
+  static const double stoneRestY = 0.2;
+}
