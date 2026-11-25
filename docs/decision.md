@@ -324,3 +324,19 @@ Jericho and Sling fields are used from p4d.
 needs the App Store ID, which exists only after the app is created in App Store Connect; until
 then the prompt does not appear on iOS. To announce a release, set `latestBuild` in
 `website/flags.json` to the new build number.
+
+## ADR-045 — Sling round and Jericho run rules (p4d)
+
+**Decision.** `SlingRules` is pure Dart and immutable. A round starts with 7 stones and 5 seeded
+targets. A throw takes a `ShotParams` and the seconds since the round began; when a stone covers
+several targets, the smallest not-yet-hit target takes it. A target is hit once. The round ends
+when stones run out or every target is hit. After a round that ended short, a rewarded ad may add
+3 stones once (`addExtraStones`). Stars come from `SlingAndStone.stars` (5 hits 3, 4 hits 2, 3
+hits 1).
+
+**Progression.** `ProgressionRules.recordSling` counts plays and keeps the best stars.
+`recordJericho` accepts only the next round in order. Winning rounds 1 to 6 advances the run;
+winning round 7 counts a completion and starts a new run.
+
+**Open for Ak (default chosen).** A Jericho loss sends the run back to round 1. If you would
+rather a loss only repeats the same round, it is a one-line change in `recordJericho`.
