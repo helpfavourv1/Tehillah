@@ -340,3 +340,22 @@ winning round 7 counts a completion and starts a new run.
 
 **Open for Ak (default chosen).** A Jericho loss sends the run back to round 1. If you would
 rather a loss only repeats the same round, it is a one-line change in `recordJericho`.
+
+## ADR-046 — Sling world, aim and controller (p4e)
+
+**Decision.** Sling and Stone gets its own scene, built from the same parts as the match.
+- **Shared base.** `SceneGame` holds the palette and perspective; `TehillahGame` and the new
+  `SlingGame` extend it, and `SceneLayer` asks `SceneGame`, so Pitch and GoalFrame serve both.
+- **World.** `SlingWorld` holds the round clock, the stone in flight and which targets have
+  fallen. The clock and stone move only while `running`. Targets are drawn on the goal plane as
+  ellipses of `r * halfGoal` by `r * goalHeight`, the exact region the rules count as a hit. A live
+  target is a filled disc with rings; a hit target is a hollow ring with a tick (shape, not colour).
+- **Aim.** `SlingAimLayer`: press, drag the crosshair, lift to throw. The crosshair sits 56 px above
+  the finger so the finger never hides it. Aim is converted by the same projection the scene uses.
+- **Controller.** A release asks the rules about the moment the stone will arrive (clock plus
+  0.3 s), so the picture always agrees with the rules. The published state updates when the stone
+  lands, so the numbers never run ahead of it. Input is closed during flight, pause and after the
+  round; `onFinished` fires after the last stone lands, and again after rewarded extra stones.
+
+**Open for Ak.** Stone flight is 0.3 s and the crosshair lift is 56 px; both are tuning values
+to adjust after you try Test APK 1.
