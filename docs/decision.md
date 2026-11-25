@@ -359,3 +359,20 @@ rather a loss only repeats the same round, it is a one-line change in `recordJer
 
 **Open for Ak.** Stone flight is 0.3 s and the crosshair lift is 56 px; both are tuning values
 to adjust after you try Test APK 1.
+
+## ADR-047 — Journey map, modes and achievements screens (p5b-1)
+
+**Decision.**
+- **Journey rules (defaults, Ak can change).** Stage 1 is open from the start; each later stage
+  opens when the stage before it has its lamp. Within a stage, a round opens when the round before
+  it has at least one star. Tapping a stage starts `suggestedRound`: the first round with no star;
+  if all have one, the first below three stars; if all are perfect, round 1. The Home "Continue"
+  button uses `nextJourneyMatch`: the first stage without its lamp and its suggested round.
+- **Screens.** `JourneyMapScreen` (twelve stage cards: lamp, padlock with the reason, or round
+  progress; locked stages ignore taps), `ModesScreen` (every mode, locked ones show how to open
+  them), `AchievementsScreen` (nine fruit; earned ones show a check, others show progress capped at
+  the target). Status is always told by icon and text, never colour.
+- **No separate mode-intro file.** The blueprint listed `mode_intro_screen.dart`. `StageIntroScreen`
+  now takes an optional opponent, optional rules lines and a rules header, so one screen serves
+  Journey, Friendly, Watchman, Jericho, Seven Days and Sling and Stone (no opponent). A second
+  screen would have duplicated it.
