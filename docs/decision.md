@@ -298,3 +298,29 @@ is dropped.
 migration) -> p4e (sling world and controller) -> p5b (journey map, modes, mode intro, sling screen,
 Daily Bread, achievements) -> p5c -> p5d -> p6a -> p6b -> p6c -> p7a -> p7b -> p7c. The three new
 batches extend phases 2 and 4 and land before any phase 5 screen depends on them.
+
+## ADR-044 — Rating, rewards and update prompt (p2f)
+
+**Decision.** Three behaviours get their rules and adapters before any screen uses them.
+- **Rating.** `RatingRules.shouldPrompt` allows the store's rating dialog once per install, right
+  after a stage is cleared, never after a loss. `RatingPort` is implemented by `RatingService`
+  over `in_app_review` 2.0.11; a failure or an unavailable dialog just answers false.
+- **Rewards.** `RewardRules` holds the four opt-in rewarded-ad uses. Extra Selah is one pause per
+  match through `MatchConfig.bonusSelah`. Streak rescue restores the one missed day (yesterday
+  missing, the day before played), at most once per Monday-to-Sunday week, recorded in
+  `Progress.rescuedDays`, which counts toward current and longest streak. Extra stones is three,
+  used by Sling and Stone. Retry-a-lost-match already has its button on the result screen.
+- **Update prompt.** `UpdateRules.shouldPrompt` is true when `flags.json` names a newer
+  `latestBuild` than `AppConfig.buildNumber` and the user has not said "not now" to that build
+  (`SettingsModel.dismissedUpdateBuild`). It is soft and never blocks play. A test keeps
+  `AppConfig.buildNumber` equal to the number after the plus in `pubspec.yaml`.
+
+**Schema.** Progress moves to version 2 with a 1 to 2 migration. The new fields (`rescuedDays`,
+`jerichoCleared`, `jerichoCompletions`, `slingBest`, `slingPlays`) are optional on read, so the
+step changes only the version; an older app reading a version 2 file treats it as read-only. The
+Jericho and Sling fields are used from p4d.
+
+**Open for Ak.** The update link exists only for Android (`AppConfig.playStoreUrl`). The iOS link
+needs the App Store ID, which exists only after the app is created in App Store Connect; until
+then the prompt does not appear on iOS. To announce a release, set `latestBuild` in
+`website/flags.json` to the new build number.
