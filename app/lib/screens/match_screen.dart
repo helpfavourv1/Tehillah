@@ -18,10 +18,7 @@ import 'package:tehillah/game/match_controller.dart';
 import 'package:tehillah/game/tehillah_game.dart';
 import 'package:tehillah/providers/match_provider.dart';
 import 'package:tehillah/theme/app_theme.dart';
-import 'package:tehillah/theme/icon_aliases.dart';
-import 'package:tehillah/theme/tokens.dart';
-import 'package:tehillah/widgets/bottom_sheet.dart';
-import 'package:tehillah/widgets/primary_button.dart';
+import 'package:tehillah/widgets/pause_sheet.dart';
 
 final class MatchScreenLabels {
   const MatchScreenLabels({
@@ -139,33 +136,17 @@ class _MatchScreenState extends State<MatchScreen> {
     _sheetOpen = true;
     widget.controller.pause();
     final MatchScreenLabels labels = widget.labels;
-    final bool? leave = await showAppBottomSheet<bool>(
+    final bool leave = await showPauseSheet(
       context: context,
-      barrierLabel: labels.resume,
       title: labels.pauseTitle,
-      builder: (BuildContext sheetContext) => Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          PrimaryButton(
-            label: labels.resume,
-            icon: AppIcons.play,
-            onPressed: () => Navigator.of(sheetContext).pop(false),
-          ),
-          const SizedBox(height: Sp.sm),
-          SecondaryButton(
-            label: labels.leave,
-            icon: AppIcons.close,
-            onPressed: () => Navigator.of(sheetContext).pop(true),
-          ),
-        ],
-      ),
+      resumeLabel: labels.resume,
+      leaveLabel: labels.leave,
     );
     _sheetOpen = false;
     if (!mounted) {
       return;
     }
-    if (leave ?? false) {
+    if (leave) {
       widget.onQuit();
     } else {
       widget.controller.resume();
