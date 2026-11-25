@@ -208,6 +208,16 @@ final class ProgressProvider extends SafeNotifier<ProgressState> {
         ProgressionRules.recordSevenDays(p, todayKey: todayKey, won: won));
   }
 
+  /// Records a Jericho round result.
+  void applyJericho({required int round, required bool won}) {
+    update((Progress p) => ProgressionRules.recordJericho(p, round: round, won: won));
+  }
+
+  /// Records a finished Sling and Stone round.
+  void applySling({required int stars}) {
+    update((Progress p) => ProgressionRules.recordSling(p, stars: stars));
+  }
+
   void markUnlocksAnnounced() {
     final Set<String> all = ProgressionRules.unlocksFor(progress);
     update((Progress p) => p.copyWith(announcedUnlocks: <String>{...p.announcedUnlocks, ...all}));

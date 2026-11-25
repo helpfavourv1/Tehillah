@@ -171,6 +171,37 @@ abstract final class ProgressionRules {
     );
   }
 
+  /// The Jericho round the player is on (1 to 7).
+  static int nextJerichoRound(Progress progress) => progress.jerichoCleared + 1;
+
+  /// Records a Jericho round. Rounds must be played in order; anything else is
+  /// ignored. A loss sends the run back to round 1. Winning round 7 completes
+  /// the run and starts a new one.
+  static Progress recordJericho(Progress progress, {required int round, required bool won}) {
+    if (round != nextJerichoRound(progress) || round > ModeRules.jerichoRounds) {
+      return progress;
+    }
+    if (!won) {
+      return progress.copyWith(jerichoCleared: 0);
+    }
+    if (round == ModeRules.jerichoRounds) {
+      return progress.copyWith(
+        jerichoCleared: 0,
+        jerichoCompletions: progress.jerichoCompletions + 1,
+      );
+    }
+    return progress.copyWith(jerichoCleared: round);
+  }
+
+  /// Records a finished Sling and Stone round: counts the play, keeps the best.
+  static Progress recordSling(Progress progress, {required int stars}) {
+    final int s = stars < 0 ? 0 : (stars > 3 ? 3 : stars);
+    return progress.copyWith(
+      slingPlays: progress.slingPlays + 1,
+      slingBest: s > progress.slingBest ? s : progress.slingBest,
+    );
+  }
+
   /// Whether [key] counts toward a Daily Bread streak: it has a result, or a
   /// rewarded ad restored it.
   static bool _dayCounts(Progress progress, String key) =>
