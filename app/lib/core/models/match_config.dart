@@ -26,10 +26,15 @@ final class MatchConfig {
     this.round = 1,
     this.kicksPerSide = 5,
     this.wind = 0,
+    this.bonusSelah = 0,
   })  : assert(kicksPerSide >= 1),
         assert(round >= 1),
         assert(difficulty >= 0 && difficulty <= 1),
-        assert(wind >= -1 && wind <= 1);
+        assert(wind >= -1 && wind <= 1),
+        assert(bonusSelah >= 0 && bonusSelah <= maxBonusSelah);
+
+  /// The most extra Selah pauses a rewarded ad can add to one match.
+  static const int maxBonusSelah = 1;
 
   factory MatchConfig.fromJson(Map<String, Object?> json) {
     final Object? stage = json['stageId'];
@@ -46,6 +51,9 @@ final class MatchConfig {
       round: readInt(json, 'round', min: 1),
       kicksPerSide: readInt(json, 'kicksPerSide', min: 1, max: 20),
       wind: readDouble(json, 'wind', min: -1, max: 1),
+      bonusSelah: json.containsKey('bonusSelah')
+          ? readInt(json, 'bonusSelah', min: 0, max: maxBonusSelah)
+          : 0,
     );
   }
 
@@ -70,6 +78,9 @@ final class MatchConfig {
   /// Crosswind, -1 to 1.
   final double wind;
 
+  /// Extra Selah pauses earned from an opt-in rewarded ad before the match.
+  final int bonusSelah;
+
   MatchConfig copyWith({
     MatchMode? mode,
     OpponentDef? opponent,
@@ -80,6 +91,7 @@ final class MatchConfig {
     int? round,
     int? kicksPerSide,
     double? wind,
+    int? bonusSelah,
   }) {
     return MatchConfig(
       mode: mode ?? this.mode,
@@ -91,6 +103,7 @@ final class MatchConfig {
       round: round ?? this.round,
       kicksPerSide: kicksPerSide ?? this.kicksPerSide,
       wind: wind ?? this.wind,
+      bonusSelah: bonusSelah ?? this.bonusSelah,
     );
   }
 
@@ -104,6 +117,7 @@ final class MatchConfig {
         'round': round,
         'kicksPerSide': kicksPerSide,
         'wind': wind,
+        'bonusSelah': bonusSelah,
       };
 
   @override
@@ -117,7 +131,8 @@ final class MatchConfig {
       other.stageId == stageId &&
       other.round == round &&
       other.kicksPerSide == kicksPerSide &&
-      other.wind == wind;
+      other.wind == wind &&
+      other.bonusSelah == bonusSelah;
 
   @override
   int get hashCode => Object.hash(
@@ -130,5 +145,6 @@ final class MatchConfig {
         round,
         kicksPerSide,
         wind,
+        bonusSelah,
       );
 }

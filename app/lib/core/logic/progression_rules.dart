@@ -171,9 +171,19 @@ abstract final class ProgressionRules {
     );
   }
 
-  /// The longest run of consecutive days with a Daily Bread result.
+  /// Whether [key] counts toward a Daily Bread streak: it has a result, or a
+  /// rewarded ad restored it.
+  static bool _dayCounts(Progress progress, String key) =>
+      progress.dailyHistory.containsKey(key) || progress.rescuedDays.contains(key);
+
+  /// The longest run of consecutive days with a Daily Bread result or a
+  /// restored day.
   static int longestDailyStreak(Progress progress) {
-    final List<String> keys = progress.dailyHistory.keys.toList()..sort();
+    final List<String> keys = <String>{
+      ...progress.dailyHistory.keys,
+      ...progress.rescuedDays,
+    }.toList()
+      ..sort();
     int best = 0;
     int run = 0;
     String? previous;
@@ -190,11 +200,9 @@ abstract final class ProgressionRules {
   /// The streak that is still alive on [todayKey]: consecutive days ending
   /// today, or yesterday if today is not played yet.
   static int currentDailyStreak(Progress progress, String todayKey) {
-    String cursor = progress.dailyHistory.containsKey(todayKey)
-        ? todayKey
-        : DateKey.addDays(todayKey, -1);
+    String cursor = _dayCounts(progress, todayKey) ? todayKey : DateKey.addDays(todayKey, -1);
     int run = 0;
-    while (progress.dailyHistory.containsKey(cursor)) {
+    while (_dayCounts(progress, cursor)) {
       run += 1;
       cursor = DateKey.addDays(cursor, -1);
     }

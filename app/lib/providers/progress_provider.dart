@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:tehillah/core/errors/app_error.dart';
 import 'package:tehillah/core/logic/achievements_engine.dart';
 import 'package:tehillah/core/logic/progression_rules.dart';
+import 'package:tehillah/core/logic/reward_rules.dart';
 import 'package:tehillah/core/models/daily_challenge.dart';
 import 'package:tehillah/core/models/progress.dart';
 import 'package:tehillah/core/ports/log_port.dart';
@@ -210,6 +211,16 @@ final class ProgressProvider extends SafeNotifier<ProgressState> {
   void markUnlocksAnnounced() {
     final Set<String> all = ProgressionRules.unlocksFor(progress);
     update((Progress p) => p.copyWith(announcedUnlocks: <String>{...p.announcedUnlocks, ...all}));
+  }
+
+  /// Restores the one missed Daily Bread day a rewarded ad may restore.
+  /// False when there is nothing to restore.
+  bool restoreStreak(String todayKey) {
+    if (RewardRules.restorableDay(progress, todayKey) == null) {
+      return false;
+    }
+    update((Progress p) => RewardRules.restoreStreak(p, todayKey));
+    return true;
   }
 
   void markRatingPromptShown() =>

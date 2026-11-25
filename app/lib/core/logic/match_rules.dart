@@ -16,7 +16,7 @@ abstract final class MatchRules {
       firstSide: config.mode == MatchMode.watchman
           ? MatchSide.opponent
           : MatchSide.player,
-      selahCharges: mods.selahCharges,
+      selahCharges: mods.selahCharges + config.bonusSelah,
     );
   }
 

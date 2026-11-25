@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:tehillah/core/logic/date_key.dart';
 import 'package:tehillah/core/models/bookmark.dart';
 import 'package:tehillah/core/models/daily_challenge.dart';
 import 'package:tehillah/core/models/json_util.dart';
@@ -25,6 +26,11 @@ final class Progress {
     this.ratingPromptShown = false,
     this.sevenDaysStart,
     Set<int> sevenDaysDone = const <int>{},
+    Set<String> rescuedDays = const <String>{},
+    this.jerichoCleared = 0,
+    this.jerichoCompletions = 0,
+    this.slingBest = 0,
+    this.slingPlays = 0,
   })  : matchStars = Map<String, int>.unmodifiable(matchStars),
         lamps = Set<int>.unmodifiable(lamps),
         announcedUnlocks = Set<String>.unmodifiable(announcedUnlocks),
@@ -32,10 +38,11 @@ final class Progress {
         dailyHistory = Map<String, DailyRecord>.unmodifiable(dailyHistory),
         bookmarks = List<Bookmark>.unmodifiable(bookmarks),
         highlights = List<Highlight>.unmodifiable(highlights),
-        sevenDaysDone = Set<int>.unmodifiable(sevenDaysDone);
+        sevenDaysDone = Set<int>.unmodifiable(sevenDaysDone),
+        rescuedDays = Set<String>.unmodifiable(rescuedDays);
 
   /// The version this build writes. A file with a higher number is read-only.
-  static const int currentSchemaVersion = 1;
+  static const int currentSchemaVersion = 2;
 
   /// A brand-new career.
   factory Progress.empty() => Progress();
@@ -106,6 +113,18 @@ final class Progress {
         for (final Object? v in list('sevenDaysDone'))
           if (v is int && v >= 1 && v <= 7) v else throw const FormatException('bad day'),
       },
+      rescuedDays: <String>{
+        for (final Object? v in list('rescuedDays'))
+          if (v is String) DateKey.of(DateKey.parse(v)) else throw const FormatException('bad rescued day'),
+      },
+      jerichoCleared: json.containsKey('jerichoCleared')
+          ? readInt(json, 'jerichoCleared', min: 0, max: 7)
+          : 0,
+      jerichoCompletions: json.containsKey('jerichoCompletions')
+          ? readInt(json, 'jerichoCompletions', min: 0)
+          : 0,
+      slingBest: json.containsKey('slingBest') ? readInt(json, 'slingBest', min: 0, max: 3) : 0,
+      slingPlays: json.containsKey('slingPlays') ? readInt(json, 'slingPlays', min: 0) : 0,
     );
   }
 
@@ -146,6 +165,22 @@ final class Progress {
   /// Days (1 to 7) of the current Seven Days run that are done.
   final Set<int> sevenDaysDone;
 
+  /// Days (`YYYY-MM-DD`) a rewarded ad restored to a Daily Bread streak. They
+  /// count as played for the streak but are not results.
+  final Set<String> rescuedDays;
+
+  /// Rounds (0 to 7) of the current Jericho run already won.
+  final int jerichoCleared;
+
+  /// How many times the walls of Jericho have come down.
+  final int jerichoCompletions;
+
+  /// The best Sling and Stone stars (0 to 3).
+  final int slingBest;
+
+  /// How many Sling and Stone rounds have been played.
+  final int slingPlays;
+
   int starsFor(String opponentId) => matchStars[opponentId] ?? 0;
 
   int get totalStars => matchStars.values.fold(0, (int a, int b) => a + b);
@@ -166,6 +201,11 @@ final class Progress {
     String? sevenDaysStart,
     bool clearSevenDays = false,
     Set<int>? sevenDaysDone,
+    Set<String>? rescuedDays,
+    int? jerichoCleared,
+    int? jerichoCompletions,
+    int? slingBest,
+    int? slingPlays,
   }) {
     return Progress(
       schemaVersion: schemaVersion ?? this.schemaVersion,
@@ -182,6 +222,11 @@ final class Progress {
       ratingPromptShown: ratingPromptShown ?? this.ratingPromptShown,
       sevenDaysStart: clearSevenDays ? null : (sevenDaysStart ?? this.sevenDaysStart),
       sevenDaysDone: clearSevenDays ? const <int>{} : (sevenDaysDone ?? this.sevenDaysDone),
+      rescuedDays: rescuedDays ?? this.rescuedDays,
+      jerichoCleared: jerichoCleared ?? this.jerichoCleared,
+      jerichoCompletions: jerichoCompletions ?? this.jerichoCompletions,
+      slingBest: slingBest ?? this.slingBest,
+      slingPlays: slingPlays ?? this.slingPlays,
     );
   }
 
@@ -205,6 +250,11 @@ final class Progress {
       'ratingPromptShown': ratingPromptShown,
       'sevenDaysStart': sevenDaysStart,
       'sevenDaysDone': sevenDaysDone.toList()..sort(),
+      'rescuedDays': rescuedDays.toList()..sort(),
+      'jerichoCleared': jerichoCleared,
+      'jerichoCompletions': jerichoCompletions,
+      'slingBest': slingBest,
+      'slingPlays': slingPlays,
     };
   }
 

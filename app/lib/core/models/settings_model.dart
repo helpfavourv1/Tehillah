@@ -25,6 +25,7 @@ final class SettingsModel {
     this.reminderMinuteOfDay = 1080,
     this.readerTextScale = 1.0,
     this.packWifiOnly = true,
+    this.dismissedUpdateBuild = 0,
   })  : assert(reminderMinuteOfDay >= 0 && reminderMinuteOfDay < 1440),
         assert(readerTextScale >= minTextScale && readerTextScale <= maxTextScale);
 
@@ -48,6 +49,7 @@ final class SettingsModel {
     final Object? reader = json['readerLocale'];
     final Object? minute = json['reminderMinuteOfDay'];
     final Object? scale = json['readerTextScale'];
+    final Object? dismissed = json['dismissedUpdateBuild'];
     return SettingsModel(
       themeChoice: pick(ThemeChoice.values, 'themeChoice', d.themeChoice),
       readerTheme: pick(ReaderTheme.values, 'readerTheme', d.readerTheme),
@@ -67,6 +69,7 @@ final class SettingsModel {
           ? scale.toDouble()
           : d.readerTextScale,
       packWifiOnly: flag('packWifiOnly', d.packWifiOnly),
+      dismissedUpdateBuild: dismissed is int && dismissed >= 0 ? dismissed : 0,
     );
   }
 
@@ -97,6 +100,10 @@ final class SettingsModel {
   /// Download Bible packs on Wi-Fi only (false allows mobile data).
   final bool packWifiOnly;
 
+  /// The newest build the user has already said "not now" to, so the update
+  /// prompt does not return for it.
+  final int dismissedUpdateBuild;
+
   SettingsModel copyWith({
     ThemeChoice? themeChoice,
     ReaderTheme? readerTheme,
@@ -111,6 +118,7 @@ final class SettingsModel {
     int? reminderMinuteOfDay,
     double? readerTextScale,
     bool? packWifiOnly,
+    int? dismissedUpdateBuild,
   }) {
     return SettingsModel(
       themeChoice: themeChoice ?? this.themeChoice,
@@ -125,6 +133,7 @@ final class SettingsModel {
       reminderMinuteOfDay: reminderMinuteOfDay ?? this.reminderMinuteOfDay,
       readerTextScale: readerTextScale ?? this.readerTextScale,
       packWifiOnly: packWifiOnly ?? this.packWifiOnly,
+      dismissedUpdateBuild: dismissedUpdateBuild ?? this.dismissedUpdateBuild,
     );
   }
 
@@ -141,6 +150,7 @@ final class SettingsModel {
         'reminderMinuteOfDay': reminderMinuteOfDay,
         'readerTextScale': readerTextScale,
         'packWifiOnly': packWifiOnly,
+        'dismissedUpdateBuild': dismissedUpdateBuild,
       };
 
   @override
@@ -157,7 +167,8 @@ final class SettingsModel {
       other.remindersOn == remindersOn &&
       other.reminderMinuteOfDay == reminderMinuteOfDay &&
       other.readerTextScale == readerTextScale &&
-      other.packWifiOnly == packWifiOnly;
+      other.packWifiOnly == packWifiOnly &&
+      other.dismissedUpdateBuild == dismissedUpdateBuild;
 
   @override
   int get hashCode => Object.hash(
@@ -173,5 +184,6 @@ final class SettingsModel {
         reminderMinuteOfDay,
         readerTextScale,
         packWifiOnly,
+        dismissedUpdateBuild,
       );
 }

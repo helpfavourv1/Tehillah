@@ -9,6 +9,7 @@ final class RemoteFlags {
     this.interstitialsEnabled = true,
     this.rewardedEnabled = true,
     this.readerDownloadEnabled = true,
+    this.latestBuild = 0,
   });
 
   static const RemoteFlags defaults = RemoteFlags();
@@ -30,6 +31,9 @@ final class RemoteFlags {
           interstitialsEnabled: read('interstitialsEnabled'),
           rewardedEnabled: read('rewardedEnabled'),
           readerDownloadEnabled: read('readerDownloadEnabled'),
+          latestBuild: value['latestBuild'] is int && (value['latestBuild']! as int) >= 0
+              ? value['latestBuild']! as int
+              : 0,
         );
       }
     } on FormatException {
@@ -43,11 +47,16 @@ final class RemoteFlags {
   final bool rewardedEnabled;
   final bool readerDownloadEnabled;
 
+  /// The newest build number in the store. Zero means unknown, so no update
+  /// is ever suggested.
+  final int latestBuild;
+
   String encode() => jsonEncode(<String, Object?>{
         'adsEnabled': adsEnabled,
         'interstitialsEnabled': interstitialsEnabled,
         'rewardedEnabled': rewardedEnabled,
         'readerDownloadEnabled': readerDownloadEnabled,
+        'latestBuild': latestBuild,
       });
 
   @override
@@ -56,9 +65,10 @@ final class RemoteFlags {
       other.adsEnabled == adsEnabled &&
       other.interstitialsEnabled == interstitialsEnabled &&
       other.rewardedEnabled == rewardedEnabled &&
-      other.readerDownloadEnabled == readerDownloadEnabled;
+      other.readerDownloadEnabled == readerDownloadEnabled &&
+      other.latestBuild == latestBuild;
 
   @override
   int get hashCode =>
-      Object.hash(adsEnabled, interstitialsEnabled, rewardedEnabled, readerDownloadEnabled);
+      Object.hash(adsEnabled, interstitialsEnabled, rewardedEnabled, readerDownloadEnabled, latestBuild);
 }

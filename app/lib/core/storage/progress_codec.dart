@@ -28,7 +28,19 @@ final class DecodedProgress {
 /// `{"format":1,"sha256":"<hex>","payload":"<progress json>"}`
 final class ProgressCodec {
   ProgressCodec({Migrator? migrator})
-      : _migrator = migrator ?? Migrator(currentVersion: Progress.currentSchemaVersion);
+      : _migrator = migrator ??
+            Migrator(
+              currentVersion: Progress.currentSchemaVersion,
+              migrations: migrations,
+            );
+
+  /// Version 2 added the streak rescue, Jericho run and Sling and Stone
+  /// fields. Every one is optional when read, so the step changes nothing but
+  /// the version: an older app reading a version 2 file correctly treats it as
+  /// read-only.
+  static final List<Migration> migrations = <Migration>[
+    Migration(from: 1, to: 2, apply: (Map<String, Object?> data) => data),
+  ];
 
   static const int envelopeFormat = 1;
 
