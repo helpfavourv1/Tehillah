@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tehillah/screens/journey_map_screen.dart';
+import 'package:tehillah/theme/app_icon.dart';
 import 'package:tehillah/theme/icon_aliases.dart';
 import 'package:tehillah/theme/tokens.dart';
 import 'package:tehillah/widgets/app_card.dart';
@@ -71,13 +72,14 @@ void main() {
     expect(find.text('9 of 12 stars'), findsOneWidget);
     expect(find.text('Clear the stage before it to open'), findsOneWidget);
     expect(find.textContaining('Boss stage'), findsOneWidget);
-    final Iterable<String> glyphs = find
-        .byType(Text)
+    bool has(IconData symbol) => find
+        .byWidgetPredicate((Widget w) => w is AppIcon && w.symbol == symbol)
         .evaluate()
-        .map((Element e) => (e.widget as Text).data ?? '')
-        .where((String d) => d.length == 1);
-    expect(glyphs.contains(String.fromCharCode(AppIcons.locked.codePoint)), isTrue);
-    expect(glyphs.contains(String.fromCharCode(AppIcons.lamp.codePoint)), isTrue);
+        .isNotEmpty;
+    expect(has(AppIcons.locked), isTrue);
+    expect(has(AppIcons.lamp), isTrue);
+    expect(has(AppIcons.medal), isTrue);
+    expect(has(AppIcons.journey), isTrue);
   });
 
   testWidgets('a locked stage shows no stars and ignores taps', (WidgetTester tester) async {
