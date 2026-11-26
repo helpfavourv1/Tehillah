@@ -23,7 +23,7 @@ void main() {
   });
 
   test('every Journey stage has a name', () {
-    for (final StageDef s in StageCatalog.all) {
+    for (final StageDef s in StageCatalog.stages) {
       final String name = t.stageName(s.nameKey);
       expect(name, isNot(s.nameKey), reason: s.nameKey);
       expect(name, isNotEmpty);
