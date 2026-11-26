@@ -1,0 +1,783 @@
+{
+  "@@locale": "en",
+  "appName": "Tehillah Soccer",
+  "commonBack": "Back",
+  "commonShare": "Share",
+  "commonReadChapter": "Read chapter",
+  "commonRetry": "Try again",
+  "commonDownload": "Download",
+  "commonCancel": "Cancel",
+  "commonSave": "Save",
+  "commonSelected": "Selected",
+  "commonYou": "You",
+  "commonOpponent": "Opponent",
+  "commonDismiss": "Dismiss",
+  "commonClose": "Close",
+  "commonNotNow": "Not now",
+  "commonPlay": "Play",
+  "commonStart": "Start",
+  "commonResume": "Resume",
+  "commonLeave": "Leave",
+  "commonPause": "Pause",
+  "homePlay": "Play",
+  "homePlayContinue": "Continue: {stage}",
+  "@homePlayContinue": {
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
+  "homeJourney": "Journey",
+  "homeJourneySummary": "{lamps} of {total} lamps · {stars, plural, =1{1 star} other{{stars} stars}}",
+  "@homeJourneySummary": {
+    "placeholders": {
+      "lamps": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "stars": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "homeModes": "Game modes",
+  "homeModesSubtitle": "Friendly, Watchman, Jericho and more",
+  "homeDaily": "Daily Bread",
+  "homeDailyOpen": "Today’s challenge is ready",
+  "homeDailyDone": "Done for today",
+  "homeDailyStreak": "{days, plural, =1{1 day streak} other{{days} day streak}}",
+  "@homeDailyStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "homeVerses": "Verse library",
+  "homeVersesSubtitle": "Verses for every moment of the game",
+  "homeAchievements": "Achievements",
+  "homeAchievementsSummary": "{unlocked} of {total}",
+  "@homeAchievementsSummary": {
+    "placeholders": {
+      "unlocked": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "homeSettings": "Settings",
+  "journeyTitle": "Journey",
+  "journeySummary": "{lamps} of {total} lamps, {stars, plural, =1{1 star} other{{stars} stars}}",
+  "@journeySummary": {
+    "placeholders": {
+      "lamps": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "stars": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "journeyRoundsProgress": "{done} of {total} rounds",
+  "@journeyRoundsProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "journeyCleared": "Lamp lit",
+  "journeyLocked": "Light the lamp before it to open this stage",
+  "journeyBoss": "Boss",
+  "journeyStarsValue": "{stars} of {max} stars",
+  "@journeyStarsValue": {
+    "placeholders": {
+      "stars": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "max": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "stageGarden": "Garden",
+  "stageArarat": "Ararat",
+  "stageRedSeaShore": "Red Sea Shore",
+  "stageSinai": "Sinai",
+  "stageJerichoPlain": "Jericho Plain",
+  "stageValleyOfElah": "Valley of Elah",
+  "stageBabylonGates": "Babylon Gates",
+  "stageGalilee": "Galilee",
+  "stageDamascusRoad": "Damascus Road",
+  "stageAntioch": "Antioch",
+  "stagePatmosShore": "Patmos Shore",
+  "stageNewJerusalem": "New Jerusalem",
+  "introRulesHeader": "Rules",
+  "introLoadout": "Your loadout",
+  "introChangeLoadout": "Change loadout",
+  "introNoGear": "No gear chosen",
+  "introStageRules": "Five kicks each. The higher score wins. If it is level, sudden death decides it.",
+  "introRulesFriendly": "A quick match against an opponent you have met. Five kicks each, then sudden death.",
+  "introRulesWatchman": "You play the goalkeeper. Dive to save each kick. Five kicks each, then sudden death.",
+  "introRulesSling": "Hit the moving targets with a limited number of stones. Fewer stones used means more stars.",
+  "introRulesJericho": "Seven rounds against one opponent, each harder than the last. Win all seven to bring the walls down. A loss starts the run again.",
+  "introRulesSevenDays": "One themed match a day for seven days. Keep the streak going.",
+  "introRulesDaily": "One challenge a day, the same for everyone. Only your first result counts.",
+  "modesTitle": "Game modes",
+  "modeJourney": "Journey",
+  "modeFriendly": "Friendly",
+  "modeWatchman": "Watchman",
+  "modeSling": "Sling and Stone",
+  "modeJericho": "Jericho",
+  "modeSevenDays": "Seven Days",
+  "modeDaily": "Daily Bread",
+  "modeJourneySubtitle": "Twelve stages, four rounds each",
+  "modeFriendlySubtitle": "A quick match against any opponent you have met",
+  "modeWatchmanSubtitle": "Play the goalkeeper",
+  "modeSlingSubtitle": "Hit the targets with limited stones",
+  "modeJerichoSubtitle": "Seven rounds against one opponent",
+  "modeSevenDaysSubtitle": "One themed match a day for a week",
+  "modeDailySubtitle": "One seeded challenge a day",
+  "modeLockedStage": "Clear {stage} to unlock",
+  "@modeLockedStage": {
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
+  "modeLockedSevenDays": "Play Daily Bread once to unlock",
+  "modeValueRound": "Round {round} of {total}",
+  "@modeValueRound": {
+    "placeholders": {
+      "round": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "modeValueStars": "{stars, plural, =1{1 star} other{{stars} stars}}",
+  "@modeValueStars": {
+    "placeholders": {
+      "stars": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "modeValueDay": "Day {day} of {total}",
+  "@modeValueDay": {
+    "placeholders": {
+      "day": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "loadoutTitle": "Loadout",
+  "loadoutBalls": "Balls",
+  "loadoutGear": "Keeper gear",
+  "loadoutNoGear": "No gear",
+  "loadoutNoGearDetail": "Play without a piece of armor",
+  "loadoutBenefitLine": "Benefit: {text}",
+  "@loadoutBenefitLine": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "loadoutTradeoffLine": "Trade-off: {text}",
+  "@loadoutTradeoffLine": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "loadoutLockedHint": "{lamps, plural, =1{Light 1 lamp to unlock} other{Light {lamps} lamps to unlock}}",
+  "@loadoutLockedHint": {
+    "placeholders": {
+      "lamps": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "fruitLove": "Love",
+  "fruitLoveBenefit": "Larger aim forgiveness",
+  "fruitLoveTradeoff": "Slightly less power",
+  "fruitJoy": "Joy",
+  "fruitJoyBenefit": "Wider curve range",
+  "fruitJoyTradeoff": "Curve can overshoot at the extreme",
+  "fruitPeace": "Peace",
+  "fruitPeaceBenefit": "The nerve meter rises more slowly",
+  "fruitPeaceTradeoff": "Slightly slower ball",
+  "fruitPatience": "Patience",
+  "fruitPatienceBenefit": "The timing bar moves more slowly",
+  "fruitPatienceTradeoff": "Selah recovers more slowly",
+  "fruitKindness": "Kindness",
+  "fruitKindnessBenefit": "A better chance on a rebound after a post",
+  "fruitKindnessTradeoff": "Smaller aim forgiveness",
+  "fruitGoodness": "Goodness",
+  "fruitGoodnessBenefit": "A steadier flick path",
+  "fruitGoodnessTradeoff": "Less curve range",
+  "fruitFaithfulness": "Faithfulness",
+  "fruitFaithfulnessBenefit": "Consistent power on every kick",
+  "fruitFaithfulnessTradeoff": "No power bonus",
+  "fruitGentleness": "Gentleness",
+  "fruitGentlenessBenefit": "Smoother low shots",
+  "fruitGentlenessTradeoff": "Weaker high shots",
+  "fruitSelfControl": "Self-control",
+  "fruitSelfControlBenefit": "Selah lasts longer",
+  "fruitSelfControlTradeoff": "One less Selah per match",
+  "armorBeltOfTruth": "Belt of Truth",
+  "armorBeltOfTruthBenefit": "Shows the keeper’s dive tendency after two kicks",
+  "armorBeltOfTruthTradeoff": "No other effect",
+  "armorShoesOfReadiness": "Shoes of Readiness",
+  "armorShoesOfReadinessBenefit": "Your aim resets faster between kicks",
+  "armorShoesOfReadinessTradeoff": "Less aim forgiveness",
+  "armorShieldOfFaith": "Shield of Faith",
+  "armorShieldOfFaithBenefit": "Once per match a shot that hits the post becomes a goal",
+  "armorShieldOfFaithTradeoff": "A smaller power window",
+  "armorBreastplateOfRighteousness": "Breastplate of Righteousness",
+  "armorBreastplateOfRighteousnessBenefit": "The nerve meter rises more slowly",
+  "armorBreastplateOfRighteousnessTradeoff": "Selah recovers more slowly",
+  "armorHelmetOfSalvation": "Helmet of Salvation",
+  "armorHelmetOfSalvationBenefit": "Your Selah never fully runs out",
+  "armorHelmetOfSalvationTradeoff": "Lower maximum power",
+  "armorSwordOfTheSpirit": "Sword of the Spirit",
+  "armorSwordOfTheSpiritBenefit": "Sharper low-corner shots",
+  "armorSwordOfTheSpiritTradeoff": "A wider miss on high shots",
+  "achTitle": "Achievements",
+  "achUnlocked": "Earned",
+  "achSummary": "{unlocked} of {total} earned",
+  "@achSummary": {
+    "placeholders": {
+      "unlocked": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "achProgress": "{value} of {threshold}",
+  "@achProgress": {
+    "placeholders": {
+      "value": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "threshold": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "achLove": "Love",
+  "achLoveDescription": "Win 10 matches",
+  "achJoy": "Joy",
+  "achJoyDescription": "Score 50 goals",
+  "achPeace": "Peace",
+  "achPeaceDescription": "Keep 3 clean sheets",
+  "achPatience": "Patience",
+  "achPatienceDescription": "Win 3 matches in sudden death",
+  "achKindness": "Kindness",
+  "achKindnessDescription": "Save 10 kicks as the goalkeeper",
+  "achGoodness": "Goodness",
+  "achGoodnessDescription": "Light 6 lamps",
+  "achFaithfulness": "Faithfulness",
+  "achFaithfulnessDescription": "Reach a 7 day Daily Bread streak",
+  "achGentleness": "Gentleness",
+  "achGentlenessDescription": "Win 10 matches with three stars",
+  "achSelfControl": "Self-control",
+  "achSelfControlDescription": "Score 9 goals in a row",
+  "dailyTitle": "Daily Bread",
+  "dailyRecent": "Last seven days",
+  "dailyStart": "Play today’s challenge",
+  "dailyStartAgain": "Play again",
+  "dailyFirstCounts": "Only your first result counts",
+  "dailyResultWon": "You won today",
+  "dailyResultLost": "Not today. Come back tomorrow.",
+  "dailyGoalsValue": "{goals, plural, =1{1 goal} other{{goals} goals}}",
+  "@dailyGoalsValue": {
+    "placeholders": {
+      "goals": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "dailyStreak": "Streak",
+  "dailyStreakValue": "{days, plural, =1{1 day} other{{days} days}}",
+  "@dailyStreakValue": {
+    "placeholders": {
+      "days": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "dayWon": "won",
+  "dayPlayed": "played",
+  "dayRescued": "restored",
+  "dayMissed": "missed",
+  "dayToday": "today",
+  "dailyReminder": "Daily reminder",
+  "dailyReminderDetail": "One notice a day, only if you turn it on",
+  "dailyRescue": "Restore yesterday",
+  "dailyRescueDetail": "Watch a short ad to keep your streak",
+  "hudNerve": "Nerve",
+  "hudNerveCalm": "Calm",
+  "hudNerveTense": "Tense",
+  "hudNerveFull": "Shaking",
+  "hudSelah": "Selah",
+  "hudSelahWithCharges": "Selah, {charges} left",
+  "@hudSelahWithCharges": {
+    "placeholders": {
+      "charges": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "hudSuddenDeath": "Sudden death",
+  "hudPromptShot": "Swipe to shoot",
+  "hudPromptDive": "Swipe to dive",
+  "hudPromptWatch": "Watch the kick",
+  "hudKickScored": "scored",
+  "hudKickMissed": "missed",
+  "hudKickPending": "not yet taken",
+  "matchPauseTitle": "Paused",
+  "matchFlickHint": "Swipe from the ball toward the goal. Faster is stronger.",
+  "matchStop": "Stop the bar",
+  "matchZoneLeft": "Left",
+  "matchZoneCentre": "Centre",
+  "matchZoneRight": "Right",
+  "matchZoneLow": "low",
+  "matchZoneHigh": "high",
+  "matchZoneLabel": "{column}, {row}",
+  "@matchZoneLabel": {
+    "placeholders": {
+      "column": {
+        "type": "String"
+      },
+      "row": {
+        "type": "String"
+      }
+    }
+  },
+  "resultWin": "Well played",
+  "resultLoss": "Good effort. Try again.",
+  "resultScoreLine": "{you} to {opponent}",
+  "@resultScoreLine": {
+    "placeholders": {
+      "you": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "opponent": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "resultStars": "{stars} of {total} stars",
+  "@resultStars": {
+    "placeholders": {
+      "stars": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "slingStones": "Stones",
+  "slingTargets": "Targets",
+  "slingTargetsValue": "{hit} of {total}",
+  "@slingTargetsValue": {
+    "placeholders": {
+      "hit": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "slingAimHint": "Drag to aim, lift to throw",
+  "slingAimArea": "Aiming area",
+  "slingRoundDone": "Round over",
+  "slingRoundPerfect": "Every target hit",
+  "slingPlayAgain": "Play again",
+  "slingExtraStones": "Watch an ad for 3 more stones",
+  "slingSummary": "You hit {hit} of {total} targets.",
+  "@slingSummary": {
+    "placeholders": {
+      "hit": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "vlibTitle": "Verse library",
+  "vlibFilter": "Filter by moment",
+  "vlibEmptyTitle": "No verses here yet",
+  "vlibEmptySubtitle": "Play a little more and this moment will fill up",
+  "vlibAll": "All",
+  "momentMiss": "After a miss",
+  "momentGoal": "After a goal",
+  "momentSelah": "During Selah",
+  "momentWin": "After a win",
+  "momentDaily": "Daily Bread",
+  "vactBookmark": "Bookmark",
+  "vactRemoveBookmark": "Remove bookmark",
+  "vactHighlight": "Highlight",
+  "vactRemoveHighlight": "Remove highlight",
+  "vactChosen": "In use",
+  "toneSun": "Gold",
+  "toneLeaf": "Green",
+  "toneSky": "Blue",
+  "toneRose": "Rose",
+  "readerChooseChapter": "Choose a book and chapter",
+  "readerSearch": "Search",
+  "readerTheme": "Reader theme",
+  "readerLanguage": "Bible language",
+  "readerSettings": "Reading settings",
+  "readerPrevious": "Previous",
+  "readerNext": "Next",
+  "readerLoading": "Opening the Bible",
+  "readerMissingTitle": "This Bible is not on your phone yet",
+  "readerMissingSubtitle": "Download it once to read it offline. The game never needs it.",
+  "readerFailedTitle": "Could not open this chapter",
+  "readerFailedSubtitle": "Please try again",
+  "readerBookmarked": "Bookmarked",
+  "readerVerseLabel": "Verse {verse}. {text}",
+  "@readerVerseLabel": {
+    "placeholders": {
+      "verse": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "rpickOldTestament": "Old Testament",
+  "rpickNewTestament": "New Testament",
+  "rpickBooks": "Books",
+  "rpickChapterLabel": "{book}, chapter {chapter}",
+  "@rpickChapterLabel": {
+    "placeholders": {
+      "book": {
+        "type": "String"
+      },
+      "chapter": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "rsearchTitle": "Search",
+  "rsearchHint": "Search the Bible",
+  "rsearchClear": "Clear the search",
+  "rsearchIdleTitle": "Search a word or phrase",
+  "rsearchIdleSubtitle": "Results show the verse and where it is found",
+  "rsearchNoResultsTitle": "Nothing found",
+  "rsearchNoResultsSubtitle": "Try a different word",
+  "rsearchResultCount": "{count, plural, =0{No verses} =1{1 verse} other{{count} verses}}",
+  "@rsearchResultCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "rsearchSearching": "Searching",
+  "rsetTextSize": "Text size",
+  "rsetSmaller": "Smaller",
+  "rsetLarger": "Larger",
+  "rsetPreview": "In the beginning, God created the heavens and the earth.",
+  "rsetBookmarks": "Bookmarks and highlights",
+  "rthemeLight": "Light",
+  "rthemeDark": "Dark",
+  "rthemeSepia": "Paper",
+  "rthemeSepiaDetail": "Warm and soft for long reading",
+  "rlangReading": "Reading now",
+  "rlangNotDownloaded": "Not downloaded",
+  "rlangDownloaded": "Downloaded",
+  "rlangFailed": "Download failed",
+  "bmTitle": "Bookmarks and highlights",
+  "bmEmptyTitle": "Nothing saved yet",
+  "bmEmptySubtitle": "Tap a verse in the reader to bookmark or highlight it",
+  "bmRemove": "Remove",
+  "dlTitle": "Download the {language} Bible",
+  "@dlTitle": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "dlExplain": "The Bible is downloaded once and kept on your phone. Nothing else in the game needs it.",
+  "dlNetworkLabel": "Which connection to use",
+  "dlWifiOnly": "Wi-Fi only",
+  "dlWifiAndData": "Wi-Fi and mobile data",
+  "dlSize": "About {size}",
+  "@dlSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "dlDownloading": "Downloading",
+  "dlErrorOffline": "You are offline. Connect and try again.",
+  "dlErrorNeedsWifi": "Wi-Fi only is chosen and Wi-Fi is not connected.",
+  "dlErrorDisabled": "Downloads are switched off for now. The game still works.",
+  "dlErrorNotListed": "This Bible is not available right now.",
+  "dlErrorUnexpected": "The download did not finish. Please try again.",
+  "onbPromise": "Penalty shootouts with a verse for every kick",
+  "onbLanguageHeader": "Language",
+  "setTitle": "Settings",
+  "setAppearance": "Appearance",
+  "setTheme": "Theme",
+  "setThemeSystem": "System",
+  "setThemeLight": "Light",
+  "setThemeDark": "Dark",
+  "setLanguage": "Language",
+  "setPlay": "Play",
+  "setInputScheme": "Kick control",
+  "setInputFlick": "Flick",
+  "setInputTiming": "Timing bar",
+  "setSound": "Sound effects",
+  "setMusic": "Music",
+  "setHaptics": "Vibration",
+  "setDaily": "Daily Bread",
+  "setReminders": "Daily reminder",
+  "setRemindersDetail": "One notice a day",
+  "setReminderTime": "Reminder time",
+  "setReading": "Reading",
+  "setBibleReader": "Bible reader",
+  "setBibleReaderDetail": "Read any chapter in your language",
+  "setPurchases": "Purchases",
+  "setRemoveAds": "Remove ads",
+  "setAdsRemoved": "Ads removed",
+  "setRestore": "Restore purchase",
+  "setRestoring": "Restoring",
+  "setPrivacyChoices": "Privacy choices",
+  "setData": "Data",
+  "setDeleteBibles": "Delete downloaded Bibles",
+  "setDeleteBiblesNone": "None downloaded",
+  "setDeleteBiblesCount": "{count} downloaded",
+  "@setDeleteBiblesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "setEmailLog": "Send the debug log",
+  "setEmailLogDetail": "Opens an email to support with recent technical lines",
+  "setAbout": "About",
+  "setLicenses": "Licenses",
+  "setPrivacyPolicy": "Privacy policy",
+  "setSupport": "Support",
+  "setVersion": "Version {version} ({build})",
+  "@setVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      },
+      "build": {
+        "type": "String"
+      }
+    }
+  },
+  "setSameAsDevice": "Same as device",
+  "setCurrently": "Currently {language}",
+  "@setCurrently": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "timeHour": "Hour",
+  "timeMinute": "Minute",
+  "timeEarlier": "Earlier",
+  "timeLater": "Later",
+  "setDeleteTitle": "Delete downloaded Bibles?",
+  "setDeleteMessage": "The Bibles will be removed from this phone. You can download them again at any time.",
+  "setDeleteConfirm": "Delete",
+  "feedbackBiblesDeleted": "Downloaded Bibles deleted",
+  "feedbackDeleteFailed": "Could not delete the Bibles",
+  "feedbackShared": "Verse shared",
+  "feedbackShareFailed": "Could not share the verse",
+  "feedbackBookmarkAdded": "Bookmark added",
+  "feedbackBookmarkRemoved": "Bookmark removed",
+  "feedbackSaveFailed": "Could not save. Your change is kept for now.",
+  "feedbackLogFailed": "Could not open the email",
+  "feedbackRestoreNothing": "No earlier purchase was found",
+  "feedbackRestored": "Purchase restored",
+  "feedbackRestoreFailed": "Could not reach the store",
+  "feedbackPurchaseCancelled": "Purchase cancelled",
+  "feedbackPurchaseFailed": "The purchase did not go through",
+  "feedbackPackInstalled": "Bible downloaded",
+  "warningStorage": "Your progress could not be saved. The game keeps working and will try again.",
+  "warningRecovered": "Your saved data was damaged, so a backup was restored.",
+  "warningStartedClean": "Your saved data could not be read, so the game started fresh.",
+  "upTitle": "Remove ads",
+  "upHeadline": "Remove ads for good",
+  "upBenefit1": "No banner on the menus",
+  "upBenefit2": "No ads between matches",
+  "upBenefit3": "One payment, no subscription",
+  "upNotSold": "Nothing in the game is sold. Watching an ad for a bonus always stays your choice.",
+  "upBuy": "Remove ads",
+  "upBuyWithPrice": "Remove ads, {price}",
+  "@upBuyWithPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "upOwned": "Ads removed",
+  "upOwnedDetail": "Thank you for supporting the game",
+  "upPending": "Your purchase is pending",
+  "upUnavailable": "The store is not available right now",
+  "licTitle": "Licenses",
+  "licIntro": "These Bible texts, fonts and icons are used under their licenses.",
+  "licOpenLink": "Read the license",
+  "licEmptyTitle": "No notices",
+  "licEmptySubtitle": "Nothing to show",
+  "errorTitle": "Something went wrong",
+  "errorMessage": "The game hit a problem. You can try again or send a report.",
+  "errorRetry": "Try again",
+  "errorReport": "Send a report",
+  "errorMailSubject": "Tehillah Soccer problem report",
+  "updateTitle": "A new version is ready",
+  "updateBody": "Update for the latest improvements.",
+  "updateAction": "Update",
+  "updateLater": "Later",
+  "notifyTitle": "Daily Bread is ready",
+  "notifyBody": "Today’s penalty challenge is waiting.",
+  "adRewardExtraSelah": "Watch an ad for an extra Selah",
+  "adRewardStones": "Watch an ad for 3 more stones",
+  "adRewardRetry": "Watch an ad to retry this match",
+  "adRewardRescue": "Watch an ad to restore yesterday",
+  "adRewardUnavailable": "No ad is available right now",
+  "bookGen": "Genesis",
+  "bookExod": "Exodus",
+  "bookLev": "Leviticus",
+  "bookNum": "Numbers",
+  "bookDeut": "Deuteronomy",
+  "bookJosh": "Joshua",
+  "bookJudg": "Judges",
+  "bookRuth": "Ruth",
+  "book1Sam": "1 Samuel",
+  "book2Sam": "2 Samuel",
+  "book1Kgs": "1 Kings",
+  "book2Kgs": "2 Kings",
+  "book1Chr": "1 Chronicles",
+  "book2Chr": "2 Chronicles",
+  "bookEzra": "Ezra",
+  "bookNeh": "Nehemiah",
+  "bookEsth": "Esther",
+  "bookJob": "Job",
+  "bookPs": "Psalms",
+  "bookProv": "Proverbs",
+  "bookEccl": "Ecclesiastes",
+  "bookSong": "Song of Solomon",
+  "bookIsa": "Isaiah",
+  "bookJer": "Jeremiah",
+  "bookLam": "Lamentations",
+  "bookEzek": "Ezekiel",
+  "bookDan": "Daniel",
+  "bookHos": "Hosea",
+  "bookJoel": "Joel",
+  "bookAmos": "Amos",
+  "bookObad": "Obadiah",
+  "bookJonah": "Jonah",
+  "bookMic": "Micah",
+  "bookNah": "Nahum",
+  "bookHab": "Habakkuk",
+  "bookZeph": "Zephaniah",
+  "bookHag": "Haggai",
+  "bookZech": "Zechariah",
+  "bookMal": "Malachi",
+  "bookMatt": "Matthew",
+  "bookMark": "Mark",
+  "bookLuke": "Luke",
+  "bookJohn": "John",
+  "bookActs": "Acts",
+  "bookRom": "Romans",
+  "book1Cor": "1 Corinthians",
+  "book2Cor": "2 Corinthians",
+  "bookGal": "Galatians",
+  "bookEph": "Ephesians",
+  "bookPhil": "Philippians",
+  "bookCol": "Colossians",
+  "book1Thess": "1 Thessalonians",
+  "book2Thess": "2 Thessalonians",
+  "book1Tim": "1 Timothy",
+  "book2Tim": "2 Timothy",
+  "bookTitus": "Titus",
+  "bookPhlm": "Philemon",
+  "bookHeb": "Hebrews",
+  "bookJas": "James",
+  "book1Pet": "1 Peter",
+  "book2Pet": "2 Peter",
+  "book1John": "1 John",
+  "book2John": "2 John",
+  "book3John": "3 John",
+  "bookJude": "Jude",
+  "bookRev": "Revelation"
+}

@@ -8,6 +8,7 @@ app/.pub-cache/
 app/.pub/
 app/coverage/
 app/symbols/
+app/lib/l10n/gen/
 app/pubspec.lock.bak
 
 # Android

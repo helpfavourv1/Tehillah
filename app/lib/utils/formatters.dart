@@ -28,6 +28,10 @@ class Formatters {
   /// A calendar date, for example Nov 18, 2026.
   String date(DateTime value) => DateFormat.yMMMd(_name).format(value);
 
+  /// A time of day in the locale's format, for example 6:00 PM or 18:00.
+  String time(int hour, int minute) =>
+      DateFormat.jm(_name).format(DateTime(2000, 1, 1, hour, minute));
+
   /// A short weekday name, for the Daily Bread streak row.
   String weekdayShort(DateTime value) => DateFormat.E(_name).format(value);
 
