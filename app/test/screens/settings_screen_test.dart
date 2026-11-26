@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tehillah/core/models/settings_model.dart';
+import 'package:tehillah/screens/app_language_sheet.dart';
+import 'package:tehillah/screens/onboarding_screen.dart';
 import 'package:tehillah/screens/reminder_time_sheet.dart';
 import 'package:tehillah/screens/settings_screen.dart';
 
@@ -106,6 +108,7 @@ Widget settings({
 }
 
 void main() {
+  languageSheetTests();
   group('SettingsScreen', () {
     testWidgets('renders every section', (WidgetTester tester) async {
       await tester.pumpWidget(settings());
@@ -279,6 +282,45 @@ void main() {
       await tester.tap(find.text('Later').last);
       await tester.tap(find.text('Save'));
       expect(saved, <int>[9 * 60 + 5]);
+    });
+  });
+}
+
+void languageSheetTests() {
+  group('AppLanguageSheet', () {
+    const AppLanguageLabels l = AppLanguageLabels(
+      followDevice: 'Same as device',
+      followDeviceDetail: 'Currently English',
+      selected: 'Selected',
+    );
+    const List<OnboardingLanguage> langs = <OnboardingLanguage>[
+      OnboardingLanguage(code: 'en', name: 'English'),
+      OnboardingLanguage(code: 'he', name: 'עברית'),
+    ];
+
+    Widget build(String? selected, List<String?> log) => harness(
+          AppLanguageSheet(labels: l, languages: langs, selectedCode: selected, onPick: log.add),
+          scroll: true,
+        );
+
+    testWidgets('null selection marks Same as device', (WidgetTester tester) async {
+      await tester.pumpWidget(build(null, <String?>[]));
+      expect(find.bySemanticsLabel('Same as device. Selected'), findsOneWidget);
+    });
+
+    testWidgets('a code selection marks that language only', (WidgetTester tester) async {
+      await tester.pumpWidget(build('he', <String?>[]));
+      expect(find.bySemanticsLabel('עברית. Selected'), findsOneWidget);
+      expect(find.bySemanticsLabel('Same as device'), findsOneWidget);
+    });
+
+    testWidgets('picking reports the code, and null for the device', (WidgetTester tester) async {
+      useSurface(tester);
+      final List<String?> log = <String?>[];
+      await tester.pumpWidget(build('en', log));
+      await tester.tap(find.text('עברית'));
+      await tester.tap(find.text('Same as device'));
+      expect(log, <String?>['he', null]);
     });
   });
 }

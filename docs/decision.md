@@ -416,3 +416,28 @@ to adjust after you try Test APK 1.
   `ReaderProvider`, `PackProvider` and `BookmarkProvider` onto them.
 
 **Why.** Same pattern as p5a/p5b: screens stay pure and testable; wiring is one place.
+
+## ADR-050 — Onboarding, settings, licenses, upgrade, error (p5d)
+
+**Decision.**
+- **Onboarding.** The brand once, one promise line and the eleven languages in their own names, all
+  scrolling together; Play is fixed at the bottom so it stays reachable at 3x text on a small
+  phone. Choosing a language applies it at once. The UMP form, where required, is shown by the
+  platform after Play and is not drawn here.
+- **Settings.** One screen in seven groups (appearance, play, daily, reading, purchases, data,
+  about). Restore purchase is always visible. Privacy choices appears only when consent says options
+  are required. Delete downloaded Bibles is disabled at zero. Debug-log email is a row under Data.
+  Results of actions go through the app-wide `FeedbackHost`, so the screen draws no banner of its
+  own. The reminder time is chosen in a sheet with one-hour and five-minute steps (no wheel
+  picker), and the app language in a sheet that starts with "Same as device".
+- **Upgrade.** Never a modal. Buy is disabled while the price is unknown, while a purchase is
+  pending and while a restore runs; once owned, Buy is replaced by a confirmation. The page says
+  that nothing in the game is sold and that rewarded ads stay optional.
+- **Licenses.** Every notice shown verbatim, the license as a chip, a link chip only where a link
+  exists; the list is lazy.
+- **Error screen.** `ErrorStateView` (p4b) is the full-screen fallback, so no separate
+  `error_screen.dart` is added; the blueprint line is satisfied by that widget.
+
+**Why.** Same data, labels and callbacks pattern as every screen. Deviation from the blueprint:
+`error_screen.dart` and `mode_intro_screen.dart` (ADR-047) are not separate files because existing
+widgets already do their job.
