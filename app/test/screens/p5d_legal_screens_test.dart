@@ -152,7 +152,7 @@ void main() {
       final List<String> log = <String>[];
       await tester.pumpWidget(upgrade(EntitlementStatus.pending, log: log));
       expect(find.text('Your purchase is pending'), findsOneWidget);
-      await tester.tap(find.textContaining('Remove ads'), warnIfMissed: false);
+      await tester.tap(find.text(r'Remove ads, $2.99'), warnIfMissed: false);
       expect(log, isEmpty);
     });
 

@@ -38,7 +38,7 @@ final class OnboardingLabels {
 }
 
 /// First run: the brand once, one promise line, the language choice and one
-/// fixed Play button. Picking a language changes the app language at once, so
+/// fixed Play button. The promise and the list scroll together. Picking a language changes the app language at once, so
 /// the labels the caller passes in change under the player's finger. Only the
 /// language list scrolls. The consent form, where required, is shown by the
 /// platform after Play, not drawn here.
@@ -66,20 +66,17 @@ class OnboardingScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(Sp.md, Sp.md, Sp.md, 0),
-            child: Text(
-              labels.promise,
-              style: theme.text.headline.copyWith(color: theme.palette.textPrimary),
-            ),
-          ),
           Expanded(
             child: ListView(
-              padding: const EdgeInsets.fromLTRB(Sp.md, Sp.sm, Sp.md, Sp.md),
+              padding: const EdgeInsets.fromLTRB(Sp.md, Sp.md, Sp.md, Sp.md),
               children: <Widget>[
+                Text(
+                  labels.promise,
+                  style: theme.text.headline.copyWith(color: theme.palette.textPrimary),
+                ),
                 SectionHeader(
                   labels.languageHeader,
-                  padding: const EdgeInsets.only(top: Sp.sm, bottom: Sp.sm),
+                  padding: const EdgeInsets.only(top: Sp.lg, bottom: Sp.sm),
                 ),
                 CardSurface(
                   padding: EdgeInsets.zero,
