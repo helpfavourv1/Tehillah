@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:tehillah/core/catalog/achievement_catalog.dart';
 import 'package:tehillah/core/catalog/ball_catalog.dart';
 import 'package:tehillah/core/catalog/gear_catalog.dart';
@@ -16,6 +17,7 @@ void main() {
   const Locale en = Locale('en');
   late Labels t;
 
+  setUpAll(() => initializeDateFormatting('en'));
   setUp(() => t = Labels(lookupAppLocalizations(en), en));
 
   test('English is the only supported locale until the translations land', () {
@@ -116,7 +118,7 @@ void main() {
 
   test('time and percent follow the locale format', () {
     expect(t.readerSettings().sizeValue(1.2), '120%');
-    expect(t.reminderTime().timeOf(18, 0), '6:00 PM');
+    expect(t.reminderTime().timeOf(18, 0).replaceAll(RegExp(r'\s'), ' '), '6:00 PM');
   });
 
   test('pack error codes map to words, unknown ones to the generic line', () {
