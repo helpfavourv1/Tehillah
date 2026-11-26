@@ -165,8 +165,8 @@ void main() {
     }
 
     testWidgets('shows a card per verse and marks the chosen filter', (WidgetTester tester) async {
-      await tester.pumpWidget(build(selected: 'goal'));
-      expect(find.byType(VerseCard), findsNWidgets(3));
+      await tester.pumpWidget(build(selected: 'goal', verses: manyVerses(2)));
+      expect(find.byType(VerseCard), findsNWidgets(2));
       final List<AppChip> chips = tester.widgetList<AppChip>(find.byType(AppChip)).toList();
       expect(chips.where((AppChip c) => c.selected).map((AppChip c) => c.label), <String>['Goal']);
     });
@@ -296,8 +296,8 @@ void main() {
 
     testWidgets('lists books under both testaments', (WidgetTester tester) async {
       await tester.pumpWidget(build(<String>[]));
-      expect(find.text('Old Testament'), findsOneWidget);
-      expect(find.text('New Testament'), findsOneWidget);
+      expect(find.text('OLD TESTAMENT'), findsOneWidget);
+      expect(find.text('NEW TESTAMENT'), findsOneWidget);
       expect(find.text('Genesis'), findsOneWidget);
       expect(find.text('Matthew'), findsOneWidget);
     });
@@ -321,7 +321,7 @@ void main() {
       await tester.pump();
       await tester.tap(find.text('Books'));
       await tester.pump();
-      expect(find.text('Old Testament'), findsOneWidget);
+      expect(find.text('OLD TESTAMENT'), findsOneWidget);
     });
 
     testWidgets('the open book carries a check', (WidgetTester tester) async {
