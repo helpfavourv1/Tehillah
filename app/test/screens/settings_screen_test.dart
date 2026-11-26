@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tehillah/core/models/settings_model.dart';
-import 'package:tehillah/providers/feedback_provider.dart';
 import 'package:tehillah/screens/reminder_time_sheet.dart';
 import 'package:tehillah/screens/settings_screen.dart';
 
@@ -14,7 +13,6 @@ String _time(int h, int m) => '${h.toString().padLeft(2, '0')}:${m.toString().pa
 const SettingsLabels labels = SettingsLabels(
   title: 'Settings',
   back: 'Back',
-  dismiss: 'Dismiss',
   appearance: 'Appearance',
   theme: 'Theme',
   themeSystem: 'System',
@@ -62,7 +60,6 @@ Widget settings({
   bool restoring = false,
   bool privacy = false,
   int bibles = 0,
-  FeedbackMessage? feedback,
   double textScale = 1,
   TextDirection direction = TextDirection.ltr,
 }) {
@@ -101,8 +98,6 @@ Widget settings({
       onPrivacyPolicy: () => l('policy'),
       onSupport: () => l('support'),
       onBack: () => l('back'),
-      feedback: feedback,
-      onDismissFeedback: () => l('dismiss'),
     ),
     textScale: textScale,
     direction: direction,
@@ -213,20 +208,6 @@ void main() {
       expect(find.text('2 downloaded'), findsOneWidget);
       await tester.tap(find.text('Delete downloaded Bibles'));
       expect(log, <String>['delete']);
-    });
-
-    testWidgets('feedback shows as a banner that can be dismissed', (WidgetTester tester) async {
-      useSurface(tester, const Size(360, 3000));
-      final List<String> log = <String>[];
-      await tester.pumpWidget(
-        settings(
-          log: log,
-          feedback: const FeedbackMessage(id: 1, text: 'Bibles deleted', tone: FeedbackTone.success),
-        ),
-      );
-      expect(find.text('Bibles deleted'), findsOneWidget);
-      await tester.tap(find.bySemanticsLabel('Dismiss'));
-      expect(log, <String>['dismiss']);
     });
 
     testWidgets('survives 3x text and right-to-left', (WidgetTester tester) async {

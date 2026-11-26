@@ -1,12 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:tehillah/core/models/settings_model.dart';
-import 'package:tehillah/providers/feedback_provider.dart';
 import 'package:tehillah/theme/app_theme.dart';
 import 'package:tehillah/theme/icon_aliases.dart';
 import 'package:tehillah/theme/tokens.dart';
 import 'package:tehillah/widgets/app_card.dart';
 import 'package:tehillah/widgets/app_row.dart';
-import 'package:tehillah/widgets/feedback_banner.dart';
 import 'package:tehillah/widgets/nav_bar.dart';
 import 'package:tehillah/widgets/screen_frame.dart';
 import 'package:tehillah/widgets/scroll_body.dart';
@@ -18,7 +16,6 @@ final class SettingsLabels {
   const SettingsLabels({
     required this.title,
     required this.back,
-    required this.dismiss,
     required this.appearance,
     required this.theme,
     required this.themeSystem,
@@ -60,7 +57,6 @@ final class SettingsLabels {
 
   final String title;
   final String back;
-  final String dismiss;
   final String appearance;
   final String theme;
   final String themeSystem;
@@ -112,7 +108,7 @@ final class SettingsLabels {
 /// purchases, data and about. Restore purchase is always visible. Privacy
 /// choices appears only when consent says options are required. Delete
 /// downloaded Bibles is disabled when there is nothing to delete. Results of
-/// actions arrive through [feedback] and show as a banner under the nav bar.
+/// actions are reported through the app-wide feedback host, not drawn here.
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({
     required this.labels,
@@ -148,8 +144,6 @@ class SettingsScreen extends StatelessWidget {
     required this.onBack,
     super.key,
     this.priceLabel,
-    this.feedback,
-    this.onDismissFeedback,
     this.bottom,
   });
 
@@ -189,8 +183,6 @@ class SettingsScreen extends StatelessWidget {
   final VoidCallback onPrivacyPolicy;
   final VoidCallback onSupport;
   final VoidCallback onBack;
-  final FeedbackMessage? feedback;
-  final VoidCallback? onDismissFeedback;
   final Widget? bottom;
 
   Widget _group(String header, List<Widget> rows) {
@@ -224,19 +216,12 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FeedbackMessage? message = feedback;
-    final VoidCallback? dismiss = onDismissFeedback;
     return ScreenFrame(
       navBar: NavBar.back(onBack: onBack, backLabel: labels.back, title: labels.title),
       bottom: bottom,
       child: ScrollBody(
         padding: const EdgeInsets.fromLTRB(Sp.md, Sp.xs, Sp.md, Sp.lg),
         children: <Widget>[
-          if (message != null && dismiss != null)
-            Padding(
-              padding: const EdgeInsets.only(top: Sp.sm),
-              child: FeedbackBanner(message: message, dismissLabel: labels.dismiss, onDismiss: dismiss),
-            ),
           _group(labels.appearance, <Widget>[
             _segment<ThemeChoice>(
               context,
