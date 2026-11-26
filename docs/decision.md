@@ -392,3 +392,27 @@ to adjust after you try Test APK 1.
   rewarded ad is available and the offer is still open.
 - **Shared pause sheet.** `showPauseSheet` replaces the copy inside `MatchScreen`; both play
   screens use it.
+
+## ADR-049 — Verse library and reader screens (p5c)
+
+**Decision.**
+- **Highlight tokens.** `highlightSun/Leaf/Sky/Rose` are palette tokens in all three palettes;
+  a test holds body text at 4.5:1 on every fill. A highlight is a fill behind the verse and a
+  bookmark is an icon, so neither relies on colour alone.
+- **Verse library.** Moment filter chips are fixed; the verse cards scroll and are built lazily.
+  Read chapter hands over to the reader, which asks for the download if the Bible is missing.
+- **Download prompt.** One sheet with four phases (ask, downloading, failed, blocked): Wi-Fi only
+  or Wi-Fi and mobile data, one progress bar with Cancel, Retry on failure. Declining never blocks
+  play.
+- **Reader.** Fixed top bar (back, chapter title chip, search, theme, language, text size) and
+  fixed previous/next chips; only the verses scroll. Verse direction follows the Bible's language,
+  not the app's. The focus verse is scrolled into view once per chapter.
+- **Reader tools.** Search screen and `AppSearchField` (the only text field; built on
+  `EditableText`, no Material), reading settings (text size 80–200% in steps of 10%, live preview,
+  link to bookmarks), theme sheet, language sheet (state in words plus icon), verse actions sheet
+  (bookmark, share, four colours with a check on the one in use, remove), and bookmarks screen
+  (open, or remove bookmark and highlight).
+- **Boundaries.** Every screen takes data, a labels object and callbacks. The router in p6a maps
+  `ReaderProvider`, `PackProvider` and `BookmarkProvider` onto them.
+
+**Why.** Same pattern as p5a/p5b: screens stay pure and testable; wiring is one place.
