@@ -32,6 +32,10 @@ class AppPalette {
     required this.pitchGrassAlt,
     required this.ballInk,
     required this.verseCardSurface,
+    required this.highlightSun,
+    required this.highlightLeaf,
+    required this.highlightSky,
+    required this.highlightRose,
     required this.scrim,
   });
 
@@ -91,6 +95,12 @@ class AppPalette {
   /// Surface of the scripture moment card.
   final Color verseCardSurface;
 
+  /// Reader highlight fills. Text stays [textPrimary] on all four.
+  final Color highlightSun;
+  final Color highlightLeaf;
+  final Color highlightSky;
+  final Color highlightRose;
+
   /// Barrier behind sheets and dialogs.
   final Color scrim;
 
@@ -118,6 +128,10 @@ class AppPalette {
     pitchGrassAlt: Color(0xFF45915A),
     ballInk: Color(0xFF1A1A1F),
     verseCardSurface: Color(0xFFEAF4EE),
+    highlightSun: Color(0xFFFFF1B8),
+    highlightLeaf: Color(0xFFD3EBD0),
+    highlightSky: Color(0xFFCBE3F5),
+    highlightRose: Color(0xFFF6D2D8),
     scrim: Color(0x66000000),
   );
 
@@ -145,6 +159,10 @@ class AppPalette {
     pitchGrassAlt: Color(0xFF1A502E),
     ballInk: Color(0xFF1A1A1F),
     verseCardSurface: Color(0xFF16251D),
+    highlightSun: Color(0xFF5E4D12),
+    highlightLeaf: Color(0xFF1F4D33),
+    highlightSky: Color(0xFF1E3E5C),
+    highlightRose: Color(0xFF5A2535),
     scrim: Color(0x99000000),
   );
 
@@ -173,6 +191,10 @@ class AppPalette {
     pitchGrassAlt: Color(0xFF528348),
     ballInk: Color(0xFF1A1A1F),
     verseCardSurface: Color(0xFFEAE0C4),
+    highlightSun: Color(0xFFF0D88A),
+    highlightLeaf: Color(0xFFCFE2B5),
+    highlightSky: Color(0xFFBCD6E3),
+    highlightRose: Color(0xFFEBC3BE),
     scrim: Color(0x66000000),
   );
 
@@ -215,6 +237,10 @@ class AppPalette {
       pitchGrassAlt: mix(a.pitchGrassAlt, b.pitchGrassAlt),
       ballInk: mix(a.ballInk, b.ballInk),
       verseCardSurface: mix(a.verseCardSurface, b.verseCardSurface),
+      highlightSun: mix(a.highlightSun, b.highlightSun),
+      highlightLeaf: mix(a.highlightLeaf, b.highlightLeaf),
+      highlightSky: mix(a.highlightSky, b.highlightSky),
+      highlightRose: mix(a.highlightRose, b.highlightRose),
       scrim: mix(a.scrim, b.scrim),
     );
   }
@@ -243,6 +269,10 @@ class AppPalette {
         pitchGrassAlt,
         ballInk,
         verseCardSurface,
+        highlightSun,
+        highlightLeaf,
+        highlightSky,
+        highlightRose,
         scrim,
       ];
 

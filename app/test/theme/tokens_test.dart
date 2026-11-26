@@ -59,6 +59,17 @@ void main() {
         }
       });
 
+      test('body text is readable on every highlight fill', () {
+        for (final Color fill in <Color>[
+          p.highlightSun,
+          p.highlightLeaf,
+          p.highlightSky,
+          p.highlightRose,
+        ]) {
+          expect(contrast(p.textPrimary, fill), greaterThanOrEqualTo(4.5));
+        }
+      });
+
       test('graphic tokens are at least 3:1 against their surfaces', () {
         expect(contrast(p.starFill, p.bgSecondary), greaterThanOrEqualTo(3));
         expect(contrast(p.starFill, p.bgPrimary), greaterThanOrEqualTo(3));
