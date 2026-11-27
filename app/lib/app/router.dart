@@ -17,7 +17,7 @@ abstract final class AppRoutes {
 
 /// Page transitions: a fade with a 20 px slide, 350 ms in and 280 ms out.
 /// With Reduce Motion on, an instant opacity change.
-Route<T> appRoute<T>(RouteSettings settings, WidgetBuilder builder) {
+PageRoute<T> appRoute<T>(RouteSettings settings, WidgetBuilder builder) {
   return PageRouteBuilder<T>(
     settings: settings,
     pageBuilder: (BuildContext context, Animation<double> a, Animation<double> b) => builder(context),
