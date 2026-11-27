@@ -26,6 +26,7 @@ final class SettingsModel {
     this.readerTextScale = 1.0,
     this.packWifiOnly = true,
     this.dismissedUpdateBuild = 0,
+    this.onboardingDone = false,
   })  : assert(reminderMinuteOfDay >= 0 && reminderMinuteOfDay < 1440),
         assert(readerTextScale >= minTextScale && readerTextScale <= maxTextScale);
 
@@ -70,6 +71,7 @@ final class SettingsModel {
           : d.readerTextScale,
       packWifiOnly: flag('packWifiOnly', d.packWifiOnly),
       dismissedUpdateBuild: dismissed is int && dismissed >= 0 ? dismissed : 0,
+      onboardingDone: flag('onboardingDone', d.onboardingDone),
     );
   }
 
@@ -104,6 +106,9 @@ final class SettingsModel {
   /// prompt does not return for it.
   final int dismissedUpdateBuild;
 
+  /// True once the player has pressed Play on the first-run screen.
+  final bool onboardingDone;
+
   SettingsModel copyWith({
     ThemeChoice? themeChoice,
     ReaderTheme? readerTheme,
@@ -119,6 +124,7 @@ final class SettingsModel {
     double? readerTextScale,
     bool? packWifiOnly,
     int? dismissedUpdateBuild,
+    bool? onboardingDone,
   }) {
     return SettingsModel(
       themeChoice: themeChoice ?? this.themeChoice,
@@ -134,6 +140,7 @@ final class SettingsModel {
       readerTextScale: readerTextScale ?? this.readerTextScale,
       packWifiOnly: packWifiOnly ?? this.packWifiOnly,
       dismissedUpdateBuild: dismissedUpdateBuild ?? this.dismissedUpdateBuild,
+      onboardingDone: onboardingDone ?? this.onboardingDone,
     );
   }
 
@@ -151,6 +158,7 @@ final class SettingsModel {
         'readerTextScale': readerTextScale,
         'packWifiOnly': packWifiOnly,
         'dismissedUpdateBuild': dismissedUpdateBuild,
+        'onboardingDone': onboardingDone,
       };
 
   @override
@@ -168,7 +176,8 @@ final class SettingsModel {
       other.reminderMinuteOfDay == reminderMinuteOfDay &&
       other.readerTextScale == readerTextScale &&
       other.packWifiOnly == packWifiOnly &&
-      other.dismissedUpdateBuild == dismissedUpdateBuild;
+      other.dismissedUpdateBuild == dismissedUpdateBuild &&
+      other.onboardingDone == onboardingDone;
 
   @override
   int get hashCode => Object.hash(
@@ -185,5 +194,6 @@ final class SettingsModel {
         readerTextScale,
         packWifiOnly,
         dismissedUpdateBuild,
+        onboardingDone,
       );
 }

@@ -17,6 +17,7 @@ String envelope(Map<String, Object?> payload) {
 }
 
 void main() {
+  onboardingFlagTests();
   group('progress schema 2', () {
     test('this build writes version 2', () {
       expect(Progress.currentSchemaVersion, 2);
@@ -101,6 +102,25 @@ void main() {
       expect(SettingsModel.fromJson(<String, Object?>{}).dismissedUpdateBuild, 0);
       expect(SettingsModel.fromJson(<String, Object?>{'dismissedUpdateBuild': -3}).dismissedUpdateBuild, 0);
       expect(SettingsModel.fromJson(<String, Object?>{'dismissedUpdateBuild': 'x'}).dismissedUpdateBuild, 0);
+    });
+  });
+}
+
+void onboardingFlagTests() {
+  group('SettingsModel onboardingDone', () {
+    test('is false by default and survives a json round trip', () {
+      expect(const SettingsModel().onboardingDone, isFalse);
+      final SettingsModel done = const SettingsModel().copyWith(onboardingDone: true);
+      expect(SettingsModel.fromJson(done.toJson()).onboardingDone, isTrue);
+    });
+
+    test('older saved settings without the key read as not done', () {
+      expect(SettingsModel.fromJson(<String, Object?>{}).onboardingDone, isFalse);
+      expect(SettingsModel.fromJson(<String, Object?>{'onboardingDone': 'yes'}).onboardingDone, isFalse);
+    });
+
+    test('takes part in equality', () {
+      expect(const SettingsModel() == const SettingsModel().copyWith(onboardingDone: true), isFalse);
     });
   });
 }
