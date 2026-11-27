@@ -4,6 +4,7 @@ import 'package:tehillah/core/ports/connectivity_port.dart';
 import 'package:tehillah/core/ports/haptics_port.dart';
 import 'package:tehillah/core/ports/log_port.dart';
 import 'package:tehillah/core/ports/notification_port.dart';
+import 'package:tehillah/core/ports/rating_port.dart';
 import 'package:tehillah/core/ports/share_port.dart';
 import 'package:tehillah/core/ports/storage_port.dart';
 import 'package:tehillah/core/ports/url_port.dart';
@@ -14,6 +15,7 @@ import 'package:tehillah/providers/bookmark_provider.dart';
 import 'package:tehillah/providers/consent_provider.dart';
 import 'package:tehillah/providers/daily_provider.dart';
 import 'package:tehillah/providers/entitlement_provider.dart';
+import 'package:tehillah/providers/feedback_provider.dart';
 import 'package:tehillah/providers/flags_provider.dart';
 import 'package:tehillah/providers/loadout_provider.dart';
 import 'package:tehillah/providers/locale_provider.dart';
@@ -53,6 +55,9 @@ final class AppServices {
     required this.packs,
     required this.reader,
     required this.bookmarks,
+    required this.feedback,
+    required this.rating,
+    required this.bannerBuilder,
   });
 
   final LogPort log;
@@ -81,6 +86,12 @@ final class AppServices {
   final PackProvider packs;
   final ReaderProvider reader;
   final BookmarkProvider bookmarks;
+  final FeedbackProvider feedback;
+  final RatingPort rating;
+
+  /// Builds the banner view for a width in dp; an empty widget when there is
+  /// no banner. Kept here so screens never import the ad SDK.
+  final Widget Function(BuildContext context, int widthDp) bannerBuilder;
 }
 
 /// Hands [AppServices] down the widget tree, so there are no global
